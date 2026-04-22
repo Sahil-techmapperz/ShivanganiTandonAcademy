@@ -1,60 +1,77 @@
-# CodeIgniter 4 Framework
+# Shivangani Tandon Academy - Premium LMS Portal
 
-## What is CodeIgniter?
+A comprehensive, high-performance Learning Management System (LMS) built for **Shivangani Tandon Academy**, specializing in US CMA, Enrolled Agent (EA), and AI in Taxation courses.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+![Academy Banner](public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png)
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 🚀 Key Features
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+### 👨‍🎓 Student Experience
+- **Interactive Dashboard**: Modern, glassmorphic UI for tracking course progress and assessment results.
+- **Academy Portal**: Browse and enroll in professional certification courses.
+- **Assessment System**: Seamless interface for taking quizzes and uploading exam solution papers.
+- **Resource Center**: Access course materials, downloadable assets, and recorded sessions.
+- **Support System**: Direct messaging with instructors for academic assistance.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+### 🔐 Administrative Control
+- **Content Management**: Full control over course curricula, lessons, and resources.
+- **Dynamic Assessment Engine**: Create complex MCQ quizzes or file-upload based exams with custom point valuations.
+- **Grading Portal**: Efficient interface for reviewing student submissions and awarding certifications.
+- **Blog Management**: Built-in blogging system with rich-text editing and SEO optimization.
+- **Testimonial Manager**: Control student success stories and video gallery directly from the dashboard.
+- **Global Settings**: Real-time control over site metadata, SEO tags, social links, and contact information.
 
-## Important Change with index.php
+## 🛠 Tech Stack
+- **Framework**: [CodeIgniter 4](https://codeigniter.com/) (PHP 8.1+)
+- **Database**: MySQL 8.0
+- **Frontend**: Tailwind CSS, Bootstrap 5, FontAwesome 7
+- **Architecture**: Model-View-Controller (MVC)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 📋 Installation & Setup
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### Prerequisites
+- PHP 8.1 or higher
+- MySQL 8.0+
+- Apache/Nginx Web Server
+- Composer
 
-**Please** read the user guide for a better explanation of how CI4 works!
+### Step-by-Step Guide
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Sahil-techmapperz/ShivanganiTandonAcademy.git
+   ```
 
-## Repository Management
+2. **Install Dependencies**:
+   ```bash
+   composer install
+   ```
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+3. **Environment Configuration**:
+   - Rename `env` to `.env`.
+   - Update database credentials and base URL:
+     ```env
+     database.default.hostname = localhost
+     database.default.database = shivanganitandonacademy
+     database.default.username = root
+     database.default.password = your_password
+     app.baseURL = 'http://localhost/ShivanganiTandonAcademy/'
+     ```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+4. **Database Setup**:
+   - Import the `shivanganitandonacademy.sql` file into your MySQL database.
 
-## Contributing
+5. **Permissions**:
+   - Ensure the `writable/` and `public/uploads/` directories have proper write permissions.
 
-We welcome contributions from the community.
+## 📁 Project Structure
+- `app/Controllers/`: Application logic and request handling.
+- `app/Models/`: Database interactions and business rules.
+- `app/Views/`: Responsive UI templates (Admin & Student portals).
+- `public/uploads/`: Dynamic user-uploaded assets (Signatures, Thumbnails, Blogs).
+- `writable/`: Internal cache, logs, and temporary session data.
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+## 📄 License
+This project is proprietary and confidential. Unauthorized copying or distribution is prohibited.
 
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+---
+*Developed with ❤️ for Shivangani Tandon Academy.*
