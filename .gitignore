@@ -1,0 +1,11 @@
+/writable/*
+!/writable/index.html
+!/writable/.htaccess
+
+/public/uploads/*
+!/public/uploads/index.html
+
+.env
+/vendor/
+/scratch/
+*.log
