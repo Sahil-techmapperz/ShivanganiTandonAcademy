@@ -29,6 +29,15 @@ $matchedurl = implode('/', array_slice($uri->getSegments(), 0, 2)); // Example: 
                         <p>Dashboard</p>
                     </a>
                 </li>
+
+                <!-- User Management -->
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/users') ?>"
+                        class="nav-link <?= $matchedurl == 'admin/users' ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-people me-2"></i>
+                        <p>Manage Users</p>
+                    </a>
+                </li>
                 
                 <!-- Announcements -->
                 <li class="nav-item">

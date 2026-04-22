@@ -71,6 +71,14 @@ $routes->group('admin', ['filter' => 'auth:admin'], function ($routes) {
     $routes->post('resource/upload', 'AdminController::uploadResource');
     $routes->get('resource/delete/(:num)', 'AdminController::deleteResource/$1');
 
+    // User Management
+    $routes->get('users', 'AdminUserController::index');
+    $routes->get('users/create', 'AdminUserController::create');
+    $routes->post('users/store', 'AdminUserController::store');
+    $routes->get('users/edit/(:num)', 'AdminUserController::edit/$1');
+    $routes->post('users/update/(:num)', 'AdminUserController::update/$1');
+    $routes->get('users/delete/(:num)', 'AdminUserController::delete/$1');
+
     // Assessment Question Management
     $routes->get('lesson/questions/(:num)', 'AdminController::manageQuestions/$1');
     $routes->post('question/save', 'AdminController::saveQuestion');

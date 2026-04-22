@@ -57,20 +57,22 @@
 
         const baseUrl = "<?= base_url() ?>";
 
-        const blogs = [
-            <?php if(isset($latest_blogs)): ?>
-            <?php foreach($latest_blogs as $blog): ?>
-            {
-                title: "<?= addslashes($blog['title']) ?>",
-                image: "<?= $blog['image'] ? base_url($blog['image']) : base_url('public/images/homePageImages/NewsBlogs/blogimg.png') ?>",
-                category: "Academy News",
-                slug: "<?= $blog['slug'] ?>",
-                date: "<?= date('d M, Y', strtotime($blog['created_at'])) ?>",
-                author: "<?= $blog['author'] ?>"
-            },
-            <?php endforeach; ?>
-            <?php endif; ?>
-        ];
+        <?php
+        $blogs_data = [];
+        if (isset($latest_blogs) && !empty($latest_blogs)) {
+            foreach ($latest_blogs as $blog) {
+                $blogs_data[] = [
+                    'title'    => $blog['title'] ?? 'No Title',
+                    'image'    => $blog['image'] ? base_url($blog['image']) : base_url('public/images/homePageImages/NewsBlogs/blogimg.png'),
+                    'category' => "Academy News",
+                    'slug'     => $blog['slug'] ?? '',
+                    'date'     => date('d M, Y', strtotime($blog['created_at'] ?? 'now')),
+                    'author'   => $blog['author'] ?? 'Admin'
+                ];
+            }
+        }
+        ?>
+        const blogs = <?= json_encode($blogs_data); ?>;
 
         let currentIndex = 0;
 
