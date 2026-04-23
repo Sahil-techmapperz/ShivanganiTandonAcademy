@@ -85,6 +85,8 @@
         <a href="#" class="hover:text-white">Term of Use</a>
         <span class="text-gray-500">|</span>
         <a href="#" class="hover:text-white">Privacy Policy</a>
+        <span class="text-gray-500">|</span>
+        <span class="text-[#8C9AB4]">Design and Developed by <a href="https://techmapperz.com/" target="_blank" class="hover:text-white font-semibold">Techmapperz</a></span>
       </div>
 
     </div>
