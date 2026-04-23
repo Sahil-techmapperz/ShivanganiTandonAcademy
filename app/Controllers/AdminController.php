@@ -235,6 +235,39 @@ class AdminController extends BaseController
         return redirect()->to(base_url('admin/settings'));
     }
 
+    public function updateLogos()
+    {
+        $settingModel = new \App\Models\SettingModel();
+        $uploadPath = FCPATH . 'public/images/uploads/branding/';
+        if (!is_dir($uploadPath)) mkdir($uploadPath, 0777, true);
+
+        // Handle Company Logo
+        $companyLogo = $this->request->getFile('company_logo');
+        if ($companyLogo && $companyLogo->isValid() && !$companyLogo->hasMoved()) {
+            $current = $settingModel->getSetting('company_logo');
+            if ($current && $current['key_value'] && file_exists(FCPATH . $current['key_value'])) {
+                @unlink(FCPATH . $current['key_value']);
+            }
+            $newName = $companyLogo->getRandomName();
+            $companyLogo->move($uploadPath, $newName);
+            $settingModel->setSetting('company_logo', 'public/images/uploads/branding/' . $newName);
+        }
+
+        // Handle Short Logo
+        $shortLogo = $this->request->getFile('short_logo');
+        if ($shortLogo && $shortLogo->isValid() && !$shortLogo->hasMoved()) {
+            $current = $settingModel->getSetting('short_logo');
+            if ($current && $current['key_value'] && file_exists(FCPATH . $current['key_value'])) {
+                @unlink(FCPATH . $current['key_value']);
+            }
+            $newName = $shortLogo->getRandomName();
+            $shortLogo->move($uploadPath, $newName);
+            $settingModel->setSetting('short_logo', 'public/images/uploads/branding/' . $newName);
+        }
+
+        return redirect()->to(base_url('admin/settings'))->with('success', 'Branding logos updated successfully');
+    }
+
     // ==========================================
     // CURRICULUM MANAGEMENT
     // ==========================================
@@ -526,5 +559,223 @@ class AdminController extends BaseController
             return redirect()->to(base_url('admin/announcements'))->with('success', 'Announcement deleted');
         }
         return redirect()->to(base_url('admin/announcements'))->with('error', 'Failed to delete announcement');
+    }
+
+    // ==========================================
+    // MOCK TEST MANAGEMENT
+    // ==========================================
+
+    public function mockTests()
+    {
+        $mockTestModel = new \App\Models\MockTestModel();
+        $courseModel = new \App\Models\CourseModel();
+        
+        $data = [
+            'title'     => 'Manage Mock Tests',
+            'mockTests' => $mockTestModel->findAll(),
+            'courses'   => $courseModel->findAll()
+        ];
+        return view('admin/mock_tests/list', $data);
+    }
+
+    public function saveMockTest()
+    {
+        $id = $this->request->getPost('id');
+        $data = [
+            'title'            => $this->request->getPost('title'),
+            'course_id'        => $this->request->getPost('course_id'),
+            'duration_minutes' => $this->request->getPost('duration_minutes'),
+            'note'             => $this->request->getPost('note'),
+            'is_active'        => $this->request->getPost('is_active') ?? 1
+        ];
+
+        $mockTestModel = new \App\Models\MockTestModel();
+        if ($id) {
+            $mockTestModel->update($id, $data);
+            $msg = 'Mock Test updated';
+        } else {
+            $mockTestModel->insert($data);
+            $msg = 'Mock Test added';
+        }
+
+        return redirect()->to(base_url('admin/mock-tests'))->with('success', $msg);
+    }
+
+    public function manageMockQuestions($testId)
+    {
+        $mockTestModel = new \App\Models\MockTestModel();
+        $questionModel = new \App\Models\MockTestQuestionModel();
+
+        $test = $mockTestModel->find($testId);
+        if (!$test) return redirect()->to(base_url('admin/mock-tests'));
+
+        $questions = $questionModel->where('mock_test_id', $testId)->findAll();
+
+        $data = [
+            'title'     => 'Manage Questions - ' . $test['title'],
+            'test'      => $test,
+            'questions' => $questions
+        ];
+        return view('admin/mock_tests/manage_questions', $data);
+    }
+
+    public function saveMockQuestion()
+    {
+        $testId = $this->request->getPost('mock_test_id');
+        $id = $this->request->getPost('id');
+        
+        $options = $this->request->getPost('options');
+        $data = [
+            'mock_test_id'   => $testId,
+            'question_text'  => $this->request->getPost('question_text'),
+            'options'        => json_encode(array_values($options)),
+            'correct_option' => $this->request->getPost('correct_option'),
+            'explanation'    => $this->request->getPost('explanation'),
+            'is_active'      => $this->request->getPost('is_active') ?? 1
+        ];
+
+        $questionModel = new \App\Models\MockTestQuestionModel();
+        if ($id) {
+            $questionModel->update($id, $data);
+            $msg = 'Question updated';
+        } else {
+            $questionModel->insert($data);
+            $msg = 'Question added';
+        }
+
+        return redirect()->to(base_url('admin/mock-test/questions/' . $testId))->with('success', $msg);
+    }
+
+    // ==========================================
+    // UNIT TEST MANAGEMENT
+    // ==========================================
+
+    public function unitTests()
+    {
+        $unitTestModel = new \App\Models\UnitTestModel();
+        $moduleModel = new \App\Models\ModuleModel();
+        $unitModel = new \App\Models\UnitModel();
+
+        $data = [
+            'title'     => 'Manage Unit Tests',
+            'unitTests' => $unitTestModel->findAll(),
+            'modules'   => $moduleModel->findAll(),
+            'units'     => $unitModel->findAll()
+        ];
+        return view('admin/unit_tests/list', $data);
+    }
+
+    public function saveUnitTest()
+    {
+        $id = $this->request->getPost('id');
+        $data = [
+            'test_name' => $this->request->getPost('test_name'),
+            'module_id' => $this->request->getPost('module_id'),
+            'unit_id'   => $this->request->getPost('unit_id'),
+            'is_active' => $this->request->getPost('is_active') ?? 1
+        ];
+
+        $unitTestModel = new \App\Models\UnitTestModel();
+        if ($id) {
+            $unitTestModel->update($id, $data);
+            $msg = 'Unit Test updated';
+        } else {
+            $unitTestModel->insert($data);
+            $msg = 'Unit Test added';
+        }
+
+        return redirect()->to(base_url('admin/unit-tests'))->with('success', $msg);
+    }
+
+    public function manageUnitQuestions($testId)
+    {
+        $unitTestModel = new \App\Models\UnitTestModel();
+        $questionModel = new \App\Models\UnitTestQuestionModel();
+
+        $test = $unitTestModel->find($testId);
+        if (!$test) return redirect()->to(base_url('admin/unit-tests'));
+
+        $questions = $questionModel->where('unit_test_id', $testId)->findAll();
+
+        $data = [
+            'title'     => 'Manage Unit Questions - ' . $test['test_name'],
+            'test'      => $test,
+            'questions' => $questions
+        ];
+        return view('admin/unit_tests/manage_questions', $data);
+    }
+
+    public function saveUnitQuestion()
+    {
+        $testId = $this->request->getPost('unit_test_id');
+        $id = $this->request->getPost('id');
+        
+        $options = $this->request->getPost('options');
+        $data = [
+            'unit_test_id'   => $testId,
+            'question_text'  => $this->request->getPost('question_text'),
+            'options'        => json_encode(array_values($options)),
+            'correct_option' => $this->request->getPost('correct_option'),
+            'explanation'    => $this->request->getPost('explanation'),
+            'is_active'      => $this->request->getPost('is_active') ?? 1
+        ];
+
+        $questionModel = new \App\Models\UnitTestQuestionModel();
+        if ($id) {
+            $questionModel->update($id, $data);
+            $msg = 'Question updated';
+        } else {
+            $questionModel->insert($data);
+            $msg = 'Question added';
+        }
+
+        return redirect()->to(base_url('admin/unit-test/questions/' . $testId))->with('success', $msg);
+    }
+
+    // ==========================================
+    // USER TEST ACCESS
+    // ==========================================
+
+    public function testAccess()
+    {
+        $userModel = new \App\Models\UserModel();
+        $accessModel = new \App\Models\UserAccessibleTestModel();
+        $mockTestModel = new \App\Models\MockTestModel();
+
+        $users = $userModel->findAll();
+        $mockTests = $mockTestModel->where('is_active', 1)->findAll();
+
+        foreach ($users as &$user) {
+            $user['access'] = $accessModel->getByUser($user['id']);
+        }
+
+        $data = [
+            'title'     => 'Manage Test Access',
+            'users'     => $users,
+            'mockTests' => $mockTests
+        ];
+        return view('admin/users/test_access', $data);
+    }
+
+    public function saveTestAccess()
+    {
+        $userId = $this->request->getPost('user_id');
+        $mockTests = $this->request->getPost('allowed_mock_tests'); // Array
+        
+        $data = [
+            'user_id'            => $userId,
+            'allowed_mock_tests' => !empty($mockTests) ? implode(',', $mockTests) : ''
+        ];
+
+        $accessModel = new \App\Models\UserAccessibleTestModel();
+        $existing = $accessModel->getByUser($userId);
+
+        if ($existing) {
+            $accessModel->update($existing['id'], $data);
+        } else {
+            $accessModel->insert($data);
+        }
+
+        return redirect()->to(base_url('admin/test-access'))->with('success', 'Access updated');
     }
 }

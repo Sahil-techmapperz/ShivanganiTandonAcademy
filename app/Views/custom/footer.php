@@ -6,7 +6,7 @@
     <!-- Logo + About (40%) -->
     <div class="lg:col-span-4 text-left">
 
-      <img src="<?= base_url('public/images/commonImages/SivanganiTandon12.jpg') ?>"
+      <img src="<?= base_url(get_setting('short_logo', 'public/images/commonImages/SivanganiTandon12.jpg')) ?>"
         alt="Logo"
         class="block w-auto max-w-full max-h-[100px] sm:max-h-[120px] object-contain mb-4">
 

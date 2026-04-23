@@ -96,7 +96,7 @@
                                 <h5 id="video-title" class="fw-bold mb-0"><?= $lessons[0]['title'] ?></h5>
                                 <span class="badge bg-light text-primary rounded-pill px-3 py-2">Premium Content</span>
                             </div>
-                            <p id="video-desc" class="text-muted mb-0"><?= $lessons[0]['description'] ?></p>
+                            <p id="video-desc" class="text-muted mb-0"><?= nl2br(preg_replace('!(https?://[^\s\x12-\x20\x7f-\xff]+)!', '<a href="$1" target="_blank" class="text-primary text-decoration-underline">$1</a>', esc($lessons[0]['description']))) ?></p>
                         </div>
                     </div>
                     <?php else: ?>
@@ -204,6 +204,21 @@
     // Assessment State
     var currentQuestionIndex = 0;
     var studentAnswers = [];
+    
+    function autoLink(text) {
+        if (!text) return '';
+        // Escape HTML first
+        const div = document.createElement('div');
+        div.textContent = text;
+        let escaped = div.innerHTML;
+        
+        // Replace URLs
+        const urlPattern = /(https?:\/\/[^\s]+)/g;
+        let linked = escaped.replace(urlPattern, '<a href="$1" target="_blank" class="text-primary text-decoration-underline">$1</a>');
+        
+        // Preserve newlines
+        return linked.replace(/\n/g, '<br>');
+    }
 
     function onYouTubeIframeAPIReady() {
         if (lessons.length === 0) return;
@@ -262,7 +277,7 @@
 
         // Update Meta
         document.getElementById('video-title').textContent = lesson.title;
-        document.getElementById('video-desc').textContent = lesson.description;
+        document.getElementById('video-desc').innerHTML = autoLink(lesson.description);
 
         // Button State
         const markBtn = document.getElementById('mark-complete-btn');
@@ -513,12 +528,20 @@
         materialList.innerHTML = (materials.length === 0) ? '<div class="p-4 text-center text-muted small">No materials available for this lesson.</div>' : '';
         materials.forEach(item => {
             const icon = item.type === 'PDF' ? 'bi-file-pdf text-danger' : (item.type === 'XLSX' ? 'bi-file-excel text-success' : 'bi-file-earmark-text text-primary');
-            const html = `<div class="list-group-item p-3 d-flex justify-content-between align-items-center border-0 border-bottom">
+            const html = `<div class="list-group-item p-4 d-flex justify-content-between align-items-center border-0 border-bottom bg-transparent transition-all">
                             <div class="d-flex align-items-center">
-                                <i class="bi ${icon} h5 mb-0 me-3"></i>
-                                <div><h6 class="mb-0 small fw-bold">${item.name}</h6><span class="text-muted extra-small">${item.type} • ${item.size}</span></div>
+                                <div class="resource-icon-bg bg-white rounded-3 p-2 me-3 shadow-sm border border-light">
+                                    <i class="bi ${icon} h4 mb-0"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 small fw-black text-dark text-uppercase letter-spacing-1">${item.name}</h6>
+                                    <span class="text-muted extra-small fw-bold opacity-75">${item.type} • ${item.size}</span>
+                                </div>
                             </div>
-                            <a href="${item.url}" class="btn btn-light btn-sm rounded-pill px-3" download>Download</a></div>`;
+                            <a href="${item.url}" class="btn btn-primary btn-sm rounded-pill px-4 fw-bold shadow-sm" download="${item.name}" target="_blank">
+                                <i class="bi bi-cloud-download me-2"></i>DOWNLOAD
+                            </a>
+                        </div>`;
             materialList.insertAdjacentHTML('beforeend', html);
         });
     }
@@ -564,6 +587,11 @@
         border-color: #5751E1 !important; 
         background-color: #f8f7ff !important;
         box-shadow: 0 4px 12px rgba(87, 81, 225, 0.1);
+    }
+
+    #material-list .list-group-item:hover {
+        background-color: #f8f9ff !important;
+        transform: translateX(5px);
     }
     
     /* Sidebar Improvements */

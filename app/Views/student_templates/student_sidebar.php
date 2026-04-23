@@ -5,7 +5,7 @@
         <!--begin::Brand Link-->
         <a href="<?= base_url('student/dashboard') ?>" class="brand-link border-0">
             <!--begin::Brand Image-->
-            <img src="<?= base_url('public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png') ?>" alt="STA Logo" class="brand-image" style="max-height: 40px; width: auto;" />
+            <img src="<?= base_url(get_setting('company_logo', 'public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png')) ?>" alt="STA Logo" class="brand-image" style="max-height: 40px; width: auto;" />
             <!--end::Brand Image-->
         </a>
         <!--end::Brand Link-->
@@ -39,6 +39,19 @@
                     <a href="<?= base_url('student/support') ?>" class="nav-link <?= (uri_string() == 'student/support') ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-headset"></i>
                         <p>Help & Support</p>
+                    </a>
+                </li>
+                <li class="nav-header">PRACTICE TESTS</li>
+                <li class="nav-item">
+                    <a href="<?= base_url('student/mock-tests') ?>" class="nav-link <?= (uri_string() == 'student/mock-tests') ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-file-earmark-check"></i>
+                        <p>Mock Tests</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('student/unit-tests') ?>" class="nav-link <?= (uri_string() == 'student/unit-tests') ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-list-check"></i>
+                        <p>Unit Tests</p>
                     </a>
                 </li>
                 <li class="nav-header">ACCOUNT</li>

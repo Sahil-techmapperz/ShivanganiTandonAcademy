@@ -37,6 +37,7 @@ $routes->group('admin', ['filter' => 'auth:admin'], function ($routes) {
     $routes->get('settings', 'AdminController::settings');
     $routes->post('updateSettings', 'AdminController::updateSettings');
     $routes->post('updateSignature', 'AdminController::updateSignature');
+    $routes->post('updateLogos', 'AdminController::updateLogos');
     $routes->get('submissions', 'AdminController::submissions');
     $routes->post('grade-submission', 'AdminController::gradeSubmission');
     
@@ -83,6 +84,22 @@ $routes->group('admin', ['filter' => 'auth:admin'], function ($routes) {
     $routes->get('lesson/questions/(:num)', 'AdminController::manageQuestions/$1');
     $routes->post('question/save', 'AdminController::saveQuestion');
     $routes->get('question/delete/(:num)', 'AdminController::deleteQuestion/$1');
+
+    // Mock Test Management
+    $routes->get('mock-tests', 'AdminController::mockTests');
+    $routes->post('mock-test/save', 'AdminController::saveMockTest');
+    $routes->get('mock-test/questions/(:num)', 'AdminController::manageMockQuestions/$1');
+    $routes->post('mock-test/question/save', 'AdminController::saveMockQuestion');
+
+    // Unit Test Management
+    $routes->get('unit-tests', 'AdminController::unitTests');
+    $routes->post('unit-test/save', 'AdminController::saveUnitTest');
+    $routes->get('unit-test/questions/(:num)', 'AdminController::manageUnitQuestions/$1');
+    $routes->post('unit-test/question/save', 'AdminController::saveUnitQuestion');
+
+    // User Test Access
+    $routes->get('test-access', 'AdminController::testAccess');
+    $routes->post('test-access/save', 'AdminController::saveTestAccess');
 });
 
 // Student routes with auth filter
@@ -104,6 +121,12 @@ $routes->group('student', ['filter' => 'auth:student'], function ($routes) {
     $routes->get('support', 'StudentDashboardController::support');
     $routes->get('support-messages/(:num)', 'StudentDashboardController::getSupportMessages/$1');
     $routes->post('submit-support', 'StudentDashboardController::submitSupport');
+
+    // Practice Tests
+    $routes->get('mock-tests', 'StudentDashboardController::mockTests');
+    $routes->get('unit-tests', 'StudentDashboardController::unitTests');
+    $routes->get('take-test/(:segment)/(:num)', 'StudentDashboardController::startTest/$1/$2');
+    $routes->post('submit-test', 'StudentDashboardController::submitTest');
 });
 
 

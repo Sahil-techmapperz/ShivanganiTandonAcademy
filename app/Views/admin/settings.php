@@ -93,8 +93,49 @@
                     </form>
                 </div>
 
-                <!-- Right Column: Signature -->
+                <!-- Right Column: Signature & Branding -->
                 <div class="col-lg-4">
+                    <!-- Branding Card -->
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="mb-0 fw-bold"><i class="bi bi-patch-check me-2 text-primary"></i>Brand Assets</h5>
+                        </div>
+                        <div class="card-body p-4">
+                            <form action="<?= base_url('admin/updateLogos') ?>" method="POST" enctype="multipart/form-data">
+                                <!-- Company Logo -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-muted small uppercase">Company Logo</label>
+                                    <div class="mb-3 text-center p-3 bg-light rounded border border-dashed">
+                                        <?php if(isset($settings['company_logo'])): ?>
+                                            <img src="<?= base_url($settings['company_logo']) ?>" style="max-height: 60px;" class="bg-white p-2 shadow-sm rounded mb-2 d-block mx-auto">
+                                        <?php else: ?>
+                                            <div class="py-3 text-muted small"><i class="bi bi-image d-block mb-1"></i> No Logo</div>
+                                        <?php endif; ?>
+                                        <input type="file" class="form-control form-control-sm" name="company_logo" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <!-- Short Logo -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold text-muted small uppercase">Short Logo (Favicon/Icon)</label>
+                                    <div class="mb-3 text-center p-3 bg-light rounded border border-dashed">
+                                        <?php if(isset($settings['short_logo'])): ?>
+                                            <img src="<?= base_url($settings['short_logo']) ?>" style="max-height: 40px;" class="bg-white p-2 shadow-sm rounded mb-2 d-block mx-auto">
+                                        <?php else: ?>
+                                            <div class="py-3 text-muted small"><i class="bi bi-app-indicator d-block mb-1"></i> No Icon</div>
+                                        <?php endif; ?>
+                                        <input type="file" class="form-control form-control-sm" name="short_logo" accept="image/*">
+                                    </div>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary shadow-sm">Update Brand Assets</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Signature Card -->
                     <div class="card shadow-sm border-0 sticky-top" style="top: 20px;">
                         <div class="card-header bg-white py-3">
                             <h5 class="mb-0 fw-bold"><i class="bi bi-pen me-2 text-primary"></i>Director's Signature</h5>

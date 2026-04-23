@@ -47,6 +47,9 @@ class StudentDashboardController extends BaseController
         // Support tickets count
         $supportCount = $db->table('tbl_support_requests')->where('user_id', $userId)->where('status', 'pending')->countAllResults();
 
+        // Completed lessons count
+        $completedLessonsCount = $db->table('tbl_lesson_progress')->where('user_id', $userId)->countAllResults();
+
         // Recent Activity Fetching
         $activities = [];
 
@@ -126,6 +129,7 @@ class StudentDashboardController extends BaseController
             'courseCount'   => $enrolledCoursesCount,
             'avgProgress'   => $avgProgress,
             'supportCount'  => $supportCount,
+            'completedLessonsCount' => $completedLessonsCount,
             'activities'    => $activities,
             'announcements' => $announcements
         ];
@@ -241,6 +245,9 @@ class StudentDashboardController extends BaseController
                 'id'            => 'SUB_'.$sub['id']
             ];
         }
+
+        // --- ADDED: Fetch results from tbl_results that might be auto-saved from mock/unit tests ---
+        // (The manualResults loop already covers these if we save them to tbl_results with appropriate subjects)
 
         // Sort by date descending
         usort($consolidatedResults, function($a, $b) {
@@ -652,5 +659,164 @@ class StudentDashboardController extends BaseController
                                  ->orderBy('created_at', 'ASC')
                                  ->findAll();
         return $this->response->setJSON(['status' => true, 'data' => $messages]);
+    }
+
+    // ==========================================
+    // MOCK TESTS & UNIT TESTS
+    // ==========================================
+
+    public function mockTests()
+    {
+        $userId = session()->get('id');
+        $mockTestModel = new \App\Models\MockTestModel();
+        $accessibleTests = $mockTestModel->getAccessibleTests($userId);
+
+        $data = [
+            'title'     => 'Mock Tests',
+            'mockTests' => $accessibleTests
+        ];
+        return view('student/mock_tests', $data);
+    }
+
+    public function unitTests()
+    {
+        $userId = session()->get('id');
+        $unitTestModel = new \App\Models\UnitTestModel();
+        $moduleModel = new \App\Models\ModuleModel();
+        
+        // For unit tests, we'll show all active ones for now, 
+        // or filter by enrolled course modules if needed.
+        $unitTests = $unitTestModel->where('is_active', 1)->findAll();
+
+        $data = [
+            'title'     => 'Unit Tests',
+            'unitTests' => $unitTests
+        ];
+        return view('student/unit_tests', $data);
+    }
+
+    public function startTest($type, $id)
+    {
+        $userId = session()->get('id');
+        $data = [
+            'title' => 'Taking Test',
+            'type'  => $type,
+            'id'    => $id
+        ];
+
+        if ($type === 'mock') {
+            $testModel = new \App\Models\MockTestModel();
+            $questionModel = new \App\Models\MockTestQuestionModel();
+            $accessModel = new \App\Models\UserAccessibleTestModel();
+
+            if (!$accessModel->hasMockTestAccess($userId, $id)) {
+                return redirect()->to(base_url('student/mock-tests'))->with('error', 'You do not have access to this test.');
+            }
+
+            $data['test'] = $testModel->find($id);
+            $data['questions'] = $questionModel->getByTest($id);
+        } else {
+            $testModel = new \App\Models\UnitTestModel();
+            $questionModel = new \App\Models\UnitTestQuestionModel();
+
+            $data['test'] = $testModel->find($id);
+            $data['questions'] = $questionModel->getByTest($id);
+        }
+
+        if (empty($data['test']) || empty($data['questions'])) {
+            return redirect()->back()->with('error', 'Test not found or has no questions.');
+        }
+
+        return view('student/take_test', $data);
+    }
+
+    public function submitTest()
+    {
+        $userId = session()->get('id');
+        $testType = $this->request->getPost('test_type');
+        $testId = $this->request->getPost('test_id');
+        $userAnswers = $this->request->getPost('answers') ?? []; // [question_id => answer_index]
+
+        if ($testType === 'mock') {
+            $testModel = new \App\Models\MockTestModel();
+            $questionModel = new \App\Models\MockTestQuestionModel();
+            $answerModel = new \App\Models\MockTestUserAnswerModel();
+            $resultModel = new \App\Models\ResultModel();
+
+            $test = $testModel->find($testId);
+            $questions = $questionModel->where('mock_test_id', $testId)->findAll();
+            
+            $totalQuestions = count($questions);
+            $correctCount = 0;
+
+            foreach ($questions as $q) {
+                $submittedAnswer = $userAnswers[$q['id']] ?? null;
+                $isCorrect = ($submittedAnswer !== null && $submittedAnswer == $q['correct_option']);
+                
+                if ($isCorrect) $correctCount++;
+
+                // Save individual answer
+                $answerModel->insert([
+                    'user_id'         => $userId,
+                    'mock_test_id'    => $testId,
+                    'question_id'     => $q['id'],
+                    'selected_option' => $submittedAnswer,
+                    'is_correct'      => $isCorrect ? 1 : 0
+                ]);
+            }
+
+            $score = ($totalQuestions > 0) ? ($correctCount / $totalQuestions) * 100 : 0;
+            
+            // Save summary result
+            $resultModel->insert([
+                'user_id'      => $userId,
+                'subject'      => "Mock Test: " . ($test['title'] ?? "Untitied"),
+                'score'        => $correctCount,
+                'total_points' => $totalQuestions,
+                'exam_date'    => date('Y-m-d')
+            ]);
+
+            return redirect()->to(base_url('student/results'))->with('success', "Mock Test submitted! You scored $correctCount out of $totalQuestions (" . round($score, 2) . "%).");
+        } else {
+            // Unit Test submission logic
+            $testModel = new \App\Models\UnitTestModel();
+            $questionModel = new \App\Models\UnitTestQuestionModel();
+            $answerModel = new \App\Models\UnitTestUserAnswerModel();
+            $resultModel = new \App\Models\ResultModel();
+
+            $test = $testModel->find($testId);
+            $questions = $questionModel->where('unit_test_id', $testId)->findAll();
+            
+            $totalQuestions = count($questions);
+            $correctCount = 0;
+
+            foreach ($questions as $q) {
+                $submittedAnswer = $userAnswers[$q['id']] ?? null;
+                $isCorrect = ($submittedAnswer !== null && $submittedAnswer == $q['correct_option']);
+                if ($isCorrect) {
+                    $correctCount++;
+                }
+
+                // Save individual answer
+                $answerModel->insert([
+                    'user_id'         => $userId,
+                    'unit_test_id'    => $testId,
+                    'question_id'     => $q['id'],
+                    'selected_option' => $submittedAnswer,
+                    'is_correct'      => $isCorrect ? 1 : 0
+                ]);
+            }
+
+            // Save summary result
+            $resultModel->insert([
+                'user_id'      => $userId,
+                'subject'      => "Unit Test: " . ($test['title'] ?? "Untitied"),
+                'score'        => $correctCount,
+                'total_points' => $totalQuestions,
+                'exam_date'    => date('Y-m-d')
+            ]);
+
+            return redirect()->to(base_url('student/results'))->with('success', "Unit Test submitted! You scored $correctCount out of $totalQuestions.");
+        }
     }
 }

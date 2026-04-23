@@ -11,7 +11,7 @@ $matchedurl = implode('/', array_slice($uri->getSegments(), 0, 2)); // Example: 
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
         <a href="<?= base_url('admin/dashboard') ?>" class="brand-link logo_image_parent">
-            <img src="<?= base_url('public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png') ?>" alt="Logo" class="brand-image" />
+            <img src="<?= base_url(get_setting('company_logo', 'public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png')) ?>" alt="Logo" class="brand-image" />
         </a>
     </div>
     <!--end::Sidebar Brand-->
@@ -151,6 +151,30 @@ $matchedurl = implode('/', array_slice($uri->getSegments(), 0, 2)); // Example: 
                         class="nav-link <?= $matchedurl == 'admin/settings' ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-gear me-2"></i>
                         <p>Settings</p>
+                    </a>
+                </li>
+
+                <!-- Test Management Section -->
+                <li class="nav-header">TEST MANAGEMENT</li>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/mock-tests') ?>"
+                        class="nav-link <?= $matchedurl == 'admin/mock-tests' ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-file-earmark-check me-2"></i>
+                        <p>Mock Tests</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/unit-tests') ?>"
+                        class="nav-link <?= $matchedurl == 'admin/unit-tests' ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-list-check me-2"></i>
+                        <p>Unit Tests</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('admin/test-access') ?>"
+                        class="nav-link <?= $matchedurl == 'admin/test-access' ? 'active' : '' ?>">
+                        <i class="nav-icon bi bi-person-lock me-2"></i>
+                        <p>Test Access</p>
                     </a>
                 </li>
 

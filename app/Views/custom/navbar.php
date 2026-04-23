@@ -67,7 +67,7 @@
             <!-- Logo -->
             <div class="flex items-center gap-2">
                 <a href="<?= base_url('/') ?>">
-                    <img src="<?= base_url('public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png') ?>"
+                    <img src="<?= base_url(get_setting('company_logo', 'public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png')) ?>"
                         alt="Shivangani Tandon Logo"
                         class="h-10 sm:h-12 md:h-14 w-auto"></a>
             </div>

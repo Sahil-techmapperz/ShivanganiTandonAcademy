@@ -220,7 +220,7 @@
                                             <div class="objective-box p-4 mb-5 border-0 shadow-sm transition-all">
                                                 <h6 class="fw-black mb-3 small text-uppercase letter-spacing-1 text-primary">Lesson Synopsis</h6>
                                                 <p class="text-dark mb-0 fs-6 leading-relaxed opacity-75 fw-medium">
-                                                    <?= $lesson['description'] ?>
+                                                    <?= nl2br(preg_replace('!(https?://[^\s\x12-\x20\x7f-\xff]+)!', '<a href="$1" target="_blank" class="text-primary text-decoration-underline">$1</a>', esc($lesson['description']))) ?>
                                                 </p>
                                             </div>
                                             
@@ -315,7 +315,6 @@
                             <select class="form-select form-select-lg rounded-4 bg-light border-0 px-4" name="type" id="l_type" onchange="toggleLessonFields(this.value)" required>
                                 <option value="video">🎥 Video Lesson</option>
                                 <option value="quiz">❓ Interactive Quiz</option>
-                                <option value="exam">📝 Gradeable Exam</option>
                             </select>
                         </div>
                         <div class="col-md-7" id="video-field-container">

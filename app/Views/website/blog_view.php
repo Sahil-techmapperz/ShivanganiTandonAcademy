@@ -115,6 +115,8 @@
     .blog-content ul, .blog-content ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
     .blog-content li { margin-bottom: 0.5rem; }
     .blog-content blockquote { border-left: 4px solid #5751E1; padding-left: 1.5rem; font-style: italic; color: #4b5563; margin: 2rem 0; }
+    .blog-content a { color: #5751E1; text-decoration: underline; font-weight: 600; transition: all 0.2s ease; }
+    .blog-content a:hover { color: #FE002A; text-decoration: none; }
 </style>
 
 <?= $this->include('custom/footer') ?>

@@ -52,16 +52,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- Assignments Card -->
+                <!-- Lessons Card -->
                 <div class="col-12 col-sm-6 col-xl-3">
                     <div class="card p-3 mb-4">
                         <div class="d-flex align-items-center">
                             <div class="flex-shrink-0 bg-warning-subtle p-3 rounded-circle me-3">
-                                <i class="bi bi-clock-history text-warning fs-3"></i>
+                                <i class="bi bi-check2-all text-warning fs-3"></i>
                             </div>
                             <div>
-                                <h6 class="mb-0 text-muted">Next Deadline</h6>
-                                <h4 class="mb-0 fw-bold">3 Days</h4>
+                                <h6 class="mb-0 text-muted">Completed Lessons</h6>
+                                <h4 class="mb-0 fw-bold"><?= $completedLessonsCount ?></h4>
                             </div>
                         </div>
                     </div>
