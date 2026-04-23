@@ -101,12 +101,12 @@
                 </div>
 
                 <!-- RIGHT STATS BOX -->
-                <div class="absolute bottom-[30%] right-[50px] md:right-[-40px] 
+                <!-- <div class="absolute bottom-[30%] right-[50px] md:right-[-40px] 
                         bg-[#5B5FEF] text-white px-4 py-3 rounded-xl z-20 font-poppins
                         border border-[#B2BBCC] shadow-[-4px_3px_0px_0px_#00000026]">
                     <p class="text-[36px] font-bold font-poppins leading-[36px] text-center align-middle">12K+</p>
                     <p class="text-[14px] font-medium font-inter leading-[14px] text-center capitalize ">All Recipes </p>
-                </div>
+                </div> -->
 
             </div>
 
