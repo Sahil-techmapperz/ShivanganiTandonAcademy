@@ -682,11 +682,9 @@ class StudentDashboardController extends BaseController
     {
         $userId = session()->get('id');
         $unitTestModel = new \App\Models\UnitTestModel();
-        $moduleModel = new \App\Models\ModuleModel();
-        
-        // For unit tests, we'll show all active ones for now, 
-        // or filter by enrolled course modules if needed.
-        $unitTests = $unitTestModel->where('is_active', 1)->findAll();
+
+        // Only show unit tests the admin has granted to this student
+        $unitTests = $unitTestModel->getAccessibleTests($userId);
 
         $data = [
             'title'     => 'Unit Tests',
@@ -718,6 +716,11 @@ class StudentDashboardController extends BaseController
         } else {
             $testModel = new \App\Models\UnitTestModel();
             $questionModel = new \App\Models\UnitTestQuestionModel();
+            $accessModel = new \App\Models\UserAccessibleTestModel();
+
+            if (!$accessModel->hasUnitTestAccess($userId, $id)) {
+                return redirect()->to(base_url('student/unit-tests'))->with('error', 'You do not have access to this test.');
+            }
 
             $data['test'] = $testModel->find($id);
             $data['questions'] = $questionModel->getByTest($id);

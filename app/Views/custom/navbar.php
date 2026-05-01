@@ -46,7 +46,7 @@
 
         <!-- Center Text -->
         <div class="md:flex text-center flex-1 justify-center text-xs sm:text-sm md:text-base lg:text-base">
-            New Batch Starting Soon — Enroll Now & Get 20% Early Bird Discount!
+            New Batch Starting Soon — Enroll Now & Get 10% Early Bird Discount!
         </div>
 
         <!-- Right Contact -->

@@ -60,13 +60,16 @@
 
             </div>
             <!-- RIGHT SECTION -->
-            <div class="relative hidden md:flex justify-center">
+            <div class="relative hidden md:flex justify-center items-end h-full">
 
                 <!-- PERSON IMAGE -->
                 <img
                     src="<?= base_url('public/images/EA/EA_baneer/heroimage.png') ?>"
                     class="relative z-10 w-[280px] md:w-[360px] lg:w-[420px]"
                     alt="expert">
+
+                <!-- Yellow Shape Background -->
+                <div class="absolute -bottom-20 w-[320px] h-[320px] md:w-[400px] md:h-[400px] bg-yellow-400 rounded-full -z-0 left-1/2 -translate-x-1/2"></div>
 
                 <!-- STUDENTS CARD -->
                 <div class="absolute top-[25%] left-0 md:-left-20 bg-white rounded-2xl px-3 py-3 w-[200px] border border-[#B2BBCC] shadow-[-8px_8px_0px_0px_#00000026] z-10">

@@ -738,33 +738,48 @@ class AdminController extends BaseController
 
     public function testAccess()
     {
-        $userModel = new \App\Models\UserModel();
-        $accessModel = new \App\Models\UserAccessibleTestModel();
-        $mockTestModel = new \App\Models\MockTestModel();
+        $users     = [];
+        $mockTests = [];
+        $unitTests = [];
 
-        $users = $userModel->findAll();
-        $mockTests = $mockTestModel->where('is_active', 1)->findAll();
+        try {
+            $userModel     = new \App\Models\UserModel();
+            $accessModel   = new \App\Models\UserAccessibleTestModel();
+            $mockTestModel = new \App\Models\MockTestModel();
+            $unitTestModel = new \App\Models\UnitTestModel();
 
-        foreach ($users as &$user) {
-            $user['access'] = $accessModel->getByUser($user['id']);
+            $users     = $userModel->findAll() ?: [];
+            $mockTests = $mockTestModel->where('is_active', 1)->findAll() ?: [];
+            $unitTests = $unitTestModel->where('is_active', 1)->findAll() ?: [];
+
+            foreach ($users as &$user) {
+                $user['access'] = $accessModel->getByUser($user['id']) ?: [];
+            }
+            unset($user); // Break the reference — prevents array corruption
+        } catch (\Exception $e) {
+            log_message('error', '[testAccess] ' . $e->getMessage());
+            session()->setFlashdata('error', 'A database error occurred: ' . $e->getMessage());
         }
 
         $data = [
             'title'     => 'Manage Test Access',
             'users'     => $users,
-            'mockTests' => $mockTests
+            'mockTests' => $mockTests,
+            'unitTests' => $unitTests,
         ];
         return view('admin/users/test_access', $data);
     }
 
     public function saveTestAccess()
     {
-        $userId = $this->request->getPost('user_id');
-        $mockTests = $this->request->getPost('allowed_mock_tests'); // Array
-        
+        $userId    = $this->request->getPost('user_id');
+        $mockTests = $this->request->getPost('allowed_mock_tests');  // Array or null
+        $unitTests = $this->request->getPost('allowed_unit_tests');  // Array or null
+
         $data = [
-            'user_id'            => $userId,
-            'allowed_mock_tests' => !empty($mockTests) ? implode(',', $mockTests) : ''
+            'user_id'             => $userId,
+            'allowed_mock_tests'  => !empty($mockTests) ? implode(',', $mockTests) : '',
+            'allowed_unit_tests'  => !empty($unitTests) ? implode(',', $unitTests) : '',
         ];
 
         $accessModel = new \App\Models\UserAccessibleTestModel();
@@ -776,6 +791,6 @@ class AdminController extends BaseController
             $accessModel->insert($data);
         }
 
-        return redirect()->to(base_url('admin/test-access'))->with('success', 'Access updated');
+        return redirect()->to(base_url('admin/test-access'))->with('success', 'Access updated successfully');
     }
 }

@@ -32,4 +32,25 @@ class UnitTestModel extends Model
                     ->where('is_active', 1)
                     ->findAll();
     }
+
+    /**
+     * Get unit tests accessible to a specific user based on admin-granted permissions
+     */
+    public function getAccessibleTests($userId)
+    {
+        $db = \Config\Database::connect();
+        $access = $db->table('tbl_user_accessible_tests')
+                     ->where('user_id', $userId)
+                     ->get()
+                     ->getRowArray();
+
+        if (!$access || empty($access['allowed_unit_tests'])) {
+            return [];
+        }
+
+        $ids = explode(',', $access['allowed_unit_tests']);
+        return $this->whereIn('id', $ids)
+                    ->where('is_active', 1)
+                    ->findAll();
+    }
 }

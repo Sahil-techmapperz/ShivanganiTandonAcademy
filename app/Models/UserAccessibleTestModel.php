@@ -15,7 +15,8 @@ class UserAccessibleTestModel extends Model
     protected $allowedFields    = [
         'user_id',
         'allowed_categories',
-        'allowed_mock_tests'
+        'allowed_mock_tests',
+        'allowed_unit_tests'
     ];
 
     protected $useTimestamps = true;
@@ -41,6 +42,20 @@ class UserAccessibleTestModel extends Model
         }
 
         $allowed = explode(',', $access['allowed_mock_tests']);
-        return in_array($testId, $allowed);
+        return in_array((string)$testId, $allowed);
+    }
+
+    /**
+     * Check if a user has access to a specific unit test
+     */
+    public function hasUnitTestAccess($userId, $testId)
+    {
+        $access = $this->getByUser($userId);
+        if (!$access || empty($access['allowed_unit_tests'])) {
+            return false;
+        }
+
+        $allowed = explode(',', $access['allowed_unit_tests']);
+        return in_array((string)$testId, $allowed);
     }
 }

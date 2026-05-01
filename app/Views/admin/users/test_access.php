@@ -19,7 +19,7 @@
                             <div class="d-flex align-items-center mt-3">
                                 <span class="badge bg-primary rounded-pill px-4 py-2 me-3 extra-small fw-black letter-spacing-1 shadow-sm">PERMISSIONS CENTER</span>
                                 <div class="vr me-3 opacity-25" style="height: 20px;"></div>
-                                <p class="text-muted small mb-0 fw-medium">Grant or revoke student access to specific mock exams and categories.</p>
+                                <p class="text-muted small mb-0 fw-medium">Grant or revoke student access to specific unit tests and mock exams.</p>
                             </div>
                         </div>
                     </div>
@@ -38,19 +38,36 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif; ?>
+                    <?php if(session()->getFlashdata('error')): ?>
+                        <div class="alert alert-danger alert-dismissible fade show rounded-4 border-0 shadow-sm mb-4" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i> <?= session()->getFlashdata('error') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+                    <?php
+                        // Safety fallbacks — prevents "Undefined variable" if controller failed
+                        $users     = $users     ?? [];
+                        $mockTests = $mockTests ?? [];
+                        $unitTests = $unitTests ?? [];
+                    ?>
 
                     <div class="card border-0 shadow-sm rounded-5 overflow-hidden bg-white">
                         <div class="table-responsive">
                             <table class="table align-middle mb-0 table-premium">
                                 <thead class="bg-light">
                                     <tr>
-                                        <th class="ps-5 py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1" style="width: 35%;">Student Information</th>
-                                        <th class="py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1" style="width: 45%;">Granted Mock Tests</th>
-                                        <th class="pe-5 py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1 text-end" style="width: 20%;">Actions</th>
+                                        <th class="ps-5 py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1" style="width: 28%;">Student Information</th>
+                                        <th class="py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1" style="width: 30%;">
+                                            <i class="bi bi-list-check text-success me-1"></i> Granted Unit Tests
+                                        </th>
+                                        <th class="py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1" style="width: 27%;">
+                                            <i class="bi bi-file-earmark-check text-primary me-1"></i> Granted Mock Tests
+                                        </th>
+                                        <th class="pe-5 py-4 extra-small fw-black text-muted text-uppercase letter-spacing-1 text-end" style="width: 15%;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody class="border-top-0">
-                                    <?php foreach($users as $user): ?>
+                                    <?php foreach($users as $user): $user['access'] = $user['access'] ?? []; ?>
                                         <tr class="transition-all hover-row">
                                             <td class="ps-5 py-4">
                                                 <div class="d-flex align-items-center">
@@ -63,30 +80,48 @@
                                                     </div>
                                                 </div>
                                             </td>
+
+                                            <!-- Granted Unit Tests -->
                                             <td class="py-4">
-                                                <?php 
-                                                    $allowedIds = !empty($user['access']['allowed_mock_tests']) ? explode(',', $user['access']['allowed_mock_tests']) : [];
-                                                    if(empty($allowedIds)):
+                                                <?php
+                                                    $allowedUnitIds = !empty($user['access']['allowed_unit_tests']) ? explode(',', $user['access']['allowed_unit_tests']) : [];
+                                                    if(empty($allowedUnitIds)):
                                                 ?>
                                                     <span class="text-muted small fw-medium">No tests assigned</span>
                                                 <?php else: ?>
                                                     <div class="d-flex flex-wrap gap-1">
-                                                        <?php 
-                                                            foreach($mockTests as $test): 
-                                                                if(in_array($test['id'], $allowedIds)):
-                                                        ?>
+                                                        <?php foreach($unitTests as $ut):
+                                                                if(in_array((string)$ut['id'], $allowedUnitIds)): ?>
                                                             <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1 extra-small fw-black border border-success border-opacity-25">
-                                                                <?= $test['title'] ?>
+                                                                <?= esc($ut['test_name']) ?>
                                                             </span>
-                                                        <?php 
-                                                                endif;
-                                                            endforeach; 
-                                                        ?>
+                                                        <?php endif; endforeach; ?>
                                                     </div>
                                                 <?php endif; ?>
                                             </td>
+
+                                            <!-- Granted Mock Tests -->
+                                            <td class="py-4">
+                                                <?php
+                                                    $allowedMockIds = !empty($user['access']['allowed_mock_tests']) ? explode(',', $user['access']['allowed_mock_tests']) : [];
+                                                    if(empty($allowedMockIds)):
+                                                ?>
+                                                    <span class="text-muted small fw-medium">No tests assigned</span>
+                                                <?php else: ?>
+                                                    <div class="d-flex flex-wrap gap-1">
+                                                        <?php foreach($mockTests as $mt):
+                                                                if(in_array((string)$mt['id'], $allowedMockIds)): ?>
+                                                            <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-1 extra-small fw-black border border-primary border-opacity-25">
+                                                                <?= esc($mt['title']) ?>
+                                                            </span>
+                                                        <?php endif; endforeach; ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </td>
+
                                             <td class="pe-5 py-4 text-end">
-                                                <button class="btn btn-primary rounded-pill px-4 extra-small fw-black hover-lift" onclick='openAccessModal(<?= json_encode($user) ?>)'>
+                                                <button class="btn btn-primary rounded-pill px-4 extra-small fw-black hover-lift"
+                                                        onclick='openAccessModal(<?= json_encode($user) ?>)'>
                                                     <i class="bi bi-shield-lock-fill me-1"></i> MANAGE ACCESS
                                                 </button>
                                             </td>
@@ -104,7 +139,7 @@
 
 <!-- Access Modal -->
 <div class="modal fade" id="accessModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content border-0 shadow-lg rounded-5 overflow-hidden">
             <div class="bg-dark py-4 px-5 text-white d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
@@ -121,32 +156,108 @@
             <div class="modal-body p-5 bg-white">
                 <form action="<?= base_url('admin/test-access/save') ?>" method="POST">
                     <input type="hidden" name="user_id" id="modal-user-id">
-                    
-                    <div class="mb-5">
-                        <label class="form-label extra-small fw-black text-muted text-uppercase letter-spacing-1 mb-4 d-block">Available Mock Exams</label>
-                        <div class="row g-3">
-                            <?php foreach($mockTests as $test): ?>
-                                <div class="col-md-6">
-                                    <div class="card border-light bg-light rounded-4 p-3 hover-lift transition-all cursor-pointer h-100 access-card" onclick="toggleCheckbox('test_<?= $test['id'] ?>')">
-                                        <div class="d-flex align-items-center">
-                                            <div class="form-check me-3">
-                                                <input class="form-check-input" type="checkbox" name="allowed_mock_tests[]" value="<?= $test['id'] ?>" id="test_<?= $test['id'] ?>" onclick="event.stopPropagation()">
-                                            </div>
-                                            <div>
-                                                <h6 class="fw-black text-dark mb-0 small"><?= $test['title'] ?></h6>
-                                                <p class="extra-small text-muted mb-0 fw-bold"><?= $test['duration_minutes'] ?> Mins</p>
+
+                    <div class="row g-5">
+
+                        <!-- ====== UNIT TESTS SECTION ====== -->
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-success bg-opacity-10 rounded-3 p-2 me-3">
+                                    <i class="bi bi-list-check text-success fs-5"></i>
+                                </div>
+                                <div>
+                                    <label class="form-label extra-small fw-black text-muted text-uppercase letter-spacing-1 mb-0 d-block">Unit Tests</label>
+                                    <span class="extra-small text-muted">Select unit tests to grant access</span>
+                                </div>
+                            </div>
+
+                            <?php if(empty($unitTests)): ?>
+                                <div class="text-center py-4 text-muted">
+                                    <i class="bi bi-inbox fs-2 opacity-50"></i>
+                                    <p class="small mt-2 mb-0">No active unit tests found</p>
+                                </div>
+                            <?php else: ?>
+                                <div class="row g-2" id="unit-tests-list">
+                                    <?php foreach($unitTests as $ut): ?>
+                                        <div class="col-12">
+                                            <div class="card border-light bg-light rounded-4 p-3 hover-lift transition-all cursor-pointer access-card access-card-unit"
+                                                 onclick="toggleCheckbox('unit_<?= $ut['id'] ?>')">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check me-3">
+                                                        <input class="form-check-input unit-checkbox" type="checkbox"
+                                                               name="allowed_unit_tests[]"
+                                                               value="<?= $ut['id'] ?>"
+                                                               id="unit_<?= $ut['id'] ?>"
+                                                               onclick="event.stopPropagation()">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="fw-black text-dark mb-0 small"><?= esc($ut['test_name']) ?></h6>
+                                                        <p class="extra-small text-muted mb-0 fw-bold">Unit Test &nbsp;·&nbsp; Practice Mode</p>
+                                                    </div>
+                                                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-2 py-1 extra-small fw-black">UNIT</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
-                            <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
-                    </div>
 
-                    <div class="pt-2">
-                        <button type="submit" class="btn btn-dark rounded-pill py-3 px-5 shadow-lg fw-black w-100 hover-lift">
-                            UPDATE PERMISSIONS <i class="bi bi-check-all ms-2"></i>
-                        </button>
+                        <!-- ====== MOCK TESTS SECTION ====== -->
+                        <div class="col-lg-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="bg-primary bg-opacity-10 rounded-3 p-2 me-3">
+                                    <i class="bi bi-file-earmark-check text-primary fs-5"></i>
+                                </div>
+                                <div>
+                                    <label class="form-label extra-small fw-black text-muted text-uppercase letter-spacing-1 mb-0 d-block">Mock Exams</label>
+                                    <span class="extra-small text-muted">Select mock tests to grant access</span>
+                                </div>
+                            </div>
+
+                            <?php if(empty($mockTests)): ?>
+                                <div class="text-center py-4 text-muted">
+                                    <i class="bi bi-inbox fs-2 opacity-50"></i>
+                                    <p class="small mt-2 mb-0">No active mock tests found</p>
+                                </div>
+                            <?php else: ?>
+                                <div class="row g-2" id="mock-tests-list">
+                                    <?php foreach($mockTests as $mt): ?>
+                                        <div class="col-12">
+                                            <div class="card border-light bg-light rounded-4 p-3 hover-lift transition-all cursor-pointer access-card access-card-mock"
+                                                 onclick="toggleCheckbox('test_<?= $mt['id'] ?>')">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="form-check me-3">
+                                                        <input class="form-check-input mock-checkbox" type="checkbox"
+                                                               name="allowed_mock_tests[]"
+                                                               value="<?= $mt['id'] ?>"
+                                                               id="test_<?= $mt['id'] ?>"
+                                                               onclick="event.stopPropagation()">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="fw-black text-dark mb-0 small"><?= esc($mt['title']) ?></h6>
+                                                        <p class="extra-small text-muted mb-0 fw-bold"><?= $mt['duration_minutes'] ?> Mins &nbsp;·&nbsp; Full Length</p>
+                                                    </div>
+                                                    <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 rounded-pill px-2 py-1 extra-small fw-black">MOCK</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                    </div><!-- /row -->
+
+                    <div class="pt-5 border-top mt-4">
+                        <div class="d-flex gap-3">
+                            <button type="button" class="btn btn-outline-secondary rounded-pill py-3 px-5 fw-black" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-dark rounded-pill py-3 px-5 shadow-lg fw-black flex-grow-1 hover-lift">
+                                UPDATE PERMISSIONS <i class="bi bi-check-all ms-2"></i>
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -166,17 +277,24 @@
 
     function openAccessModal(user) {
         document.getElementById('modal-user-id').value = user.id;
-        document.getElementById('modal-user-name').textContent = (user.full_name || user.name).toUpperCase();
-        
-        // Reset checkboxes
-        const checkboxes = document.querySelectorAll('input[name="allowed_mock_tests[]"]');
-        checkboxes.forEach(cb => cb.checked = false);
+        document.getElementById('modal-user-name').textContent = (user.full_name || user.name || 'Student').toUpperCase();
 
-        // Check assigned tests
+        // Reset all checkboxes
+        document.querySelectorAll('input[name="allowed_mock_tests[]"]').forEach(cb => cb.checked = false);
+        document.querySelectorAll('input[name="allowed_unit_tests[]"]').forEach(cb => cb.checked = false);
+
+        // Pre-check assigned mock tests
         if (user.access && user.access.allowed_mock_tests) {
-            const allowedIds = user.access.allowed_mock_tests.split(',');
-            allowedIds.forEach(id => {
-                const cb = document.getElementById('test_' + id);
+            user.access.allowed_mock_tests.split(',').forEach(id => {
+                const cb = document.getElementById('test_' + id.trim());
+                if (cb) cb.checked = true;
+            });
+        }
+
+        // Pre-check assigned unit tests
+        if (user.access && user.access.allowed_unit_tests) {
+            user.access.allowed_unit_tests.split(',').forEach(id => {
+                const cb = document.getElementById('unit_' + id.trim());
                 if (cb) cb.checked = true;
             });
         }
@@ -203,10 +321,13 @@
     .rounded-5 { border-radius: 2rem !important; }
     .shadow-sm { box-shadow: 0 20px 40px rgba(0,0,0,0.05) !important; }
     .cursor-pointer { cursor: pointer; }
-    .access-card { border: 2px solid transparent !important; }
-    .access-card:has(input:checked) { border-color: #198754 !important; background-color: rgba(25, 135, 84, 0.05) !important; }
-    
-    /* Override aggressive global table styles */
+
+    /* Access card states */
+    .access-card { border: 2px solid transparent !important; transition: all 0.2s ease; }
+    .access-card-unit:has(input:checked)  { border-color: #198754 !important; background-color: rgba(25, 135, 84, 0.06) !important; }
+    .access-card-mock:has(input:checked)  { border-color: #0d6efd !important; background-color: rgba(13, 110, 253, 0.06) !important; }
+
+    /* Table overrides */
     .table-premium td, .table-premium th {
         white-space: normal !important;
         text-transform: none !important;
