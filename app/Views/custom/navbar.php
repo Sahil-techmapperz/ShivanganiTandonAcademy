@@ -46,7 +46,7 @@
 
         <!-- Center Text -->
         <div class="md:flex text-center flex-1 justify-center text-xs sm:text-sm md:text-base lg:text-base">
-            join our new batch
+            New Batch Started Soon — Join our new batch today!
         </div>
 
         <!-- Right Contact -->
