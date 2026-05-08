@@ -13,6 +13,11 @@ class WebSiteController extends BaseController
         return view('website/home_main', $data);
     }
 
+    public function Drake_software_tranning()
+    {
+        return view('website/Drake_software_tranning_main');
+    }
+
     public function CMA()
     {
         return view('website/CMA_main');

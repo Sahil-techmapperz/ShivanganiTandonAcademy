@@ -15,6 +15,7 @@ $routes->get('resources', 'WebSiteController::resources');
 $routes->get('talent', 'WebSiteController::talent');
 $routes->get('blogs', 'WebSiteController::blogs');
 $routes->get('blog/(:segment)', 'WebSiteController::blogView/$1');
+$routes->get('tax', 'WebSiteController::Drake_software_tranning');
 
 // Authentication Routes
 $routes->get('login', 'AuthController::login');

@@ -66,7 +66,7 @@
                             'Live Tax Return Filing',
                             'Practical Exposure'
                         ],
-                        'link' => 'TST'
+                        'link' => 'tax'
                     ],
                     [
                         'title' => 'AI For Finance Professionals',
