@@ -20,9 +20,7 @@
                 <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Big 4 Firms</h3>
                 <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">Deloitte, PwC, EY, KPMG</p>
             </div>
-            <a href="#" class="text-[16px] font-normal text-[#5751E1] leading-[27.2px] inline-flex items-center hover:underline font-dmsans">
-                Know More <span class="ml-2">→</span>
-            </a>
+
         </div>
 
         <div class="overflow-hidden">
@@ -37,9 +35,7 @@
                 <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Strategy Growth</h3>
                 <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">Deloitte, PwC, EY, KPMG</p>
             </div>
-            <a href="#" class="text-[16px] font-normal text-[#5751E1] leading-[27.2px] inline-flex items-center hover:underline font-dmsans">
-                Know More <span class="ml-2">→</span>
-            </a>
+
         </div>
 
         <div class="overflow-hidden">
@@ -58,9 +54,7 @@
                 <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Career Growth</h3>
                 <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">30%-40% Salary hike Post EA.</p>
             </div>
-            <a href="#" class="text-[16px] font-normal text-[#5751E1] leading-[27.2px] inline-flex items-center hover:underline font-dmsans">
-                Know More <span class="ml-2">→</span>
-            </a>
+
         </div>
 
         <div class="overflow-hidden">
@@ -75,9 +69,7 @@
                 <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Avg Packages</h3>
                 <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">6 - 15 LPA for EA Professional</p>
             </div>
-            <a href="#" class="text-[16px] font-normal text-[#5751E1] leading-[27.2px] inline-flex items-center hover:underline font-dmsans">
-                Know More <span class="ml-2">→</span>
-            </a>
+
         </div>
 
     </div>

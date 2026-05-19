@@ -32,25 +32,13 @@
 
 
                 <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-8">
-                    <a href="<?= base_url('') ?>">
-                        <button class="bg-[#5751E1] text-white px-6 py-2 rounded-full flex items-center gap-2 
-                                shadow-[4px_6px_0px_0px_#050071] 
-                                transition-all duration-300  
-                                hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
-                                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
-                            Find Your Course →
-                        </button>
-                    </a>
-
-                    <a href="javascript:void(0)" onclick="openBannerVideo()" class="flex items-center gap-4 group">
-                        <div class="w-14 h-14 bg-[#FFC224] rounded-full border-2 border-[#161439] flex items-center justify-center
-                            shadow-[4px_4px_0px_0px_#3D3D3D] transition-all group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0px_0px_#221832]">
-                            <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-[#221832] border-b-[8px] border-b-transparent ml-1"></div>
-                        </div>
-
-                        <span class="text-[#161439] font-medium text-[15px] leading-[19.5px] font-poppins align-middle">
-                            Watch Our<br>Class Demo
-                        </span>
+                    <a href="<?= base_url('/') ?>" 
+                       class="inline-flex items-center gap-2 bg-[#5751E1] text-white px-6 py-2 rounded-full font-bold
+                              shadow-[4px_6px_0px_0px_#050071] 
+                              transition-all duration-300  
+                              hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
+                              active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+                        Find Your Course →
                     </a>
                 </div>
 

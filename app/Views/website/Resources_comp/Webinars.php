@@ -74,9 +74,9 @@
 
                     </div>
 
-                    <button class="bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                    <a href="#needHelpForm" class="inline-block bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition text-center">
                         Register for Webinar
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -141,9 +141,9 @@
 
                     </div>
 
-                    <button class="bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                    <a href="#needHelpForm" class="inline-block bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition text-center">
                         Become a Partner
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -239,9 +239,9 @@
 
                 </div>
 
-                <button class="bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                <a href="#needHelpForm" class="inline-block bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition text-center">
                     Register for Webinar
-                </button>
+                </a>
             </div>
         </div>
 
@@ -305,9 +305,9 @@
 
                 </div>
 
-                <button class="bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">
+                <a href="#needHelpForm" class="inline-block bg-[#5751E1] text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition text-center">
                     Become a Partner
-                </button>
+                </a>
             </div>
         </div>
 

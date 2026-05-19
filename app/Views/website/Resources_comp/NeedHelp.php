@@ -1,4 +1,4 @@
-<section class="bg-[#FFFFFF] pt-0 pb-5 sm:py-14 md:py-16 px-2 sm:px-3 md:px-4 font-poppins">
+<section id="needHelpForm" class="bg-[#FFFFFF] pt-0 pb-5 sm:py-14 md:py-16 px-2 sm:px-3 md:px-4 font-poppins">
     <div class="max-w-7xl mx-auto px-2 sm:px-3 md:px-4">
 
         <!-- Header -->
@@ -6,8 +6,8 @@
             <h2 class="text-2xl md:text-4xl font-bold mt-0 text-[#161439]">
                 Need Help?
             </h2>
-            <p class="text-gray-500 text-sm mt-2">
-                when known printer took a galley of type scramble edmake
+            <p class="text-gray-500 text-sm mt-2 max-w-2xl mx-auto">
+                Connect With Shivangani Tandon Academy For Expert Guidance, Updated Study Material, Practical Training & Career Support.
             </p>
         </div>
 
@@ -58,7 +58,7 @@
                         </div>
                         <div>
                             <p class="text-[#B3B7C1] font-dmsans font-normal text-sm md:text-base leading-5 md:leading-[22.4px]">Call Us 24/7</p>
-                            <p class="text-lg md:text-[22px] leading-6 md:leading-[30.8px] font-medium text-[#FFFFFF] font-dmsans">+256 56778.5678</p>
+                            <p class="text-base sm:text-lg md:text-[20px] leading-6 md:leading-[28px] font-medium text-[#FFFFFF] font-dmsans">+91 74832 79284 / 78786 18327</p>
                         </div>
                     </div>
 
@@ -69,7 +69,7 @@
                         </div>
                         <div>
                             <p class="text-[#B3B7C1] font-dmsans font-normal text-sm md:text-base leading-5 md:leading-[22.4px]">Work with us</p>
-                            <p class="text-lg md:text-[22px] leading-6 md:leading-[30.8px] font-medium text-[#FFFFFF] font-dmsans">info@Invena.com</p>
+                            <p class="text-lg md:text-[22px] leading-6 md:leading-[30.8px] font-medium text-[#FFFFFF] font-dmsans">info@shivanganitandon.com</p>
                         </div>
                     </div>
 
@@ -80,7 +80,7 @@
                         </div>
                         <div>
                             <p class="text-[#B3B7C1] font-dmsans font-normal text-sm md:text-base leading-5 md:leading-[22.4px]">Your location</p>
-                            <p class="text-lg md:text-[22px] leading-6 md:leading-[30.8px] font-medium text-[#FFFFFF] font-dmsans">125 Town, United State</p>
+                            <p class="text-lg md:text-[22px] leading-6 md:leading-[30.8px] font-medium text-[#FFFFFF] font-dmsans">Bangalore, Karnataka</p>
                         </div>
                     </div>
 

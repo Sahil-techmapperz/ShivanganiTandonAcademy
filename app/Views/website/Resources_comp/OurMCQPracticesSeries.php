@@ -37,9 +37,9 @@
             <div class="p-3 sm:p-5 lg:p-6 flex flex-col flex-grow">
                 <p class="font-poppins text-[18px] font-bold text-black mb-2 leading-[47.88px] capitalize">EA Exam MCQs</p>
                 <p class="text-[15px] leading-[18.9px] font-normal text-[#5D5D5D] mb-2 flex-grow capitalize">Thousands of topic-wise practice questions for EA exam readiness.</p>
-                <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200">
+                <a href="<?= base_url('signup') ?>" class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200 block">
                     View Series
-                </button>
+                </a>
             </div>
         </div>
 
@@ -48,31 +48,31 @@
             <div class="p-3 sm:p-5 lg:p-6 flex flex-col flex-grow">
                 <p class="font-poppins text-[18px] font-bold text-black mb-2 leading-[47.88px] capitalize">CMA Exam MCQs</p>
                 <p class="text-[15px] leading-[18.9px] font-normal text-[#5D5D5D] mb-2 flex-grow capitalize">Simulate CMA exam conditions with a massive bank of practice questions.</p>
-                <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200">
+                <a href="<?= base_url('signup') ?>" class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200 block">
                     View Series
-                </button>
+                </a>
             </div>
         </div>
 
         <div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col border-2 border-indigo-100">
             <img src="<?= base_url('public/images/Resources/OurMCQPracticesSeries/c9a67060118cf09bfb805afb84f30c466c4623c0.jpg') ?>" alt="AI Principles" class="h-48 w-full object-cover">
             <div class="p-3 sm:p-5 lg:p-6 flex flex-col flex-grow">
-                <p class="font-poppins text-[18px] font-bold text-black mb-2 leading-[47.88px] capitalize">AI Principal MCQs</p>
+                <p class="font-poppins text-[18px] font-bold text-black mb-2 leading-[47.88px] capitalize">AI Taxation MCQs</p>
                 <p class="text-[15px] leading-[18.9px] font-normal text-[#5D5D5D] mb-2 flex-grow capitalize">Expertly curated questions covering core AI principles and applications.</p>
-                <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200">
+                <a href="<?= base_url('signup') ?>" class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200 block">
                     View Series
-                </button>
+                </a>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-[0px_0px_30px_0px_#E8E8E8] overflow-hidden flex flex-col">
             <img src="<?= base_url('public/images/Resources/OurMCQPracticesSeries/750c78e8cf7dd5815621926ec91feb62c8978004.jpg') ?>" alt="Soft Skills" class="h-48 w-full object-cover">
             <div class="p-3 sm:p-5 lg:p-6 flex flex-col flex-grow">
-                <p class="font-poppins text-[18px] font-bold text-black mb-2 leading-[47.88px] capitalize">Soft Skill Quizzes</p>
-                <p class="text-[15px] leading-[18.9px] font-normal text-[#5D5D5D] mb-2 flex-grow capitalize">Improve your professional communication and leadership with focused quizzes.</p>
-                <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200">
+                <p class="font-poppins text-[18px] font-bold text-black mb-2 leading-[47.88px] capitalize">Tax software Practice</p>
+                <p class="text-[15px] leading-[18.9px] font-normal text-[#5D5D5D] mb-2 flex-grow capitalize">Gain Hands-On Experience With Industry-Used Tax Software Through Practical Simulations And Real-Time Filing Practice.</p>
+                <a href="<?= base_url('signup') ?>" class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200 block">
                     View Series
-                </button>
+                </a>
             </div>
         </div>
 

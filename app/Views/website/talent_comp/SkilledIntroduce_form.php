@@ -1,20 +1,89 @@
-<section class="py-10 md:py-16 font-poppins bg-[#F9F9FB]">
-    <div class="w-full max-w-full sm:max-w-3xl md:max-w-5xl mx-auto px-4">
+<section id="hiring-form" class="py-10 md:py-16 font-poppins bg-[#F9F9FB]">
+    <div class="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10">
 
-        <div class="text-center mb-8">
-            <span class="inline-block bg-[#EFEEFE] text-[#5751E1] font-medium font-poppins text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-full mb-3">
-                Hire Talent
-            </span>
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 font-poppins capitalize">
-                Submit Your Hiring Requirement
-            </h2>
-            <p class="text-gray-500 mt-2 text-sm sm:text-base max-w-lg mx-auto">
-                Let us know your staffing needs, and we'll connect you with our top certified tax and finance professionals.
-            </p>
-        </div>
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
 
-        <!-- RIGHT FORM -->
-        <div class="bg-white rounded-2xl p-6 md:p-8 w-full max-w-2xl mx-auto border border-[#E3E3E3] shadow-[0px_0px_30px_0px_#E8E8E8]">
+            <!-- LEFT SIDE -->
+            <div class="space-y-6 about_us_text text-center lg:text-left flex flex-col items-center lg:items-start">
+
+                <!-- Badge -->
+                <span class="inline-block bg-[#EFEEFE] text-[#5751E1] font-medium font-poppins text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-full">
+                    Skilled Introduce
+                </span>
+
+                <p class="text-[22px] leading-[30px] sm:text-[28px] sm:leading-[36px] md:text-[36px] md:leading-[47px] tracking-[-0.5px] sm:tracking-[-0.75px] font-bold text-gray-800 font-poppins capitalize">
+                    Our Top Class & Professional <br class="hidden sm:inline">
+                    Instructors in One Place
+                </p>
+
+                <!-- Shivangani Tandon Card -->
+                <div class="bg-white rounded-2xl p-6 border border-[#E3E3E3] shadow-sm max-w-lg w-full flex flex-col items-center text-center gap-4">
+
+                    <!-- Image -->
+                    <div class="w-[200px] sm:w-[240px] md:w-[260px] flex justify-center shrink-0">
+                        <img
+                            class="w-full h-auto object-contain"
+                            src="<?= base_url('public/images/homePageImages/Faqs/IMG.png') ?>"
+                            alt="Shivangani Tandon">
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="space-y-1">
+                        <p class="text-xl md:text-2xl font-bold text-[#161439] leading-tight font-poppins">
+                            Shivangani Tandon
+                        </p>
+
+                        <p class="text-[#5751E1] font-semibold text-sm tracking-wide uppercase font-poppins">
+                            US Tax Expert
+                        </p>
+
+                        <p class="text-[#6D6C80] mt-3 leading-relaxed text-sm sm:text-base font-normal font-poppins">
+                            With expert mentorship and hands-on learning, our students have secured opportunities in Big 4 firms and multinational companies.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Students & Rating Row -->
+                <div class="flex flex-col sm:flex-row items-center gap-6 mt-2 w-full justify-center lg:justify-start">
+                    <!-- Students -->
+                    <div class="flex items-center gap-3">
+                        <div class="flex -space-x-3">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="<?= base_url('public/images/homePageImages/home_banner/shivani.png') ?>">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="<?= base_url('public/images/homePageImages/home_banner/aniket.png') ?>">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="<?= base_url('public/images/homePageImages/home_banner/shivani.png') ?>">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="<?= base_url('public/images/homePageImages/home_banner/aniket.png') ?>">
+                        </div>
+                        <p class="text-gray-600 text-sm font-medium">
+                            2,00,000+ Students Placed
+                        </p>
+                    </div>
+
+                    <div class="hidden sm:block w-[1px] h-6 bg-[#E3E3E3]"></div>
+
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                        <div class="flex gap-0.5">
+                            <img src="<?= base_url('public/images/homePageImages/Testimonials/Symbol.png') ?>" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="<?= base_url('public/images/homePageImages/Testimonials/Symbol.png') ?>" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="<?= base_url('public/images/homePageImages/Testimonials/Symbol.png') ?>" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="<?= base_url('public/images/homePageImages/Testimonials/Symbol.png') ?>" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="<?= base_url('public/images/homePageImages/Testimonials/Symbol.png') ?>" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                        </div>
+                        <p class="text-gray-600 text-xs sm:text-sm font-medium ml-1">
+                            4.5/5 Rating
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT FORM -->
+            <div class="bg-white rounded-2xl p-6 md:p-8 w-full border border-[#E3E3E3] shadow-[0px_0px_30px_0px_#E8E8E8]">
 
                 <h3 class="text-xl md:text-2xl font-semibold mb-6 text-[#161439] text-center">
                     Submit your Hiring Requirement
@@ -103,6 +172,7 @@
                 </form>
             </div>
 
+        </div>
     </div>
 </section>
 

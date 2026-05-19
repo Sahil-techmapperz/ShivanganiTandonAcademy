@@ -10,8 +10,7 @@
     <?= view('website/talent_comp/HireTopTierGlobalTaxandManagementProfessional') ?>
     <?= view('website/talent_comp/SkilledIntroduce_form') ?>
     <?= view('website/talent_comp/Career_Support') ?>
-    <?= view('website/talent_comp/OurTopClass_ProfessionalInstructors') ?>
-    <?= view('website/talent_comp/counts') ?>
+
     <?= view('website/talent_comp/SuccessStories') ?>
     <?= view('website/talent_comp/RealResult_talent') ?>
 

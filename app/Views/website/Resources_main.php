@@ -10,7 +10,6 @@
     <?= view('website/Resources_comp/StudyMaterials') ?>
     <?= view('website/Resources_comp/OurMCQPracticesSeries') ?>
     <?= view('website/Resources_comp/EAExamMock') ?>
-    <?= view('website/Resources_comp/SkilledIntroduce') ?>
     <?= view('website/Resources_comp/RealResults') ?>
     <?= view('website/Resources_comp/Collaboration') ?>
     <?= view('website/Resources_comp/Webinars') ?>

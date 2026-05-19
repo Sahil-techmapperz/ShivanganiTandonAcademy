@@ -1,11 +1,23 @@
 <section class="max-w-7xl mx-auto px-4 py-8 sm:p-8 bg-white flex flex-col md:flex-row items-center gap-8 md:gap-12">
 
     <!-- IMAGE -->
-    <div class="w-full md:w-1/2 flex justify-center">
-        <img
-            src="<?= base_url('public/images/talent/HireEACertifiedTalent/Img.png') ?>"
-            alt="Professional working"
-            class="w-full max-w-[500px] h-auto md:h-[400px] object-cover rounded-md" />
+    <div class="w-full md:w-1/2 flex justify-center relative">
+        <div class="relative max-w-[500px] w-full">
+            <img
+                src="<?= base_url('public/images/talent/HireEACertifiedTalent/Img.png') ?>"
+                alt="Professional working"
+                class="w-full h-auto md:h-[400px] object-cover rounded-md" />
+            
+            <!-- Experience Box Overlay to cover '15+17' -->
+            <div class="absolute top-2 left-2 sm:top-4 sm:left-4 bg-[#5751E1] text-white 
+                    p-3 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center 
+                    shadow-lg font-poppins z-10">
+                <span class="text-2xl sm:text-4xl font-semibold leading-none">17+</span>
+                <span class="text-[10px] sm:text-[11px] font-semibold text-center mt-1 leading-tight">
+                    Years of experience
+                </span>
+            </div>
+        </div>
     </div>
 
     <!-- CONTENT -->
@@ -83,7 +95,7 @@
 
         <!-- BUTTON -->
         <div class="mt-6 sm:mt-8 md:mt-10">
-            <a href="https://wa.me/917483279284?text=Hi%2C%20I%20am%20interested%20in%20hiring%20EA-Certified%20talent%20from%20Shivangani%20Tandon%20Academy." target="_blank" rel="noopener noreferrer" class="inline-flex bg-[#5751E1] text-white 
+            <a href="#hiring-form" class="inline-flex bg-[#5751E1] text-white 
                 px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4
                 text-sm sm:text-base
                 rounded-full items-center gap-2 
