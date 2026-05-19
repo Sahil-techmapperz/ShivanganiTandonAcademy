@@ -1,4 +1,4 @@
-<?= $this->include('custom/homeMeta') ?>
+<?= $this->include('custom/blogMeta') ?>
 <?= $this->include('custom/upper_template') ?>
 <?= $this->include('custom/navbar') ?>
 
@@ -51,11 +51,15 @@
                         </div>
 
                         <div class="mt-12 pt-8 border-t border-gray-100 flex justify-between items-center">
-                            <div class="flex gap-4">
+                            <?php
+                            $share_url = urlencode(base_url('blog/' . $blog['slug']));
+                            $share_title = urlencode($blog['title']);
+                            ?>
+                            <div class="flex gap-4 items-center">
                                 <span class="text-sm font-bold text-[#161439]">SHARE:</span>
-                                <a href="#" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $share_url ?>" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-facebook"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url=<?= $share_url ?>&text=<?= $share_title ?>" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-twitter"></i></a>
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= $share_url ?>" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-linkedin"></i></a>
                             </div>
                             <a href="<?= base_url('blogs') ?>" class="text-[#5751E1] font-bold flex items-center gap-2 hover:gap-3 transition-all">
                                 <i class="bi bi-arrow-left"></i> BACK TO BLOGS

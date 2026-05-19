@@ -30,7 +30,7 @@ class StudentModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'email'    => 'required|valid_email|is_unique[tbl_students.email,id,{id}]',
+        'email'    => 'required|valid_email|is_unique[tbl_users.email,id,{id}]',
         'password' => 'required|min_length[6]',
         'full_name' => 'required'
     ];

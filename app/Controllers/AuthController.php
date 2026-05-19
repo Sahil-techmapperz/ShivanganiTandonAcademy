@@ -25,12 +25,18 @@ class AuthController extends BaseController
         
         $rules = [
             'full_name' => 'required|min_length[3]',
-            'email'     => 'required|valid_email|is_unique[tbl_users.email]',
+            'email'     => 'required|valid_email|is_unique[tbl_users.email]|is_unique[tbl_admins.email]',
             'password'  => 'required|min_length[6]',
             'phone'     => 'permit_empty|min_length[10]'
         ];
 
-        if (!$this->validate($rules)) {
+        $errors = [
+            'email' => [
+                'is_unique' => 'This email address is already registered.'
+            ]
+        ];
+
+        if (!$this->validate($rules, $errors)) {
             return $this->response->setJSON([
                 'success' => false,
                 'message' => implode(' ', $this->validator->getErrors())

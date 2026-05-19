@@ -307,6 +307,7 @@
 
         function showMsg(msg, isSuccess) {
             responseBox.innerText = msg;
+            responseBox.style.display = 'block';
             responseBox.className = 'response-msg ' + (isSuccess ? 'msg-success' : 'msg-error');
         }
 

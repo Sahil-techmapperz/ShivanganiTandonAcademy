@@ -104,6 +104,9 @@
                 <li>
                     <a href="<?= base_url('talent') ?>" class="hover:text-[#FE002A]">Talent</a>
                 </li>
+                <li>
+                    <a href="<?= base_url('blogs') ?>" class="hover:text-[#FE002A]">Blog</a>
+                </li>
             </ul>
 
             <!-- Desktop Buttons -->
@@ -166,6 +169,9 @@
                 </li>
                 <li>
                     <a href="<?= base_url('talent') ?>" class="hover:text-[#FE002A]">Talent</a>
+                </li>
+                <li>
+                    <a href="<?= base_url('blogs') ?>" class="hover:text-[#FE002A]">Blog</a>
                 </li>
 
                 <li>
