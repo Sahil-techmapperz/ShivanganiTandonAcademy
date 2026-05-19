@@ -136,7 +136,7 @@
 
 
         <div class="py-2 flex justify-center lg:justify-start">
-          <a href="<?= base_url('CMA') ?>">
+          <a href="<?= base_url('usa-cma-course-online') ?>">
             <button class="bg-[#5751E1] text-white px-6 py-2 rounded-full flex items-center gap-2 
                   shadow-[4px_6px_0px_0px_#050071] 
                   transition-all duration-300  

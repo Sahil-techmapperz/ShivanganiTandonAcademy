@@ -17,10 +17,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shivangani Tandon Academy | EA, CMA, AI  & Tax Software Training</title>
+    <title>Shivangani Tandon Academy | EA, CMA, AI in Tax, Tax software training</title>
     <!-- SEO Meta -->
-    <meta name="description" content="Start your Global Tax career with us. Expert-led EA exam prep, US CMA taxation course, Tax software & AI skills training for tax professionals.">
-    <meta name="keywords" content=" Enrolled agent course Top rated US tax expert Global tax career Online EA training CMA course  AI in taxation course Tax software training">
+    <meta name="description" content="Join us for expert training in EA, CMA, AI in Tax, and tax software. Learn US taxation with practical guidance, live classes, updated study material, and career-focused programs.">
+    <meta name="keywords" content="Best Enrolled agent Academy, Top-rated US tax expert, Global tax career, Online EA academy, Best CMA course, Learn AI in Taxation, Drake tax software training, US taxation course">
     <meta name="author" content="<?= get_setting('site_name', 'Shivangani Tandon Academy'); ?>">
     <meta name="robots" content="index, follow">
 

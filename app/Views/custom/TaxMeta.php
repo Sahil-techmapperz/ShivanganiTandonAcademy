@@ -11,16 +11,16 @@
 
       gtag('config', 'G-C9Z4T62C9L');
     </script>
-    <link rel="canonical" href="https://www.shivanganitandon.com/tax" />
+    <link rel="canonical" href="https://www.shivanganitandon.com/tax-software-training" />
 
     <!-- Basic Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Drake Tax Software Training | US Income Tax Return Filing Course</title>
+    <title>Tax Software Training for US Tax Return Preparation</title>
     <!-- SEO Meta -->
-    <meta name="description" content="Master US tax filing with Drake Tax Software training. Learn individual and business tax preparation, tax filing processes, and practical calculations.">
-    <meta name="keywords" content="Drake software training, US tax filing course, tax preparation training, Drake tax software Bangalore">
+    <meta name="description" content="Learn practical US tax return filing with hands-on Drake Tax Software training at Shivangani Tandon Academy. Gain real-time experience.">
+    <meta name="keywords" content="Drake Tax Software Training, US Tax Return Filing Practice, Tax Software Training, US Taxation Practical Training, US Tax Filing Course">
     <meta name="author" content="Shivangani Tandon Academy">
     <meta name="robots" content="index, follow">
 

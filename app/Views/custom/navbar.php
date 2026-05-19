@@ -87,25 +87,25 @@
                     <!-- Dropdown -->
                     <ul class="courses-menu absolute left-0 top-full mt-2 w-40 bg-white border rounded-lg shadow-lg hidden z-50">
                         <li>
-                            <a href="<?= base_url('CMA') ?>" class="block px-4 py-2 hover:text-[#FE002A]">CMA</a>
+                            <a href="<?= base_url('usa-cma-course-online') ?>" class="block px-4 py-2 hover:text-[#FE002A]">CMA</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('EA') ?>" class="block px-4 py-2 hover:text-[#FE002A]">EA</a>
+                            <a href="<?= base_url('best-enrolled-agent-academy') ?>" class="block px-4 py-2 hover:text-[#FE002A]">EA</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('AI') ?>" class="block px-4 py-2 hover:text-[#FE002A]">AI</a>
+                            <a href="<?= base_url('ai-tax-professional-training') ?>" class="block px-4 py-2 hover:text-[#FE002A]">AI</a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="<?= base_url('resources') ?>" class="hover:text-[#FE002A]">Resources</a>
+                    <a href="<?= base_url('us-taxation-study-material') ?>" class="hover:text-[#FE002A]">Resources</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('talent') ?>" class="hover:text-[#FE002A]">Talent</a>
+                    <a href="<?= base_url('hire-us-tax-professionals') ?>" class="hover:text-[#FE002A]">Talent</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('blogs') ?>" class="hover:text-[#FE002A]">Blog</a>
+                    <a href="<?= base_url('taxation-career-guides') ?>" class="hover:text-[#FE002A]">Blog</a>
                 </li>
             </ul>
 
@@ -153,25 +153,25 @@
                     <!-- Dropdown -->
                     <ul class="courses-menu absolute left-0 top-full mt-2 w-40 bg-white border rounded-lg shadow-lg hidden z-50">
                         <li>
-                            <a href="<?= base_url('CMA') ?>" class="block px-4 py-2 hover:text-[#FE002A]">CMA</a>
+                            <a href="<?= base_url('usa-cma-course-online') ?>" class="block px-4 py-2 hover:text-[#FE002A]">CMA</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('EA') ?>" class="block px-4 py-2 hover:text-[#FE002A]">EA</a>
+                            <a href="<?= base_url('best-enrolled-agent-academy') ?>" class="block px-4 py-2 hover:text-[#FE002A]">EA</a>
                         </li>
                         <li>
-                            <a href="<?= base_url('AI') ?>" class="block px-4 py-2 hover:text-[#FE002A]">AI</a>
+                            <a href="<?= base_url('ai-tax-professional-training') ?>" class="block px-4 py-2 hover:text-[#FE002A]">AI</a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="<?= base_url('resources') ?>" class="hover:text-[#FE002A]">Resources</a>
+                    <a href="<?= base_url('us-taxation-study-material') ?>" class="hover:text-[#FE002A]">Resources</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('talent') ?>" class="hover:text-[#FE002A]">Talent</a>
+                    <a href="<?= base_url('hire-us-tax-professionals') ?>" class="hover:text-[#FE002A]">Talent</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('blogs') ?>" class="hover:text-[#FE002A]">Blog</a>
+                    <a href="<?= base_url('taxation-career-guides') ?>" class="hover:text-[#FE002A]">Blog</a>
                 </li>
 
                 <li>

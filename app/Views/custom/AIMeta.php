@@ -11,16 +11,16 @@
 
       gtag('config', 'G-C9Z4T62C9L');
     </script>
-    <link rel="canonical" href="https://www.shivanganitandon.com/AI" />
+    <link rel="canonical" href="https://www.shivanganitandon.com/ai-tax-professional-training" />
 
     <!-- Basic Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Best Artificial Intelligence Course | AI Certification & Machine Learning Course Online</title>
+    <title>AI In Taxation Course | Learn AI for US Tax & Finance Careers</title>
     <!-- SEO Meta -->
-    <meta name="description" content="Looking for the best AI certification program? Our Artificial Intelligence course includes Machine Learning training, Generative AI course content, and real-world AI projects to boost your tech career.">
-    <meta name="keywords" content="Artificial Intelligence course AI certification Professional AI course AI training institute">
+    <meta name="description" content="Master AI tools and automation in US Taxation & Finance with practical training, real-world applications, and career-focused learning at Shivangani Tandon Academy.">
+    <meta name="keywords" content="AI in Taxation, AI for Finance Professionals, US Taxation AI Course, AI Automation in Accounting, AI Training for Tax Professionals">
     <meta name="author" content="Shivangani Tandon Academy">
     <meta name="robots" content="index, follow">
 

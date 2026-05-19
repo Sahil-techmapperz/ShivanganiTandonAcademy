@@ -1,4 +1,4 @@
-<?= $this->include('custom/homeMeta') ?>
+<?= $this->include('custom/BlogsMeta') ?>
 
 <?= $this->include('custom/upper_template') ?>
 <?= $this->include('custom/navbar') ?>

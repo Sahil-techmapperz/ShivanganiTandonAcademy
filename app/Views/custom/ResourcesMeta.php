@@ -11,16 +11,16 @@
 
       gtag('config', 'G-C9Z4T62C9L');
     </script>
-    <link rel="canonical" href="https://www.shivanganitandon.com/resources" />
+    <link rel="canonical" href="https://www.shivanganitandon.com/us-taxation-study-material" />
 
     <!-- Basic Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Exam Resources & Study Material | Shivangani Tandon Academy</title>
+    <title>EA Study Material, Notes & US Taxation Resources Online</title>
     <!-- SEO Meta -->
-    <meta name="description" content="Access the best EA exam resources, CMA study materials, and mock tests. Prepare with curated content from Shivangani Tandon Academy.">
-    <meta name="keywords" content="EA Exam Resources, CMA Study Material, Mock Tests Bengaluru, Shivangani Tandon Academy">
+    <meta name="description" content="Access updated US Taxation resources, EA study material, finance learning content, practical guides, videos, and career-focused preparation tools at Shivangani Tandon Academy.">
+    <meta name="keywords" content="US Taxation Resources, EA Study Material, USA CMA Study Material, Enrolled Agent Preparation, US Tax Course India, US Taxation Notes & Videos">
     <meta name="author" content="Shivangani Tandon Academy">
     <meta name="robots" content="index, follow">
 

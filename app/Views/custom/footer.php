@@ -22,9 +22,9 @@
         <span class="absolute left-0 bottom-[-6px] w-8 h-[3px] rounded-full bg-[#5751E1]"></span>
       </h3>
       <ul class="space-y-2">
-        <li><a href="<?= base_url('EA') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Enrolled Agent (EA)</a></li>
-        <li><a href="<?= base_url('CMA') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Certified Management Accountant (CMA)</a></li>
-        <li><a href="<?= base_url('AI') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Artificial Intelligence (AI)</a></li>
+        <li><a href="<?= base_url('best-enrolled-agent-academy') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Enrolled Agent (EA)</a></li>
+        <li><a href="<?= base_url('usa-cma-course-online') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Certified Management Accountant (CMA)</a></li>
+        <li><a href="<?= base_url('ai-tax-professional-training') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Artificial Intelligence (AI)</a></li>
       </ul>
     </div>
 
@@ -37,8 +37,8 @@
       <ul class="space-y-2">
         <li><a href="<?= base_url('signup') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition"> Sign Up</a></li>
         <li><a href="<?= base_url('login') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Login</a></li>
-        <li><a href="<?= base_url('blogs') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Blogs</a></li>
-        <li><a href="<?= base_url('resources') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Materials</a></li>
+        <li><a href="<?= base_url('taxation-career-guides') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Blogs</a></li>
+        <li><a href="<?= base_url('us-taxation-study-material') ?>" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Materials</a></li>
       </ul>
     </div>
 

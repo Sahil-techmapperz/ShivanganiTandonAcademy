@@ -107,7 +107,7 @@
 
             <!-- BUTTON -->
             <div class="mt-8">
-                <a href="<?= base_url('EA') ?>">
+                <a href="<?= base_url('best-enrolled-agent-academy') ?>">
                     <button class="bg-[#5751E1] text-white px-6 py-2 rounded-full flex items-center gap-2 
                             shadow-[4px_6px_0px_0px_#050071] 
                             transition-all duration-300 ease-in-out 

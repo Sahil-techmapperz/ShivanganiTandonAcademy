@@ -51,7 +51,7 @@
 
         <!-- View All Blogs Button -->
         <div class="flex justify-center mt-10">
-            <a href="<?= base_url('blogs') ?>" class="inline-flex items-center justify-center gap-2 bg-[#FE002A] text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-red-700 transition shadow-lg hover:shadow-xl hover:translate-y-[-2px] duration-300">
+            <a href="<?= base_url('taxation-career-guides') ?>" class="inline-flex items-center justify-center gap-2 bg-[#FE002A] text-white px-6 py-3 rounded-full text-base font-semibold hover:bg-red-700 transition shadow-lg hover:shadow-xl hover:translate-y-[-2px] duration-300">
                 <span>View All Blogs</span>
                 <i class="fas fa-arrow-right"></i>
             </a>

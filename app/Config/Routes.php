@@ -7,15 +7,27 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'WebSiteController::index');
 $routes->get('home', 'WebSiteController::index');
+
+// New SEO Friendly Routes
+$routes->get('best-enrolled-agent-academy', 'WebSiteController::EA');
+$routes->get('usa-cma-course-online', 'WebSiteController::CMA');
+$routes->get('ai-tax-professional-training', 'WebSiteController::AI');
+$routes->get('us-taxation-study-material', 'WebSiteController::resources');
+$routes->get('hire-us-tax-professionals', 'WebSiteController::talent');
+$routes->get('taxation-career-guides', 'WebSiteController::blogs');
+$routes->get('tax-software-training', 'WebSiteController::Drake_software_tranning');
+
+// 301 Redirects for Legacy URLs
+$routes->addRedirect('EA', 'best-enrolled-agent-academy', 301);
+$routes->addRedirect('CMA', 'usa-cma-course-online', 301);
+$routes->addRedirect('AI', 'ai-tax-professional-training', 301);
+$routes->addRedirect('resources', 'us-taxation-study-material', 301);
+$routes->addRedirect('talent', 'hire-us-tax-professionals', 301);
+$routes->addRedirect('blogs', 'taxation-career-guides', 301);
+$routes->addRedirect('tax', 'tax-software-training', 301);
+
 $routes->get('EA1', 'WebSiteController::EA1');
-$routes->get('CMA', 'WebSiteController::CMA');
-$routes->get('EA', 'WebSiteController::EA');
-$routes->get('AI', 'WebSiteController::AI');
-$routes->get('resources', 'WebSiteController::resources');
-$routes->get('talent', 'WebSiteController::talent');
-$routes->get('blogs', 'WebSiteController::blogs');
 $routes->get('blog/(:segment)', 'WebSiteController::blogView/$1');
-$routes->get('tax', 'WebSiteController::Drake_software_tranning');
 
 // Authentication Routes
 $routes->get('login', 'AuthController::login');

@@ -11,16 +11,16 @@
 
       gtag('config', 'G-C9Z4T62C9L');
     </script>
-    <link rel="canonical" href="https://www.shivanganitandon.com/EA" />
+    <link rel="canonical" href="https://www.shivanganitandon.com/best-enrolled-agent-academy" />
 
     <!-- Basic Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Best Enrolled Agent Academy in Bangalore | Online EA Course</title>
+    <title>Best EA Academy in India | STA - US Taxation Course</title>
     <!-- SEO Meta -->
-    <meta name="description" content="Start your journey as a top rated US tax expert. Our Enrolled Agent course offers live online EA training, exam support, and global career opportunities. Apply now!">
-    <meta name="keywords" content="best enrolled agent course enrolled agent career Best EA course Best tax academy in USA">
+    <meta name="description" content="Start your Enrolled Agent journey with Shivangani Tandon Academy (STA). Get expert EA coaching, updated IRS exam guidance, practical US taxation training, live classes, and career-focused support.">
+    <meta name="keywords" content="Best enrolled agent course, Enrolled agent career, US tax training, EA Salary, EA opportunities, Best tax academy in the USA, Updated EA study material, Online EA classes">
     <meta name="author" content="Shivangani Tandon Academy">
     <meta name="robots" content="index, follow">
 

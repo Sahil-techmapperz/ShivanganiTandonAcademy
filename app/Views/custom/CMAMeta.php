@@ -11,16 +11,16 @@
 
       gtag('config', 'G-C9Z4T62C9L');
     </script>
-    <link rel="canonical" href="https://www.shivanganitandon.com/CMA" />
+    <link rel="canonical" href="https://www.shivanganitandon.com/usa-cma-course-online" />
 
     <!-- Basic Meta -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CMA Certification | Best EA Course & Enrolled CMA Course Online</title>
+    <title>USA CMA Certification Training | Shivangani Tandon Academy</title>
     <!-- SEO Meta -->
-    <meta name="description" content="Advance your career with our best EA course and enrolled CMA course Get industry-focused CMA certification training with expert mentorship and high exam success rates.">
-    <meta name="keywords" content="Certified Management Accountant US CMA course in India Best CMA institute in India CMA certification">
+    <meta name="description" content="Build a successful global finance career with our USA CMA course. Get expert mentorship, exam preparation, mock tests, and placement-focused training.">
+    <meta name="keywords" content="Certified Management Accountant, US CMA course in India, Best CMA institute in India, CMA certification">
     <meta name="author" content="Shivangani Tandon Academy">
     <meta name="robots" content="index, follow">
 
