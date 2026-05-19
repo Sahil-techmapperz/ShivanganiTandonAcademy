@@ -37,16 +37,18 @@
 
             <!-- BUTTON -->
             <div class="mt-8">
-                <button class="bg-[#5751E1] text-white 
-                            px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5
-                            text-sm sm:text-base 
-                            rounded-full flex items-center gap-2 
-                            shadow-[4px_6px_0px_0px_#050071] 
-                            transition-all duration-300 ease-in-out  
-                            hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
-                            active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
-                    Know More →
-                </button>
+                <a href="https://www.linkedin.com/in/shivangani-tandon-ea-usa-entrepreneur-74388021/" target="_blank" rel="noopener noreferrer">
+                    <button class="bg-[#5751E1] text-white 
+                                px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5
+                                text-sm sm:text-base 
+                                rounded-full flex items-center gap-2 
+                                shadow-[4px_6px_0px_0px_#050071] 
+                                transition-all duration-300 ease-in-out  
+                                hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
+                                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+                        Know More →
+                    </button>
+                </a>
             </div>
         </div>
 

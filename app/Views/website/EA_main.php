@@ -6,6 +6,7 @@
     <!-- Load banner view -->
     <?= view('website/EA_comp/EA_baneer') ?>
     <?= view('website/EA_comp/About_EA_Offer') ?>
+    <?= view('website/EA_comp/InspiredJourney') ?>
     <?= view('website/EA_comp/GetMoreAboutUs') ?>
     <?= view('website/EA_comp/JoinUsNow') ?>
     <?= view('website/EA_comp/GlobalCareer') ?>
@@ -13,8 +14,7 @@
     <?= view('website/talent_comp/SuccessStories') ?>
     <?= view('website/EA_comp/CareerPath') ?>
     <?= view('website/EA_comp/1_1_Video') ?>
-    <?php // view('website/Resources_comp/NeedHelp') ?>
-    <?= view('website/CMA_comp/CMA_faqs') ?>
+    <?= view('website/EA_comp/EA_faqs') ?>
 
 
 </div>

@@ -171,7 +171,7 @@
 
         function resetButton() {
             spinner.classList.add("hidden");
-            btnText.innerText = "Get Your Professional Study Plan";
+            btnText.innerText = "Send Query & Book Counselling";
             btn.disabled = false;
         }
 
@@ -190,6 +190,9 @@
             return resetButton();
         }
 
+        const phoneInput = document.querySelector("#phone");
+        let rawPhone = phoneInput.value.trim();
+        let cleanDigits = rawPhone.replace(/\D/g, '');
         let phone = iti.getNumber();
 
         // ✅ FIXED VALIDATION
@@ -198,7 +201,17 @@
             return resetButton();
         }
 
-        if (!iti.isValidNumber()) {
+        let isPhoneValid = false;
+        if (iti.isValidNumber()) {
+            isPhoneValid = true;
+        } else {
+            // Fallback: accept if digits length is between 7 and 15 (E.164 standard)
+            if (cleanDigits.length >= 7 && cleanDigits.length <= 15) {
+                isPhoneValid = true;
+            }
+        }
+
+        if (!isPhoneValid) {
             showModal("error", "Error", "Please enter a valid phone number");
             return resetButton();
         }

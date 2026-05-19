@@ -65,9 +65,9 @@
                 <br> Now in One Place
             </p>
 
-            <p class="font-normal max-w-2xl mx-auto font-poppins text-[#6D6C80]">Groove’s intuitive shared inbox makes it easy for team members to
-                organize, prioritize and.In this episode of the Smashing Pod we’re
-                talking about Web Platform Baseline.</p>
+            <p class="font-normal text-[#6D6C80] text-sm sm:text-base leading-relaxed font-poppins">
+                Join the Best EA Academy and unlock your career in US Taxation. Get expert-led training, flexible online classes, study materials, and complete EA exam preparation support.
+            </p>
 
             <div class="mt-3 sm:mt-4 md:mt-6 space-y-2 sm:space-y-3 md:space-y-4">
 
@@ -103,20 +103,6 @@
                 </div>
 
             </div>
-
-            <!-- BUTTON -->
-            <div class="mt-8">
-                <button class="bg-[#5751E1] text-white 
-                            px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 lg:px-10 lg:py-5
-                            text-sm sm:text-base 
-                            rounded-full flex items-center gap-2 
-                            shadow-[4px_6px_0px_0px_#050071] 
-                            transition-all duration-300 ease-in-out  
-                            hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
-                            active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
-                    Book Your Free Class →
-                </button>
-            </div>
         </div>
 
     </div>
@@ -128,7 +114,7 @@
         const frame = document.getElementById('AboutvideoFrame');
 
         // YouTube embed link (replace with your video)
-        frame.src = "https://www.youtube.com/embed/D8k7Xi71MzU?autoplay=1";
+        frame.src = "https://www.youtube.com/embed/3RIBJQ3YIQA?autoplay=1";
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');

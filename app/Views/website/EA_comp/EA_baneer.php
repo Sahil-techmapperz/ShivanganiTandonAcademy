@@ -40,7 +40,7 @@
 
                 <!-- BUTTON -->
                 <div class="pt-2 flex justify-center lg:justify-start">
-                    <a href="<?= base_url('') ?>">
+                    <a href="javascript:void(0)" onclick="openLetsTalkModal()">
                         <button class="
                         bg-[#5751E1] text-white 
                         px-5 py-2.5 
@@ -53,7 +53,7 @@
                         hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
                         active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]
                     ">
-                            Experts Talk →
+                            Let's Talk →
                         </button>
                     </a>
                 </div>
@@ -117,3 +117,137 @@
     </div>
 
 </section>
+
+<!-- Let's Talk Contact Modal -->
+<div id="letsTalkModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[9999] opacity-0 transition-opacity duration-300">
+    <div class="relative w-full max-w-md mx-4 bg-white rounded-2xl p-6 md:p-8 border border-[#E3E3E3] shadow-2xl transform scale-95 transition-transform duration-300">
+        
+        <!-- Close Button -->
+        <button onclick="closeLetsTalkModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+        
+        <h3 class="text-2xl font-semibold mb-2 text-[#161439] text-center font-poppins">
+            Let's Talk!
+        </h3>
+        <p class="text-gray-500 text-sm text-center mb-6">
+            Fill in your details below and our team will get in touch with you shortly.
+        </p>
+        
+        <form class="space-y-4" id="letsTalkForm">
+            <!-- Name -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 font-poppins">Name *</label>
+                <input id="talk_name" type="text" placeholder="Enter your name" required
+                    class="w-full mt-1 px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5751E1] focus:border-transparent transition">
+            </div>
+            
+            <!-- Email -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 font-poppins">Email Address *</label>
+                <input id="talk_email" type="email" placeholder="Enter your email" required
+                    class="w-full mt-1 px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5751E1] focus:border-transparent transition">
+            </div>
+            
+            <!-- Phone (Optional) -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 font-poppins">Contact Number (Optional)</label>
+                <input id="talk_phone" type="tel" placeholder="Enter your phone number"
+                    class="w-full mt-1 px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#5751E1] focus:border-transparent transition">
+            </div>
+            
+            <!-- Submit Button -->
+            <button id="talkSubmitBtn" type="button" onclick="submitLetsTalkForm()"
+                class="w-full bg-[#5751E1] text-white py-3 rounded-xl font-semibold flex justify-center items-center gap-2 shadow-[0_4px_12px_rgba(87,81,225,0.3)] transition-all hover:bg-[#453fc6] active:scale-[0.98]">
+                <span id="talkBtnText">Send Message</span>
+                <i id="talkBtnSpinner" class="fa fa-spinner fa-spin hidden"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openLetsTalkModal() {
+        const modal = document.getElementById('letsTalkModal');
+        const formContainer = modal.querySelector('div');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            formContainer.classList.remove('scale-95');
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLetsTalkModal() {
+        const modal = document.getElementById('letsTalkModal');
+        const formContainer = modal.querySelector('div');
+        modal.classList.add('opacity-0');
+        formContainer.classList.add('scale-95');
+        setTimeout(() => {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+    }
+
+    function submitLetsTalkForm() {
+        const name = document.getElementById('talk_name').value.trim();
+        const email = document.getElementById('talk_email').value.trim();
+        const phone = document.getElementById('talk_phone').value.trim();
+        
+        const btn = document.getElementById('talkSubmitBtn');
+        const btnText = document.getElementById('talkBtnText');
+        const spinner = document.getElementById('talkBtnSpinner');
+        
+        if (!name || !email) {
+            showModal('error', 'Validation Error', 'Please fill in all required fields (Name and Email).');
+            return;
+        }
+        
+        // Simple email regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showModal('error', 'Validation Error', 'Please enter a valid email address.');
+            return;
+        }
+        
+        // Set loading state
+        btn.disabled = true;
+        spinner.classList.remove('hidden');
+        btnText.innerText = 'Sending...';
+        
+        const payload = {
+            name: name,
+            email: email,
+            phone: phone,
+            message: "Request to connect from 'Let's Talk' banner form."
+        };
+        
+        fetch('<?= base_url("api/submitHelp") ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                showModal('success', 'Success', 'Thank you! Your inquiry has been submitted. Our team will get back to you shortly.');
+                closeLetsTalkModal();
+                // Reset form
+                document.getElementById('letsTalkForm').reset();
+            } else {
+                showModal('error', 'Error', data.message || 'Something went wrong. Please try again.');
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            showModal('error', 'Server Error', 'Failed to connect to server. Please try again later.');
+        })
+        .finally(() => {
+            btn.disabled = false;
+            spinner.classList.add('hidden');
+            btnText.innerText = 'Send Message';
+        });
+    }
+</script>

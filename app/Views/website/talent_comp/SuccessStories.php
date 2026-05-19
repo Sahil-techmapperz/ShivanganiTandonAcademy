@@ -83,13 +83,15 @@ if (!isset($testimonials)) {
 
         <!-- BUTTON -->
         <div class="mt-20 flex justify-center">
-            <button class="group relative bg-[#5751E1] text-white px-12 py-4 rounded-full font-bold overflow-hidden transition-all duration-300 shadow-[0_10px_20px_rgba(87,81,225,0.3)]">
-                <span class="relative z-10 flex items-center gap-2">
-                    View All Videos
-                    <i class="fas fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
-                </span>
-                <div class="absolute inset-0 bg-gradient-to-r from-[#161439] to-[#5751E1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </button>
+            <a href="https://www.youtube.com/@shivanganitandonacademy9323" target="_blank" rel="noopener noreferrer">
+                <button class="group relative bg-[#5751E1] text-white px-12 py-4 rounded-full font-bold overflow-hidden transition-all duration-300 shadow-[0_10px_20px_rgba(87,81,225,0.3)]">
+                    <span class="relative z-10 flex items-center gap-2">
+                        View All Videos
+                        <i class="fas fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#161439] to-[#5751E1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+            </a>
         </div>
     </div>
 </section>
