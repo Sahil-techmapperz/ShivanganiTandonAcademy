@@ -42,7 +42,7 @@
                         </button>
                     </a>
 
-                    <a href="#" class="flex items-center gap-4 group">
+                    <a href="javascript:void(0)" onclick="openBannerVideo()" class="flex items-center gap-4 group">
                         <div class="w-14 h-14 bg-[#FFC224] rounded-full border-2 border-[#161439] flex items-center justify-center
                             shadow-[4px_4px_0px_0px_#3D3D3D] transition-all group-hover:-translate-y-1 group-hover:shadow-[6px_6px_0px_0px_#221832]">
                             <div class="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-[#221832] border-b-[8px] border-b-transparent ml-1"></div>
@@ -144,3 +144,49 @@
 
 
 </section>
+
+<!-- Banner Video Modal -->
+<div id="bannerVideoModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[9999]">
+
+    <div class="relative w-full max-w-3xl mx-4">
+
+        <!-- Close Button -->
+        <button onclick="closeBannerVideo()" class="absolute -top-10 right-0 text-white text-3xl font-bold">&times;</button>
+
+        <!-- Video -->
+        <div class="aspect-video">
+            <iframe id="bannerVideoFrame"
+                class="w-full h-full rounded-lg shadow-2xl"
+                src=""
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function openBannerVideo() {
+        const modal = document.getElementById('bannerVideoModal');
+        const frame = document.getElementById('bannerVideoFrame');
+
+        // YouTube embed link
+        frame.src = "https://www.youtube.com/embed/OWZo_qqrQIU?autoplay=1";
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // Stop scrolling
+    }
+
+    function closeBannerVideo() {
+        const modal = document.getElementById('bannerVideoModal');
+        const frame = document.getElementById('bannerVideoFrame');
+
+        frame.src = ""; // stop video
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+</script>

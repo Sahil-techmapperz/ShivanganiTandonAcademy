@@ -80,7 +80,7 @@
 
                     <ul class="space-y-1 mb-4 flex-grow md:space-y-2 md:mb-4">
                         <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span>Online classes</li>
-                        <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span>Hook international material</li>
+                        <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span>HOCK international material</li>
                         <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span>Doubt sessions</li>
                     </ul>
 
@@ -111,7 +111,7 @@
                     <p class="text-sm text-slate-500 mb-2 sm:mb-4 md:mb-4 text-left">The future of tax is automated. Join our AI prompt course for taxation and master AI tools learning for tax to stay ahead of the curve.</p>
 
                     <ul class="space-y-1 mb-4 flex-grow md:space-y-2 md:mb-4">
-                        <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span> Learn from Top leader in AI</li>
+                        <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span> Learn from AI industry leader- Rubal Sabharwal</li>
                         <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span>1 month course</li>
                         <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span> Free webinars</li>
                         <li class="flex items-center text-sm text-slate-500"><span class="mr-2 text-blue-500"><img src="<?= base_url('public/images/homePageImages/LearnwithUs/Vector (1).png') ?>" alt=""></span>Online classes</li>

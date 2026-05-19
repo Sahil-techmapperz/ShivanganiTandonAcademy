@@ -13,13 +13,11 @@
                             <img src="<?= base_url($blog['image']) ?>" class="w-full h-full object-cover" alt="<?= $blog['title'] ?>">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                             <div class="absolute bottom-8 left-8 text-white">
-                                <span class="bg-[#FE002A] px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">ACADEMY INSIGHTS</span>
                                 <h1 class="text-4xl font-bold font-poppins leading-tight"><?= $blog['title'] ?></h1>
                             </div>
                         </div>
                     <?php else: ?>
                         <div class="p-8 pb-0">
-                            <span class="bg-[#FE002A]/10 text-[#FE002A] px-4 py-1 rounded-full text-sm font-bold mb-4 inline-block">ACADEMY INSIGHTS</span>
                             <h1 class="text-4xl font-bold font-poppins leading-tight text-[#161439]"><?= $blog['title'] ?></h1>
                         </div>
                     <?php endif; ?>

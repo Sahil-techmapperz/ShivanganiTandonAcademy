@@ -41,7 +41,7 @@
 
                         <!-- Title -->
                         <span class="flex-1 text-left font-semibold text-sm md:text-[18px] font-poppins leading-snug">
-                            Get Your TPIN
+                            Get Your PTIN
                         </span>
 
                         <!-- Icon -->

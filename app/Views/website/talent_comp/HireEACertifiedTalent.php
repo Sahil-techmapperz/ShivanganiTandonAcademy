@@ -83,15 +83,15 @@
 
         <!-- BUTTON -->
         <div class="mt-6 sm:mt-8 md:mt-10">
-            <button class="bg-[#5751E1] text-white 
+            <a href="https://wa.me/917483279284?text=Hi%2C%20I%20am%20interested%20in%20hiring%20EA-Certified%20talent%20from%20Shivangani%20Tandon%20Academy." target="_blank" rel="noopener noreferrer" class="inline-flex bg-[#5751E1] text-white 
                 px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4
                 text-sm sm:text-base
-                rounded-full flex items-center gap-2 
+                rounded-full items-center gap-2 
                 shadow-[3px_4px_0px_0px_#050071] 
-                hover:-translate-y-1 hover:shadow-[5px_6px_0px_0px_#050071] 
-                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+                hover:bg-[#FE002A] hover:shadow-[5px_6px_0px_0px_#3D3D3D] hover:-translate-y-1
+                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071] transition-all duration-300">
                 Contact Us For Hiring →
-            </button>
+            </a>
         </div>
 
     </div>
