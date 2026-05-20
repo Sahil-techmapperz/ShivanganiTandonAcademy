@@ -1,3 +1,4 @@
+<?php helper('setting'); ?>
 <?php include(APPPATH . 'Views/custom/upper_template.php'); ?>
 <?php include(APPPATH . 'Views/custom/navbar.php'); ?>
 
