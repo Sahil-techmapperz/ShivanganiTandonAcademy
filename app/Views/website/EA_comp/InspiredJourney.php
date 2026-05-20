@@ -21,9 +21,9 @@
                     <!-- Slide 1 -->
                     <div class="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#E3E3E3] p-4 group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer"
-                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired by Journey/CP - The Indian Achievers - Shivangani Tandon.jpg') ?>')">
+                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired_by_Journey/Image(1).jpg') ?>')">
                             <div class="aspect-[3/4] sm:aspect-square md:aspect-[3/4] overflow-hidden rounded-xl bg-gray-50 flex items-center justify-center">
-                                <img src="<?= base_url('public/images/EA/Inspired by Journey/CP - The Indian Achievers - Shivangani Tandon.jpg') ?>" 
+                                <img src="<?= base_url('public/images/EA/Inspired_by_Journey/Image(1).jpg') ?>" 
                                      alt="Indian Achievers - Shivangani Tandon"
                                      class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102">
                             </div>
@@ -37,9 +37,9 @@
                     <!-- Slide 2 -->
                     <div class="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#E3E3E3] p-4 group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer"
-                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired by Journey/Image (2).png') ?>')">
+                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired_by_Journey/Image(2).png') ?>')">
                             <div class="aspect-[3/4] sm:aspect-square md:aspect-[3/4] overflow-hidden rounded-xl bg-gray-50 flex items-center justify-center">
-                                <img src="<?= base_url('public/images/EA/Inspired by Journey/Image (2).png') ?>" 
+                                <img src="<?= base_url('public/images/EA/Inspired_by_Journey/Image(2).png') ?>" 
                                      alt="Inspired by Journey - Award Recognition"
                                      class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102">
                             </div>
@@ -53,9 +53,9 @@
                     <!-- Slide 3 -->
                     <div class="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#E3E3E3] p-4 group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer"
-                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired by Journey/Image (3).png') ?>')">
+                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired_by_Journey/Image(3).png') ?>')">
                             <div class="aspect-[3/4] sm:aspect-square md:aspect-[3/4] overflow-hidden rounded-xl bg-gray-50 flex items-center justify-center">
-                                <img src="<?= base_url('public/images/EA/Inspired by Journey/Image (3).png') ?>" 
+                                <img src="<?= base_url('public/images/EA/Inspired_by_Journey/Image(3).png') ?>" 
                                      alt="Inspired by Journey - Achiever Cover"
                                      class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102">
                             </div>
@@ -69,9 +69,9 @@
                     <!-- Slide 4 -->
                     <div class="flex-shrink-0 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
                         <div class="bg-white rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-[#E3E3E3] p-4 group transition-all duration-300 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-1 cursor-pointer"
-                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired by Journey/Image (4).png') ?>')">
+                             onclick="openInspiredLightbox('<?= base_url('public/images/EA/Inspired_by_Journey/Image(4).png') ?>')">
                             <div class="aspect-[3/4] sm:aspect-square md:aspect-[3/4] overflow-hidden rounded-xl bg-gray-50 flex items-center justify-center">
-                                <img src="<?= base_url('public/images/EA/Inspired by Journey/Image (4).png') ?>" 
+                                <img src="<?= base_url('public/images/EA/Inspired_by_Journey/Image(4).png') ?>" 
                                      alt="Inspired by Journey - Global Achievement"
                                      class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-102">
                             </div>
