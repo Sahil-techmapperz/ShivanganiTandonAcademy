@@ -3,7 +3,15 @@
   <!-- Slides Wrapper -->
   <div id="slider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
 
-    <!-- Slide 1 -->
+
+        <!-- ================= SLIDE 1 ================= -->
+    <div class="w-full flex-shrink-0 flex items-end absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+        <section class="relative w-full bg-[#F5F7FB] overflow-hidden bg-cover bg-center bg-no-repeat h-full" style="background-image: url('<?= base_url('public/images/homePageImages/home_banner/award_banner.jpeg') ?>');">
+            <a href="javascript:void(0)" class="w-full h-full block"></a>
+        </section>
+    </div>
+
+    <!-- Slide 2 -->
     <div class="w-full flex-shrink-0 flex items-end absolute inset-0 transition-opacity duration-1000 opacity-100 pointer-events-auto">
       <div class="max-w-7xl mx-auto w-full px-4 h-full">
 
@@ -87,7 +95,7 @@
     </div>
 
 
-     <!-- ================= SLIDE 2 ================= -->
+     <!-- ================= SLIDE 3 ================= -->
     <div class="w-full flex-shrink-0 flex items-end absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
 
       <section class="relative w-full bg-[#F5F7FB] overflow-hidden bg-cover bg-center bg-no-repeat h-full" style="background-image: url('<?= base_url('public/images/CMA/HeroBanner/Section.png') ?>');">
@@ -203,7 +211,7 @@
 
     </div>
     
-      <!-- ================= SLIDE 3 ================= -->
+      <!-- ================= SLIDE 4 ================= -->
     <div class="w-full flex-shrink-0 flex items-end absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
 
 <section class="relative w-full bg-[#F5F7FB] overflow-hidden bg-cover bg-center bg-no-repeat h-full"
@@ -316,6 +324,8 @@
 </section>
 
     </div>
+    
+
 
   </div>
 
