@@ -4,62 +4,66 @@
 
 <div class="bg-gray-50 min-h-screen py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-3 gap-12">
+        <div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
             <!-- Main Content -->
             <div class="lg:col-span-2">
                 <article class="bg-white rounded-3xl shadow-xl overflow-hidden">
                     <?php if($blog['image']): ?>
-                        <div class="relative h-[400px] w-full">
+                        <div class="relative h-[250px] md:h-[400px] w-full">
                             <img src="<?= base_url($blog['image']) ?>" class="w-full h-full object-cover" alt="<?= $blog['title'] ?>">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            <div class="absolute bottom-8 left-8 text-white">
+                            <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                            <div class="hidden md:block absolute bottom-8 left-8 right-8 text-white">
                                 <h1 class="text-4xl font-bold font-poppins leading-tight"><?= $blog['title'] ?></h1>
                             </div>
                         </div>
+                        <!-- Mobile Title -->
+                        <div class="p-6 pb-0 md:hidden">
+                            <h1 class="text-2xl font-bold font-poppins leading-tight text-[#161439]"><?= $blog['title'] ?></h1>
+                        </div>
                     <?php else: ?>
-                        <div class="p-8 pb-0">
-                            <h1 class="text-4xl font-bold font-poppins leading-tight text-[#161439]"><?= $blog['title'] ?></h1>
+                        <div class="p-6 md:p-8 pb-0">
+                            <h1 class="text-2xl md:text-4xl font-bold font-poppins leading-tight text-[#161439]"><?= $blog['title'] ?></h1>
                         </div>
                     <?php endif; ?>
 
-                    <div class="p-8 md:p-12">
-                        <div class="flex items-center gap-6 text-gray-500 text-sm mb-10 border-b border-gray-100 pb-6">
+                    <div class="p-6 md:p-12">
+                        <div class="flex flex-wrap items-center gap-4 md:gap-6 text-gray-500 text-sm mb-8 md:mb-10 border-b border-gray-100 pb-6">
                             <div class="flex items-center gap-2">
-                                <div class="w-10 h-10 rounded-full bg-[#5751E1]/10 flex items-center justify-center text-[#5751E1]">
+                                <div class="w-10 h-10 rounded-full bg-[#5751E1]/10 flex items-center justify-center text-[#5751E1] flex-shrink-0">
                                     <i class="bi bi-person-fill"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-gray-400 uppercase font-bold">Author</p>
-                                    <p class="text-[#161439] font-bold"><?= $blog['author'] ?></p>
+                                    <p class="text-[10px] md:text-xs text-gray-400 uppercase font-bold">Author</p>
+                                    <p class="text-[#161439] font-bold text-sm"><?= $blog['author'] ?></p>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500">
+                                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 flex-shrink-0">
                                     <i class="bi bi-calendar-event"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-gray-400 uppercase font-bold">Published</p>
-                                    <p class="text-[#161439] font-bold"><?= date('M d, Y', strtotime($blog['created_at'])) ?></p>
+                                    <p class="text-[10px] md:text-xs text-gray-400 uppercase font-bold">Published</p>
+                                    <p class="text-[#161439] font-bold text-sm"><?= date('M d, Y', strtotime($blog['created_at'])) ?></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="prose prose-lg max-w-none text-gray-600 leading-relaxed font-poppins blog-content">
+                        <div class="prose prose-base md:prose-lg max-w-none text-gray-600 leading-relaxed font-poppins blog-content">
                             <?= $blog['content'] ?>
                         </div>
 
-                        <div class="mt-12 pt-8 border-t border-gray-100 flex justify-between items-center">
+                        <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
                             <?php
                             $share_url = urlencode(base_url('blog/' . $blog['slug']));
                             $share_title = urlencode($blog['title']);
                             ?>
-                            <div class="flex gap-4 items-center">
+                            <div class="flex flex-wrap gap-4 items-center">
                                 <span class="text-sm font-bold text-[#161439]">SHARE:</span>
                                 <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $share_url ?>" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-facebook"></i></a>
                                 <a href="https://twitter.com/intent/tweet?url=<?= $share_url ?>&text=<?= $share_title ?>" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-twitter"></i></a>
                                 <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?= $share_url ?>" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#5751E1] transition-colors"><i class="bi bi-linkedin"></i></a>
                             </div>
-                            <a href="<?= base_url('taxation-career-guides') ?>" class="text-[#5751E1] font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                            <a href="<?= base_url('taxation-career-guides') ?>" class="text-[#5751E1] font-bold flex items-center gap-2 hover:gap-3 transition-all text-sm md:text-base">
                                 <i class="bi bi-arrow-left"></i> BACK TO BLOGS
                             </a>
                         </div>

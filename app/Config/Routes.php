@@ -22,10 +22,12 @@ $routes->addRedirect('EA', 'best-enrolled-agent-academy', 301);
 $routes->addRedirect('CMA', 'usa-cma-course-online', 301);
 $routes->addRedirect('AI', 'ai-tax-professional-training', 301);
 $routes->addRedirect('resources', 'us-taxation-study-material', 301);
-$routes->addRedirect('talent', 'hire-us-tax-professionals', 301);
-$routes->addRedirect('blogs', 'taxation-career-guides', 301);
-$routes->addRedirect('tax', 'tax-software-training', 301);
-$routes->addRedirect('testresult.php', '/', 301);
+	$routes->addRedirect('talent', 'hire-us-tax-professionals', 301);
+	$routes->addRedirect('blogs', 'taxation-career-guides', 301);
+	$routes->addRedirect('tax', 'tax-software-training', 301);
+	$routes->addRedirect('testresult.php', '/', 301);
+	$routes->addRedirect('about', 'best-enrolled-agent-academy', 301);
+	$routes->addRedirect('about-us', 'best-enrolled-agent-academy', 301);
 
 $routes->get('EA1', 'WebSiteController::EA1');
 $routes->get('blog/(:segment)', 'WebSiteController::blogView/$1');

@@ -16,6 +16,15 @@ Options -Indexes
 	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
 	# RewriteBase /
 
+	# Legacy URL Redirects for Google Search Console (discarding query string with ?)
+	RewriteRule ^testresult\.php$ /? [R=301,L]
+	RewriteRule ^mocktest\.php$ /? [R=301,L]
+	RewriteRule ^pdf/Credential-table\.pdf$ /? [R=301,L]
+	RewriteRule ^blog/author/blogadmin/feed/?$ /taxation-career-guides? [R=301,L]
+	RewriteRule ^blog/category/blogs/feed/?$ /taxation-career-guides? [R=301,L]
+	RewriteRule ^about\.php$ /best-enrolled-agent-academy? [R=301,L]
+
+
 	# Redirect Trailing Slashes...
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_URI} (.+)/$
