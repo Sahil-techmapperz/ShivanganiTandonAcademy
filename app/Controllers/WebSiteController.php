@@ -110,4 +110,14 @@ class WebSiteController extends BaseController
         ];
         return view('website/blog_view', $data);
     }
+
+    public function privacyPolicy()
+    {
+        return view('website/privacy_policy');
+    }
+
+    public function termsConditions()
+    {
+        return view('website/terms_conditions');
+    }
 }

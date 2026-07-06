@@ -16,6 +16,8 @@ $routes->get('us-taxation-study-material', 'WebSiteController::resources');
 $routes->get('hire-us-tax-professionals', 'WebSiteController::talent');
 $routes->get('taxation-career-guides', 'WebSiteController::blogs');
 $routes->get('tax-software-training', 'WebSiteController::Drake_software_tranning');
+$routes->get('privacy-policy', 'WebSiteController::privacyPolicy');
+$routes->get('terms-and-conditions', 'WebSiteController::termsConditions');
 
 // 301 Redirects for Legacy URLs
 $routes->addRedirect('EA', 'best-enrolled-agent-academy', 301);
