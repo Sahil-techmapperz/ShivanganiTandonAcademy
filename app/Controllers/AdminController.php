@@ -777,6 +777,7 @@ class AdminController extends BaseController
             }
 
             try {
+                require_once APPPATH . 'ThirdParty/SimpleXLSX.php';
                 if ($xlsx = \Shuchkin\SimpleXLSX::parse($file->getTempName())) {
                     $rows = $xlsx->rows();
                     
