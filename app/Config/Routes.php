@@ -114,7 +114,10 @@ $routes->group('admin', ['filter' => 'auth:admin'], function ($routes) {
     $routes->post('unit-test/save', 'AdminController::saveUnitTest');
     $routes->get('unit-test/questions/(:num)', 'AdminController::manageUnitQuestions/$1');
     $routes->post('unit-test/question/save', 'AdminController::saveUnitQuestion');
-
+    $routes->post('unit-test/question/delete/(:num)', 'AdminController::deleteUnitQuestion/$1');
+    $routes->post('unit-test/question/delete-all/(:num)', 'AdminController::deleteAllUnitQuestions/$1');
+    $routes->post('unit-test/question/bulk-upload', 'AdminController::bulkUploadUnitQuestions');
+    
     // User Test Access
     $routes->get('test-access', 'AdminController::testAccess');
     $routes->post('test-access/save', 'AdminController::saveTestAccess');

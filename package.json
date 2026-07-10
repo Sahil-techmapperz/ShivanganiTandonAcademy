@@ -1,0 +1,28 @@
+{
+  "name": "shivanganitandonacademy",
+  "version": "1.0.0",
+  "description": "A comprehensive, high-performance Learning Management System (LMS) built for **Shivangani Tandon Academy**, specializing in US CMA, Enrolled Agent (EA), and AI in Taxation courses.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "cypress run",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sahil-techmapperz/ShivanganiTandonAcademy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sahil-techmapperz/ShivanganiTandonAcademy/issues"
+  },
+  "homepage": "https://github.com/Sahil-techmapperz/ShivanganiTandonAcademy#readme",
+  "devDependencies": {
+    "cypress": "^15.18.0"
+  }
+}

@@ -732,6 +732,106 @@ class AdminController extends BaseController
         return redirect()->to(base_url('admin/unit-test/questions/' . $testId))->with('success', $msg);
     }
 
+    public function deleteUnitQuestion($id)
+    {
+        $questionModel = new \App\Models\UnitTestQuestionModel();
+        $question = $questionModel->find($id);
+        
+        if ($question) {
+            $questionModel->delete($id);
+            return redirect()->to(base_url('admin/unit-test/questions/' . $question['unit_test_id']))->with('success', 'Question deleted successfully');
+        }
+        
+        return redirect()->back()->with('error', 'Question not found');
+    }
+
+    public function deleteAllUnitQuestions($testId)
+    {
+        $questionModel = new \App\Models\UnitTestQuestionModel();
+        
+        // Find if questions exist
+        $questions = $questionModel->where('unit_test_id', $testId)->findAll();
+        
+        if (!empty($questions)) {
+            $questionModel->where('unit_test_id', $testId)->delete();
+            return redirect()->to(base_url('admin/unit-test/questions/' . $testId))->with('success', count($questions) . ' questions deleted successfully.');
+        }
+        
+        return redirect()->back()->with('error', 'No questions found to delete.');
+    }
+
+    public function bulkUploadUnitQuestions()
+    {
+        $testId = $this->request->getPost('unit_test_id');
+        
+        if (!$testId) {
+            return redirect()->back()->with('error', 'Unit Test ID is missing.');
+        }
+
+        $file = $this->request->getFile('excel_file');
+        
+        if ($file && $file->isValid() && !$file->hasMoved()) {
+            $extension = $file->getClientExtension();
+            if ($extension != 'xlsx' && $extension != 'csv') {
+                return redirect()->back()->with('error', 'Only .xlsx files are allowed.');
+            }
+
+            try {
+                if ($xlsx = \Shuchkin\SimpleXLSX::parse($file->getTempName())) {
+                    $rows = $xlsx->rows();
+                    
+                    if (count($rows) <= 1) {
+                        return redirect()->back()->with('error', 'No data found in the file.');
+                    }
+
+                    $questionModel = new \App\Models\UnitTestQuestionModel();
+                    $insertCount = 0;
+                    
+                    // Skip header row
+                    for ($i = 1; $i < count($rows); $i++) {
+                        $row = $rows[$i];
+                        
+                        $questionText = trim($row[1] ?? '');
+                        if (empty($questionText)) continue;
+                        
+                        $options = [
+                            trim($row[2] ?? ''),
+                            trim($row[3] ?? ''),
+                            trim($row[4] ?? ''),
+                            trim($row[5] ?? '')
+                        ];
+                        
+                        $correctLetter = strtoupper(trim($row[6] ?? 'A'));
+                        $correctOptionMap = ['A' => 0, 'B' => 1, 'C' => 2, 'D' => 3];
+                        $correctOption = $correctOptionMap[$correctLetter] ?? 0;
+                        
+                        $explanation = trim($row[7] ?? '');
+                        
+                        $data = [
+                            'unit_test_id'   => $testId,
+                            'question_text'  => $questionText,
+                            'options'        => json_encode($options),
+                            'correct_option' => $correctOption,
+                            'explanation'    => $explanation,
+                            'is_active'      => 1
+                        ];
+                        
+                        $questionModel->insert($data);
+                        $insertCount++;
+                    }
+                    
+                    return redirect()->to(base_url('admin/unit-test/questions/' . $testId))->with('success', "$insertCount questions imported successfully.");
+                } else {
+                    return redirect()->back()->with('error', 'Failed to parse Excel file: ' . \Shuchkin\SimpleXLSX::parseError());
+                }
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Error reading file: ' . $e->getMessage());
+            }
+        }
+        
+        return redirect()->back()->with('error', 'Please select a valid Excel file to upload.');
+    }
+
     // ==========================================
     // USER TEST ACCESS
     // ==========================================

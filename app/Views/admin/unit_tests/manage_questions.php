@@ -22,8 +22,16 @@
                                 <p class="text-muted small mb-0 fw-medium">Manage the question bank for this unit assessment.</p>
                             </div>
                         </div>
-                        <div class="col-auto">
-                            <button class="btn btn-success rounded-pill px-5 py-3 fw-black shadow-lg hover-lift text-white" onclick="openQuestionModal()">
+                        <div class="col-auto d-flex gap-2">
+                            <form action="<?= base_url('admin/unit-test/question/delete-all/' . $test['id']) ?>" method="POST" onsubmit="return confirm('WARNING: Are you sure you want to delete ALL questions for this unit test? This action cannot be undone.');">
+                                <button type="submit" class="btn btn-danger rounded-pill px-4 py-3 fw-black shadow-lg hover-lift text-white">
+                                    <i class="bi bi-trash-fill me-2"></i> BULK DELETE
+                                </button>
+                            </form>
+                            <button class="btn btn-primary rounded-pill px-4 py-3 fw-black shadow-lg hover-lift text-white" onclick="openBulkUploadModal()">
+                                <i class="bi bi-file-earmark-excel-fill me-2"></i> BULK UPLOAD
+                            </button>
+                            <button class="btn btn-success rounded-pill px-4 py-3 fw-black shadow-lg hover-lift text-white" onclick="openQuestionModal()">
                                 <i class="bi bi-plus-circle-fill me-2"></i> ADD QUESTION
                             </button>
                         </div>
@@ -69,6 +77,11 @@
                                                     <button class="btn btn-sm btn-light rounded-pill px-3 fw-bold" onclick='editQuestion(<?= json_encode($q) ?>)'>
                                                         <i class="bi bi-pencil-square me-1"></i> Edit
                                                     </button>
+                                                    <form action="<?= base_url('admin/unit-test/question/delete/' . $q['id']) ?>" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this question?');">
+                                                        <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-bold">
+                                                            <i class="bi bi-trash-fill me-1"></i> Delete
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                             <h5 class="fw-bold text-dark mb-4"><?= $q['question_text'] ?></h5>
@@ -99,6 +112,43 @@
         </div>
     </div>
 </main>
+
+<!-- Bulk Upload Modal -->
+<div class="modal fade" id="bulkUploadModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-5 overflow-hidden">
+            <div class="bg-primary py-4 px-5 text-white d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <div class="bg-white bg-opacity-20 rounded-circle me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 50px; height: 50px;">
+                        <i class="bi bi-cloud-arrow-up-fill fs-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="modal-title fw-black mb-0 letter-spacing-tight">BULK UPLOAD</h4>
+                        <div class="extra-small fw-bold opacity-75 letter-spacing-1 text-uppercase">Import Questions</div>
+                    </div>
+                </div>
+                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-5 bg-white">
+                <form action="<?= base_url('admin/unit-test/question/bulk-upload') ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="unit_test_id" value="<?= $test['id'] ?>">
+                    
+                    <div class="mb-4">
+                        <label class="form-label extra-small fw-black text-muted text-uppercase letter-spacing-1">Upload Excel File</label>
+                        <input type="file" name="excel_file" class="form-control border-0 bg-light rounded-4 px-4 py-3 fw-bold" accept=".xlsx,.csv" required>
+                        <div class="form-text mt-2 small">Format: Question No, Question Text, Option A, Option B, Option C, Option D, Correct Option (A/B/C/D), Explanation.</div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="btn btn-primary rounded-pill py-3 px-5 shadow-lg fw-black w-100 hover-lift text-white">
+                            UPLOAD FILE <i class="bi bi-cloud-arrow-up-fill ms-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Question Modal -->
 <div class="modal fade" id="questionModal" tabindex="-1">
@@ -203,6 +253,14 @@
             radio.checked = (index == data.correct_option);
         });
         getModal().show();
+    }
+
+    let bulkUploadModal;
+    function openBulkUploadModal() {
+        if (!bulkUploadModal) {
+            bulkUploadModal = new bootstrap.Modal(document.getElementById('bulkUploadModal'));
+        }
+        bulkUploadModal.show();
     }
 </script>
 
