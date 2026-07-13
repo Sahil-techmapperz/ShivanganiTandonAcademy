@@ -208,12 +208,21 @@ class StudentDashboardController extends BaseController
                 continue;
             }
             
+            $subject = $res['subject'];
+            // Normalize any legacy typo in the subject display
+            $subject = str_replace('Untitied', 'Untitled', $subject);
+            
+            $isTest = (strpos($subject, 'Unit Test:') === 0 || strpos($subject, 'Mock Test:') === 0);
+            $totalPoints = (int)($res['total_points'] ?? 100);
+            // If it is a mock/unit test, use 75% of total points as the passing score
+            $passingScore = $isTest ? ceil($totalPoints * 0.75) : 75;
+            
             $consolidatedResults[] = [
-                'subject'       => $res['subject'],
+                'subject'       => $subject,
                 'exam_date'     => $res['exam_date'],
                 'score'         => (int)$res['score'],
-                'total_points'  => (int)($res['total_points'] ?? 100),
-                'passing_score' => 75, // Default for manual if not specified
+                'total_points'  => $totalPoints,
+                'passing_score' => $passingScore,
                 'status'        => 'graded',
                 'id'            => 'RES_'.$res['id']
             ];
@@ -773,7 +782,7 @@ class StudentDashboardController extends BaseController
             // Save summary result
             $resultModel->insert([
                 'user_id'      => $userId,
-                'subject'      => "Mock Test: " . ($test['title'] ?? "Untitied"),
+                'subject'      => "Mock Test: " . ($test['title'] ?? "Untitled"),
                 'score'        => $correctCount,
                 'total_points' => $totalQuestions,
                 'exam_date'    => date('Y-m-d')
@@ -813,7 +822,7 @@ class StudentDashboardController extends BaseController
             // Save summary result
             $resultModel->insert([
                 'user_id'      => $userId,
-                'subject'      => "Unit Test: " . ($test['title'] ?? "Untitied"),
+                'subject'      => "Unit Test: " . ($test['test_name'] ?? "Untitled"),
                 'score'        => $correctCount,
                 'total_points' => $totalQuestions,
                 'exam_date'    => date('Y-m-d')
