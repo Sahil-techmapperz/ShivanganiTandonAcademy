@@ -98,8 +98,13 @@ if (!isset($testimonials)) {
 <div id="TestimonialvideoModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50 p-4">
     <div class="relative w-full max-w-4xl">
         <button onclick="closeTestimonialVideo()" class="absolute -top-12 right-0 text-white text-4xl hover:text-red-500 transition-colors">&times;</button>
-        <div class="aspect-video">
-            <iframe id="TestimonialvideoFrame" class="w-full h-full rounded-lg" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="aspect-video relative">
+            <!-- Loading Spinner -->
+            <div id="TestimonialLoadingSpinner" class="absolute inset-0 flex justify-center items-center z-40">
+                <div class="w-12 h-12 border-4 border-gray-300 border-t-white rounded-full animate-spin"></div>
+            </div>
+            
+            <iframe id="TestimonialvideoFrame" class="w-full h-full rounded-lg relative z-30 opacity-0 transition-opacity duration-300" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen onload="hideTestimonialSpinner()"></iframe>
         </div>
     </div>
 </div>
@@ -108,10 +113,24 @@ if (!isset($testimonials)) {
     function openTestimonialVideo(videoId) {
         const modal = document.getElementById('TestimonialvideoModal');
         const iframe = document.getElementById('TestimonialvideoFrame');
+        const spinner = document.getElementById('TestimonialLoadingSpinner');
+        
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.classList.add('opacity-0');
+        spinner.classList.remove('hidden');
+        
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
+    }
+
+    function hideTestimonialSpinner() {
+        const iframe = document.getElementById('TestimonialvideoFrame');
+        const spinner = document.getElementById('TestimonialLoadingSpinner');
+        if (iframe.src && iframe.src !== window.location.href) {
+            spinner.classList.add('hidden');
+            iframe.classList.remove('opacity-0');
+        }
     }
 
     function closeTestimonialVideo() {
