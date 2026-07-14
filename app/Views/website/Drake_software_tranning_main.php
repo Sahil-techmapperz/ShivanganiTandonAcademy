@@ -3,6 +3,9 @@
 <?= $this->include('custom/navbar') ?>
 
 <div class="min-h-screen">
+    <!-- Enrollment Popup Modal -->
+    <?= view('website/Drake_software_tranning_comp/Enroll_Modal') ?>
+
     <!-- Load banner view -->
 
 

@@ -20,14 +20,16 @@
 
             <!-- Button Wrapper -->
             <div class="mt-6 hidden lg:flex justify-center lg:justify-start">
-                <button class="bg-[#5751E1] text-white px-6 py-2 rounded-full 
-                       flex items-center gap-2 
-                       shadow-[4px_6px_0px_0px_#050071] 
-                       transition-all duration-300 ease-in-out 
-                       hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
-                       active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+                <a href="<?= base_url('best-enrolled-agent-academy') ?>"
+                   class="bg-[#5751E1] text-white px-6 py-2 rounded-full 
+                          flex items-center gap-2 
+                          shadow-[4px_6px_0px_0px_#050071] 
+                          transition-all duration-300 ease-in-out 
+                          hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
+                          active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]
+                          no-underline">
                     Know More →
-                </button>
+                </a>
             </div>
 
         </div>
@@ -117,14 +119,16 @@
         </div>
 
         <div class="flex justify-center lg:hidden">
-            <button class="bg-[#5751E1] text-white px-6 py-2 rounded-full 
-                       flex items-center gap-2 
-                       shadow-[4px_6px_0px_0px_#050071] 
-                       transition-all duration-300 ease-in-out 
-                       hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
-                       active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+            <a href="<?= base_url('best-enrolled-agent-academy') ?>"
+               class="bg-[#5751E1] text-white px-6 py-2 rounded-full 
+                      flex items-center gap-2 
+                      shadow-[4px_6px_0px_0px_#050071] 
+                      transition-all duration-300 ease-in-out 
+                      hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
+                      active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]
+                      no-underline">
                 Know More →
-            </button>
+            </a>
         </div>
     </div>
 

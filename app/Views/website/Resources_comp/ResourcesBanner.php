@@ -106,11 +106,11 @@
 
                 <div class="absolute top-12 -left-16 bg-white py-4 px-6 rounded-2xl rounded-br-none border border-black shadow-[-8px_8px_0px_0px_#00000040] z-20">
                     <div class="flex items-center -space-x-3 mb-2 justify-center">
-                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=a">
-                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=b">
-                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=c">
-                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=d">
-                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=e">
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=a" loading="lazy">
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=b" loading="lazy">
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=c" loading="lazy">
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=d" loading="lazy">
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://i.pravatar.cc/100?u=e" loading="lazy">
                     </div>
                     <p class="text-[#161439] font-extrabold text-sm text-center">250K+ Students</p>
                 </div>

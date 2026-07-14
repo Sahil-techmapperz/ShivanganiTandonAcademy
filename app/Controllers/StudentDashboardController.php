@@ -217,6 +217,27 @@ class StudentDashboardController extends BaseController
             // If it is a mock/unit test, use 75% of total points as the passing score
             $passingScore = $isTest ? ceil($totalPoints * 0.75) : 75;
             
+            $testType = null;
+            $testId = null;
+
+            if (strpos($subject, 'Unit Test:') === 0) {
+                $testName = trim(substr($subject, strlen('Unit Test:')));
+                $unitTestModel = new \App\Models\UnitTestModel();
+                $test = $unitTestModel->where('test_name', $testName)->first();
+                if ($test) {
+                    $testType = 'unit';
+                    $testId = $test['id'];
+                }
+            } elseif (strpos($subject, 'Mock Test:') === 0) {
+                $testName = trim(substr($subject, strlen('Mock Test:')));
+                $mockTestModel = new \App\Models\MockTestModel();
+                $test = $mockTestModel->where('title', $testName)->first();
+                if ($test) {
+                    $testType = 'mock';
+                    $testId = $test['id'];
+                }
+            }
+            
             $consolidatedResults[] = [
                 'subject'       => $subject,
                 'exam_date'     => $res['exam_date'],
@@ -224,7 +245,9 @@ class StudentDashboardController extends BaseController
                 'total_points'  => $totalPoints,
                 'passing_score' => $passingScore,
                 'status'        => 'graded',
-                'id'            => 'RES_'.$res['id']
+                'id'            => 'RES_'.$res['id'],
+                'test_type'     => $testType,
+                'test_id'       => $testId
             ];
         }
 
@@ -536,9 +559,24 @@ class StudentDashboardController extends BaseController
             return redirect()->to(base_url('student/academy'))->with('error', 'Enroll to access resources.');
         }
 
+        // Fetch all lessons for this course with their resources
+        $db           = \Config\Database::connect();
+        $lessons      = $db->table('tbl_lessons')->where('course_id', $id)->orderBy('sort_order', 'ASC')->get()->getResultArray();
+        $resourceModel = new \App\Models\ResourceModel();
+
+        $allResources = [];
+        foreach ($lessons as $lesson) {
+            $files = $resourceModel->where('lesson_id', $lesson['id'])->findAll();
+            foreach ($files as $file) {
+                $file['lesson_title'] = $lesson['title'];
+                $allResources[] = $file;
+            }
+        }
+
         $data = [
-            'title'  => 'Study Resources',
-            'course' => $enrollment
+            'title'     => 'Study Resources',
+            'course'    => $enrollment,
+            'resources' => $allResources
         ];
         return view('student/resources', $data);
     }
@@ -680,6 +718,14 @@ class StudentDashboardController extends BaseController
         $mockTestModel = new \App\Models\MockTestModel();
         $accessibleTests = $mockTestModel->getAccessibleTests($userId);
 
+        $answerModel = new \App\Models\MockTestUserAnswerModel();
+        foreach ($accessibleTests as &$test) {
+            $hasSubmitted = $answerModel->where('user_id', $userId)
+                                        ->where('mock_test_id', $test['id'])
+                                        ->first();
+            $test['is_submitted'] = !empty($hasSubmitted);
+        }
+
         $data = [
             'title'     => 'Mock Tests',
             'mockTests' => $accessibleTests
@@ -694,6 +740,14 @@ class StudentDashboardController extends BaseController
 
         // Only show unit tests the admin has granted to this student
         $unitTests = $unitTestModel->getAccessibleTests($userId);
+
+        $answerModel = new \App\Models\UnitTestUserAnswerModel();
+        foreach ($unitTests as &$test) {
+            $hasSubmitted = $answerModel->where('user_id', $userId)
+                                        ->where('unit_test_id', $test['id'])
+                                        ->first();
+            $test['is_submitted'] = !empty($hasSubmitted);
+        }
 
         $data = [
             'title'     => 'Unit Tests',
@@ -720,6 +774,11 @@ class StudentDashboardController extends BaseController
                 return redirect()->to(base_url('student/mock-tests'))->with('error', 'You do not have access to this test.');
             }
 
+            $answerModel = new \App\Models\MockTestUserAnswerModel();
+            if ($answerModel->where('user_id', $userId)->where('mock_test_id', $id)->first()) {
+                return redirect()->to(base_url('student/mock-tests'))->with('error', 'You have already submitted this test.');
+            }
+
             $data['test'] = $testModel->find($id);
             $data['questions'] = $questionModel->getByTest($id);
         } else {
@@ -729,6 +788,11 @@ class StudentDashboardController extends BaseController
 
             if (!$accessModel->hasUnitTestAccess($userId, $id)) {
                 return redirect()->to(base_url('student/unit-tests'))->with('error', 'You do not have access to this test.');
+            }
+
+            $answerModel = new \App\Models\UnitTestUserAnswerModel();
+            if ($answerModel->where('user_id', $userId)->where('unit_test_id', $id)->first()) {
+                return redirect()->to(base_url('student/unit-tests'))->with('error', 'You have already submitted this test.');
             }
 
             $data['test'] = $testModel->find($id);
@@ -830,5 +894,54 @@ class StudentDashboardController extends BaseController
 
             return redirect()->to(base_url('student/results'))->with('success', "Unit Test submitted! You scored $correctCount out of $totalQuestions.");
         }
+    }
+
+    public function reviewTest($type, $id)
+    {
+        $userId = session()->get('id');
+        $data = [
+            'title' => 'Review Test',
+            'type'  => $type,
+            'id'    => $id
+        ];
+
+        if ($type === 'mock') {
+            $testModel = new \App\Models\MockTestModel();
+            $questionModel = new \App\Models\MockTestQuestionModel();
+            $answerModel = new \App\Models\MockTestUserAnswerModel();
+            
+            $data['test'] = $testModel->find($id);
+            $data['questions'] = $questionModel->getByTest($id);
+            
+            $answers = $answerModel->where('user_id', $userId)->where('mock_test_id', $id)->findAll();
+            $data['user_answers'] = array_column($answers, 'selected_option', 'question_id');
+        } else {
+            $testModel = new \App\Models\UnitTestModel();
+            $questionModel = new \App\Models\UnitTestQuestionModel();
+            $answerModel = new \App\Models\UnitTestUserAnswerModel();
+            
+            $data['test'] = $testModel->find($id);
+            $data['questions'] = $questionModel->getByTest($id);
+            
+            $answers = $answerModel->where('user_id', $userId)->where('unit_test_id', $id)->findAll();
+            $data['user_answers'] = array_column($answers, 'selected_option', 'question_id');
+        }
+
+        if (empty($data['test']) || empty($data['questions']) || empty($data['user_answers'])) {
+            return redirect()->back()->with('error', 'Test not found or no answers submitted.');
+        }
+
+        // Calculate score
+        $correct = 0;
+        foreach ($data['questions'] as $q) {
+            $selected = $data['user_answers'][$q['id']] ?? null;
+            if ($selected !== null && $selected == $q['correct_option']) {
+                $correct++;
+            }
+        }
+        $data['correctCount'] = $correct;
+        $data['totalCount'] = count($data['questions']);
+
+        return view('student/review_test', $data);
     }
 }

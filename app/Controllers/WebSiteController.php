@@ -6,6 +6,7 @@ class WebSiteController extends BaseController
 {
     public function index(): string
     {
+        $this->cachePage(60);
         $blogModel = new \App\Models\BlogModel();
         $data = [
             'latest_blogs' => $blogModel->where('status', 'published')->orderBy('created_at', 'DESC')->limit(3)->findAll()
@@ -15,16 +16,19 @@ class WebSiteController extends BaseController
 
     public function Drake_software_tranning()
     {
+        $this->cachePage(60);
         return view('website/Drake_software_tranning_main');
     }
 
     public function CMA()
     {
+        $this->cachePage(60);
         return view('website/CMA_main');
     }
 
     public function EA()
     {
+        $this->cachePage(60);
         $testModel = new \App\Models\TestimonialModel();
         $data = [
             'testimonials' => $testModel->orderBy('created_at', 'DESC')->findAll()
@@ -34,6 +38,7 @@ class WebSiteController extends BaseController
 
     public function AI()
     {
+        $this->cachePage(60);
         $blogModel = new \App\Models\BlogModel();
         $data = [
             'latest_blogs' => $blogModel->where('status', 'published')->orderBy('created_at', 'DESC')->limit(3)->findAll()
@@ -43,6 +48,7 @@ class WebSiteController extends BaseController
 
     public function EA1()
     {
+        $this->cachePage(60);
         $blogModel = new \App\Models\BlogModel();
         $data = [
             'latest_blogs' => $blogModel->where('status', 'published')->orderBy('created_at', 'DESC')->limit(3)->findAll()
@@ -53,6 +59,7 @@ class WebSiteController extends BaseController
 
     public function resources()
     {
+        $this->cachePage(60);
         $blogModel = new \App\Models\BlogModel();
         $data = [
             'latest_blogs' => $blogModel->where('status', 'published')->orderBy('created_at', 'DESC')->limit(3)->findAll()
@@ -62,6 +69,7 @@ class WebSiteController extends BaseController
 
     public function talent()
     {
+        $this->cachePage(60);
         $testModel = new \App\Models\TestimonialModel();
         $data = [
             'testimonials' => $testModel->orderBy('created_at', 'DESC')->findAll()
@@ -71,6 +79,7 @@ class WebSiteController extends BaseController
 
     public function blogs()
     {
+        $this->cachePage(60);
         $blogModel = new \App\Models\BlogModel();
         
         // Fetch 4 random blogs for the Popular section

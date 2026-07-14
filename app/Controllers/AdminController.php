@@ -86,7 +86,10 @@ class AdminController extends BaseController
 
     public function usa_journey()
     {
-        return view('admin/usa_journey'); // Make sure this view exists
+        $courseModel = new \App\Models\CourseModel();
+        $data['courses'] = $courseModel->findAll();
+        
+        return view('admin/usa_journey', $data);
     }
 
     public function help_request()

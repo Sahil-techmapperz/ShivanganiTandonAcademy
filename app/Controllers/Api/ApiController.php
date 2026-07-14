@@ -167,6 +167,74 @@ class ApiController extends ResourceController
         }
     }
 
+    public function usa_journey_enroll($id)
+    {
+        try {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $name      = trim($data['name'] ?? '');
+            $email     = trim($data['email'] ?? '');
+            $phone     = trim($data['phone'] ?? '');
+            $course_id = $data['course_id'] ?? null;
+
+            if (empty($name) || empty($email) || empty($course_id)) {
+                return $this->response->setJSON([
+                    'status'  => false,
+                    'message' => 'Name, Email, and Course are required'
+                ])->setStatusCode(400);
+            }
+
+            // Get or create user
+            $userModel = new \App\Models\UserModel();
+            $user = $userModel->where('email', $email)->first();
+            if (!$user) {
+                $user_id = $userModel->insert([
+                    'full_name'   => $name,
+                    'email'       => $email,
+                    'phone'       => $phone,
+                    'password'    => password_hash('CmaUser@123', PASSWORD_DEFAULT),
+                    'profile_pic' => null
+                ]);
+            } else {
+                $user_id = $user['id'];
+                // Update their name and phone if needed
+                $userModel->update($user_id, [
+                    'full_name' => $name,
+                    'phone'     => $phone
+                ]);
+            }
+
+            // Create enrollment
+            $enrollmentModel = new \App\Models\EnrollmentModel();
+            $existingEnrollment = $enrollmentModel->where('user_id', $user_id)->where('course_id', $course_id)->first();
+            if (!$existingEnrollment) {
+                $enrollmentModel->insert([
+                    'user_id'     => $user_id,
+                    'course_id'   => $course_id,
+                    'progress'    => 0,
+                    'status'      => 'enrolled',
+                    'message'     => 'Enrolled by Admin from USA Journey Request',
+                    'enrolled_at' => date('Y-m-d H:i:s')
+                ]);
+            }
+
+            // Delete original USA Journey request
+            $db = \Config\Database::connect();
+            $db->table('start_your_cma_journey_in_usa')->where('id', $id)->delete();
+
+            return $this->response->setJSON([
+                'status'  => true,
+                'message' => 'Student enrolled successfully'
+            ]);
+
+        } catch (\Exception $e) {
+            log_message('error', $e->getMessage());
+            return $this->response->setJSON([
+                'status'  => false,
+                'message' => 'Server error occurred'
+            ])->setStatusCode(500);
+        }
+    }
+
     public function submitHelp()
     {
         try {
@@ -922,6 +990,7 @@ class ApiController extends ResourceController
     {
         $status = $this->request->getPost('status');
         $reply = $this->request->getPost('reply');
+        $adminId = session()->get('id'); // Use actual logged-in admin ID
         $supportModel = new \App\Models\SupportModel();
         
         $data = ['status' => $status];
@@ -932,7 +1001,7 @@ class ApiController extends ResourceController
             $messageModel = new \App\Models\SupportMessageModel();
             $messageModel->insert([
                 'support_request_id' => $id,
-                'sender_id'          => 1, // Admin ID
+                'sender_id'          => $adminId,
                 'sender_role'        => 'admin',
                 'message'            => $reply
             ]);

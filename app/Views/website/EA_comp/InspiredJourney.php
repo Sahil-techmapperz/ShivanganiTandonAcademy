@@ -165,7 +165,7 @@
 <div id="inspiredLightbox" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-[99999] p-4 opacity-0 transition-opacity duration-300">
     <button onclick="closeInspiredLightbox()" class="absolute top-4 right-4 sm:top-8 sm:right-8 text-white hover:text-red-500 text-4xl font-bold transition-colors">&times;</button>
     <div class="max-w-4xl max-h-[85vh] overflow-hidden transform scale-95 transition-transform duration-300 animate-fade-in">
-        <img id="inspiredLightboxImg" src="" alt="Zoomed Recognition Image" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+        <img id="inspiredLightboxImg" src="" alt="Zoomed Recognition Image" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl" loading="lazy">
     </div>
 </div>
 

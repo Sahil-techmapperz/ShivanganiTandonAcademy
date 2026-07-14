@@ -1,4 +1,4 @@
-    <section class="relative mt-1 sm:mt-10 md:mt-10 py-6 sm:py-16 md:py-20 px-2 sm:px-6 md:px-8 lg:px-10 font-poppins bg-cover bg-center bg-no-repeat"
+    <section id="enrollment-section" class="relative mt-1 sm:mt-10 md:mt-10 py-6 sm:py-16 md:py-20 px-2 sm:px-6 md:px-8 lg:px-10 font-poppins bg-cover bg-center bg-no-repeat"
         style="background-image: url('<?= base_url("public/images/homePageImages/LearnwithUs/29c01dc804b188871ff65931f368df7bc947e794 (1).jpg") ?>');">
 
         <img class="absolute bottom-100 left-0 w-full" src="<?= base_url('public/images/homePageImages/LearnwithUs/SVG2.png') ?>" alt="">

@@ -19,28 +19,30 @@
         </p>
 
         <div class="flex justify-center font-poppins gap-10">
-            <button class="group inline-flex items-center bg-[#FFC224] hover:bg-[#FFC224] text-slate-900 font-bold 
-                                text-sm sm:text-base md:text-lg 
-                                py-1.5 sm:py-2 md:py-2 
-                                px-6 sm:px-8 md:px-10 
-                                rounded-full flex items-center justify-center 
-                                transition-all duration-300 ease-in-out 
-                                shadow-[4px_4px_0_0_#3D3D3D] 
-                                hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#3D3D3D] 
-                                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+            <button type="button" onclick="openEnrollModal()"
+                    class="group inline-flex items-center bg-[#FFC224] hover:bg-[#FFC224] text-slate-900 font-bold 
+                            text-sm sm:text-base md:text-lg 
+                            py-1.5 sm:py-2 md:py-2 
+                            px-6 sm:px-8 md:px-10 
+                            rounded-full flex items-center justify-center 
+                            transition-all duration-300 ease-in-out 
+                            shadow-[4px_4px_0_0_#3D3D3D] 
+                            hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#3D3D3D] 
+                            active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
                 Enroll Now <span class="ml-2 text-sm sm:text-base md:text-lg">→</span>
             </button>
 
-            <button class="group inline-flex items-center bg-[#FFFFFF] text-slate-900 font-bold 
-                                text-sm sm:text-base md:text-lg 
-                                py-1.5 sm:py-2 md:py-2 
-                                px-6 sm:px-8 md:px-10 
-                                rounded-full flex items-center justify-center 
-                                transition-all duration-300 ease-in-out 
-                                shadow-[4px_4px_0_0_#3D3D3D] 
-                                hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#3D3D3D] 
-                                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
-                talk to Expert <span class="ml-2 text-sm sm:text-base md:text-lg">→</span>
+            <button type="button" onclick="openEnrollModal()"
+                    class="group inline-flex items-center bg-[#FFFFFF] text-slate-900 font-bold 
+                            text-sm sm:text-base md:text-lg 
+                            py-1.5 sm:py-2 md:py-2 
+                            px-6 sm:px-8 md:px-10 
+                            rounded-full flex items-center justify-center 
+                            transition-all duration-300 ease-in-out 
+                            shadow-[4px_4px_0_0_#3D3D3D] 
+                            hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#3D3D3D] 
+                            active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+                Talk to Expert <span class="ml-2 text-sm sm:text-base md:text-lg">→</span>
             </button>
         </div>
     </div>

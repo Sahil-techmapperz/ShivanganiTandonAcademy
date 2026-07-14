@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 text-end">
-                            <button type="button" class="btn btn-primary rounded-pill px-4 shadow-sm fw-bold" onclick="saveStatus()">
+                            <button type="button" id="sendReplyBtn" class="btn btn-primary rounded-pill px-4 shadow-sm fw-bold" onclick="saveStatus()">
                                 <i class="bi bi-send-fill me-1"></i> Send Message
                             </button>
                         </div>
@@ -94,9 +94,24 @@
 <script>
     let currentRequestId = null;
     let allRequests = [];
+    let chatPollInterval = null;
+    let tablePollInterval = null;
 
     $(document).ready(function() {
         loadRequests();
+        // Auto-refresh the requests table every 10 seconds to catch new tickets
+        tablePollInterval = setInterval(function() {
+            // Only refresh table when chat is NOT open
+            if (!currentRequestId) loadRequests();
+        }, 10000);
+    });
+
+    // Stop chat polling when modal closes
+    document.getElementById('responseModal').addEventListener('hidden.bs.modal', function () {
+        clearInterval(chatPollInterval);
+        chatPollInterval = null;
+        currentRequestId = null;
+        // Resume table refresh
     });
 
     function loadRequests() {
@@ -168,11 +183,15 @@
         
         loadMessages(req.id);
         new bootstrap.Modal(document.getElementById('responseModal')).show();
+
+        // Start polling chat every 5 seconds for new student messages
+        clearInterval(chatPollInterval);
+        chatPollInterval = setInterval(function() {
+            if (currentRequestId) silentRefresh(currentRequestId);
+        }, 5000);
     }
 
-    function loadMessages(requestId) {
-        $('#conversationHistory').html('<div class="text-center py-4 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Loading conversation...</div>');
-        
+    function silentRefresh(requestId) {
         $.ajax({
             url: `<?= base_url('api/getSupportMessages/') ?>${requestId}`,
             type: 'GET',
@@ -184,7 +203,15 @@
         });
     }
 
+    function loadMessages(requestId) {
+        $('#conversationHistory').html('<div class="text-center py-4 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Loading conversation...</div>');
+        silentRefresh(requestId);
+    }
+
     function renderMessages(messages) {
+        const container = document.getElementById('conversationHistory');
+        const isAtBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 50;
+
         let html = '';
         if (messages.length === 0) {
             html = '<div class="text-center py-4 text-muted">No messages yet.</div>';
@@ -198,11 +225,11 @@
                         <div class="message-item mb-4 text-end">
                             <div class="d-flex align-items-center justify-content-end mb-1">
                                 <span class="fw-bold small text-primary me-2">Support Team</span>
-                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 9px;">A</div>
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 26px; height: 26px; font-size: 10px; flex-shrink:0;">A</div>
                             </div>
                             <div class="d-inline-block p-3 rounded-4 bg-primary text-white shadow-sm" style="max-width: 80%; border-top-right-radius: 0 !important; text-align: left;">
-                                ${msg.message}
-                                <div class="text-white-50 extra-small mt-1" style="font-size: 10px;">${date}</div>
+                                <div>${msg.message}</div>
+                                <div class="text-white-50 mt-1" style="font-size: 10px;">${date}</div>
                             </div>
                         </div>
                     `;
@@ -210,12 +237,12 @@
                     html += `
                         <div class="message-item mb-4">
                             <div class="d-flex align-items-center mb-1">
-                                <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 22px; height: 22px; font-size: 9px;">S</div>
+                                <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 26px; height: 26px; font-size: 10px; flex-shrink:0;">S</div>
                                 <span class="fw-bold small text-dark">Student</span>
                             </div>
                             <div class="d-inline-block p-3 rounded-4 bg-light border text-dark shadow-sm" style="max-width: 80%; border-top-left-radius: 0 !important;">
-                                ${msg.message}
-                                <div class="text-muted extra-small mt-1" style="font-size: 10px;">${date}</div>
+                                <div>${msg.message}</div>
+                                <div class="text-muted mt-1" style="font-size: 10px;">${date}</div>
                             </div>
                         </div>
                     `;
@@ -223,14 +250,14 @@
             });
         }
         $('#conversationHistory').html(html);
-        // Scroll to bottom
-        const container = document.getElementById('conversationHistory');
-        container.scrollTop = container.scrollHeight;
+        // Only auto-scroll if admin was already at the bottom
+        if (isAtBottom) container.scrollTop = container.scrollHeight;
     }
 
     function saveStatus() {
-        const newStatus = $('#modalStatusSelect').val();
         const replyText = $('#modalAdminReply').val();
+        // Auto-set to 'replied' when sending a message
+        const newStatus = replyText.trim() !== '' ? 'replied' : $('#modalStatusSelect').val();
         
         if (replyText.trim() === '') {
             // Just update status if no message
@@ -248,6 +275,9 @@
             return;
         }
 
+        const $btn = $('#sendReplyBtn');
+        $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-1"></span> Sending...');
+
         $.ajax({
             url: `<?= base_url('api/update_support_status/') ?>${currentRequestId}`,
             type: 'POST',
@@ -258,10 +288,13 @@
             success: function(response) {
                 if (response.success) {
                     $('#modalAdminReply').val('');
+                    $('#modalStatusSelect').val('replied');
                     loadMessages(currentRequestId);
                     loadRequests();
-                    // Don't close modal, just show the new message in history
                 }
+            },
+            complete: function() {
+                $btn.prop('disabled', false).html('<i class="bi bi-send-fill me-1"></i> Send Message');
             }
         });
     }

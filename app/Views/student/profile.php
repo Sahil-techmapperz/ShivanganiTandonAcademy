@@ -85,6 +85,8 @@
         e.preventDefault();
         
         const formData = new FormData(this);
+        const $btn = $(this).find('button[type="submit"]');
+        $btn.prop('disabled', true).text('Saving...');
         
         $.ajax({
             url: '<?= base_url('student/updateProfile') ?>',
@@ -92,29 +94,39 @@
             data: Object.fromEntries(formData),
             success: function(response) {
                 if (response.success) {
-                    alert('Profile updated successfully!');
-                    location.reload();
+                    showToast('Profile updated successfully!', 'success');
                 } else {
-                    alert('Error: ' + response.message);
+                    showToast('Error: ' + response.message, 'danger');
                 }
             },
             error: function() {
-                alert('An error occurred. Please try again.');
+                showToast('An error occurred. Please try again.', 'danger');
+            },
+            complete: function() {
+                $btn.prop('disabled', false).text('Save Changes');
             }
         });
     });
 
-    // Profile Picture Upload
+    // Profile Picture Upload — instantly update all images on page
     document.getElementById('profile-pic-input').addEventListener('change', function(e) {
         if (!e.target.files.length) return;
 
         const file = e.target.files[0];
+
+        // Preview locally before upload (instant feedback)
+        const localReader = new FileReader();
+        localReader.onload = function(ev) {
+            updateAllProfileImages(ev.target.result);
+        };
+        localReader.readAsDataURL(file);
+
         const formData = new FormData();
         formData.append('profile_pic', file);
 
-        // Show loader
+        // Show loader overlay
         document.getElementById('upload-loader').classList.remove('d-none');
-        document.getElementById('profile-img-preview').style.opacity = '0.5';
+        document.getElementById('profile-img-preview').style.opacity = '0.6';
 
         $.ajax({
             url: '<?= base_url('student/uploadProfilePic') ?>',
@@ -124,24 +136,61 @@
             contentType: false,
             success: function(response) {
                 if (response.success) {
-                    document.getElementById('profile-img-preview').src = response.path;
-                    // Also update header/sidebar images if they have IDs
-                    const sidebarImg = document.querySelector('.sidebar-brand img');
-                    const headerImg = document.querySelector('.user-menu img');
-                    if(sidebarImg) sidebarImg.src = response.path;
-                    if(headerImg) headerImg.src = response.path;
-                    
-                    alert('Profile photo updated!');
+                    // Use server-confirmed URL (with cache-bust to force reload)
+                    const finalUrl = response.path + '?t=' + Date.now();
+                    updateAllProfileImages(finalUrl);
+                    showToast('Profile photo updated!', 'success');
                 } else {
-                    alert('Error: ' + response.message);
+                    showToast('Error: ' + response.message, 'danger');
                 }
+            },
+            error: function() {
+                showToast('Upload failed. Please try again.', 'danger');
             },
             complete: function() {
                 document.getElementById('upload-loader').classList.add('d-none');
                 document.getElementById('profile-img-preview').style.opacity = '1';
+                // Reset input so same file can be picked again
+                document.getElementById('profile-pic-input').value = '';
             }
         });
     });
+
+    // Update every profile image element on the page at once
+    function updateAllProfileImages(src) {
+        // Main preview on profile card
+        document.getElementById('profile-img-preview').src = src;
+        // Small avatar in navbar (header)
+        document.querySelectorAll('.user-menu img.user-image, .user-image.rounded-circle').forEach(function(el) {
+            el.src = src;
+        });
+        // Dropdown popup avatar
+        document.querySelectorAll('.user-header img').forEach(function(el) {
+            el.src = src;
+        });
+        // Sidebar profile images (if any)
+        document.querySelectorAll('.sidebar-brand img, .user-panel img').forEach(function(el) {
+            el.src = src;
+        });
+    }
+
+    // Non-intrusive toast notification
+    function showToast(message, type) {
+        const existing = document.getElementById('profile-toast');
+        if (existing) existing.remove();
+
+        const toast = document.createElement('div');
+        toast.id = 'profile-toast';
+        toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;min-width:260px;';
+        toast.innerHTML = `
+            <div class="alert alert-${type} alert-dismissible shadow-lg rounded-3 mb-0 fw-medium" role="alert">
+                <i class="bi bi-${type === 'success' ? 'check-circle-fill' : 'exclamation-triangle-fill'} me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" onclick="this.closest('#profile-toast').remove()"></button>
+            </div>`;
+        document.body.appendChild(toast);
+        setTimeout(function() { if (toast.parentNode) toast.remove(); }, 3500);
+    }
 </script>
 
 <?= view('student_templates/footer') ?>

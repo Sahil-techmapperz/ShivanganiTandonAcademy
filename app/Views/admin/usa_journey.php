@@ -24,11 +24,11 @@
                         <table id="usaTable" class="table table-hover align-middle mb-0 custom-table">
                             <thead class="bg-light bg-opacity-50">
                                 <tr>
-                                    <th class="ps-4 py-3 text-muted small fw-bold border-0">STUDENT NAME</th>
-                                    <th class="py-3 text-muted small fw-bold border-0">LOCATION</th>
-                                    <th class="py-3 text-muted small fw-bold border-0">PROFESSION</th>
-                                    <th class="py-3 text-muted small fw-bold border-0">DATE</th>
-                                    <th class="pe-4 py-3 text-muted small fw-bold border-0 text-end">ACTIONS</th>
+                                    <th class="ps-4 py-3 text-muted small fw-bold border-0 text-start" style="width: 25%; min-width: 200px;">STUDENT NAME</th>
+                                    <th class="py-3 text-muted small fw-bold border-0 text-start" style="width: 25%;">LOCATION</th>
+                                    <th class="py-3 text-muted small fw-bold border-0 text-start" style="width: 20%;">PROFESSION</th>
+                                    <th class="py-3 text-muted small fw-bold border-0 text-start" style="width: 15%;">DATE</th>
+                                    <th class="pe-4 py-3 text-muted small fw-bold border-0 text-end" style="width: 15%;">ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,6 +88,48 @@
     </div>
 </div>
 
+<!-- Enroll Student Modal -->
+<div class="modal fade" id="enrollModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="modal-header bg-success text-white border-0 py-3">
+                <h5 class="modal-title fw-bold"><i class="bi bi-person-plus me-2"></i>Enroll Student</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <input type="hidden" id="enrollId">
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-muted small">Full Name</label>
+                    <input type="text" class="form-control" id="enrollName">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-muted small">Email Address</label>
+                    <input type="email" class="form-control" id="enrollEmail">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-muted small">Phone Number</label>
+                    <input type="text" class="form-control" id="enrollPhone">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-muted small">Select Course</label>
+                    <select class="form-select" id="enrollCourse">
+                        <option value="">-- Select Course --</option>
+                        <?php if (!empty($courses)): ?>
+                            <?php foreach($courses as $course): ?>
+                                <option value="<?= $course['id'] ?>"><?= esc($course['title']) ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer bg-light border-0 py-3">
+                <button type="button" class="btn btn-light rounded-pill px-4 fw-bold" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success rounded-pill px-4 fw-bold" onclick="submitEnrollment()" id="btnEnrollSubmit">Enroll Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <style>
     .app-main { background-color: #f8fafc !important; }
     .custom-table td, .custom-table th { white-space: normal !important; text-transform: none !important; padding: 1.25rem 0.75rem !important; }
@@ -97,6 +139,8 @@
     .action-btn { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.2s; border: none; }
     .btn-view { background-color: #e0e7ff; color: #4338ca; }
     .btn-view:hover { background-color: #4338ca; color: white; }
+    .btn-enroll { background-color: #dcfce7; color: #166534; }
+    .btn-enroll:hover { background-color: #166534; color: white; }
     .btn-delete { background-color: #fee2e2; color: #b91c1c; }
     .btn-delete:hover { background-color: #b91c1c; color: white; }
     .detail-label { font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 0.25rem; }
@@ -125,15 +169,18 @@
                         }) : '-';
                         const row = `
                             <tr>
-                                <td class="ps-4">
-                                    <div class="fw-bold text-dark">${item.name || '-'}</div>
-                                    <div class="small text-muted">${item.email || '-'}</div>
+                                <td class="ps-4 text-start">
+                                    <div class="fw-bold text-dark text-break">${item.name || '-'}</div>
+                                    <div class="small text-muted text-break">${item.email || '-'}</div>
                                 </td>
-                                <td><div class="fw-medium">${item.message || item.location || '-'}</div></td>
-                                <td><div class="fw-medium">${item.service || item.Services || item.profession || '-'}</div></td>
-                                <td><span class="text-muted small">${date}</span></td>
+                                <td class="text-start"><div class="fw-medium">${item.message || item.location || '-'}</div></td>
+                                <td class="text-start"><div class="fw-medium">${item.service || item.Services || item.profession || '-'}</div></td>
+                                <td class="text-start"><span class="text-muted small">${date}</span></td>
                                 <td class="pe-4 text-end">
                                     <div class="d-flex gap-2 justify-content-end">
+                                        <button class="action-btn btn-enroll" onclick="openEnrollModal(${index})" title="Enroll Student">
+                                            <i class="bi bi-person-plus"></i>
+                                        </button>
                                         <button class="action-btn btn-view" onclick="viewDetails(${index})" title="View Details">
                                             <i class="bi bi-eye"></i>
                                         </button>
@@ -201,6 +248,59 @@
                 bootstrap.Modal.getInstance(document.getElementById('deleteModal')).hide();
                 loadusaRequest();
             });
+    }
+
+    function openEnrollModal(index) {
+        const item = usaData[index];
+        document.getElementById("enrollId").value = item.id;
+        document.getElementById("enrollName").value = item.name || '';
+        document.getElementById("enrollEmail").value = item.email || '';
+        document.getElementById("enrollPhone").value = item.phone || item.phone_number || '';
+        document.getElementById("enrollCourse").value = ''; // Reset select
+        
+        new bootstrap.Modal(document.getElementById('enrollModal')).show();
+    }
+
+    function submitEnrollment() {
+        const id = document.getElementById("enrollId").value;
+        const name = document.getElementById("enrollName").value.trim();
+        const email = document.getElementById("enrollEmail").value.trim();
+        const phone = document.getElementById("enrollPhone").value.trim();
+        const course_id = document.getElementById("enrollCourse").value;
+
+        if (!name || !email || !course_id) {
+            showToast("Name, Email, and Course are required", false);
+            return;
+        }
+
+        const btn = document.getElementById("btnEnrollSubmit");
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enrolling...';
+        btn.disabled = true;
+
+        fetch(`<?= base_url('api/usa_journey_enroll') ?>/${id}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone, course_id })
+        })
+        .then(res => res.json())
+        .then(resp => {
+            if (resp.status) {
+                showToast(resp.message, true);
+                bootstrap.Modal.getInstance(document.getElementById('enrollModal')).hide();
+                loadusaRequest();
+            } else {
+                showToast(resp.message, false);
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            showToast("An error occurred during enrollment.", false);
+        })
+        .finally(() => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
     }
 </script>
 

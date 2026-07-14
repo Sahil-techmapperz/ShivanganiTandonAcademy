@@ -22,7 +22,7 @@
             <div id="activeSlide" class="relative rounded-2xl overflow-hidden shadow-lg">
                 <img
                     id="activeImage"
-                    class="w-full h-[200px] sm:h-[250px] md:h-[320px] max-h-[350px] object-cover mx-auto rounded-lg">
+                    class="w-full h-[200px] sm:h-[250px] md:h-[320px] max-h-[350px] object-cover mx-auto rounded-lg" loading="lazy">
 
                 <div class="absolute bottom-0 left-0 w-full p-4 sm:p-5 bg-gradient-to-t from-black/80 to-transparent text-white">
                     <p class="text-[12px] sm:text-xs mb-1 sm:mb-2 flex flex-wrap gap-4 items-center text-gray-400">
@@ -139,7 +139,7 @@
                     <img 
                         src="${item.image}" 
                         class="w-24 h-20 sm:w-28 sm:h-24 md:w-32 md:h-28 lg:w-36 lg:h-32 rounded-lg object-cover"
-                        />
+                         loading="lazy"/>
 
                     <div class="flex flex-col justify-evenly flex-1">
 

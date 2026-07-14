@@ -56,9 +56,15 @@
                                     </div>
 
                                     <div class="pt-3 border-top">
-                                        <a href="<?= base_url('student/take-test/mock/'.$test['id']) ?>" class="btn btn-primary w-100 rounded-pill fw-bold py-2 shadow-sm">
-                                            START EXAM <i class="bi bi-play-fill ms-1"></i>
-                                        </a>
+                                        <?php if(isset($test['is_submitted']) && $test['is_submitted']): ?>
+                                            <button class="btn btn-secondary w-100 rounded-pill fw-bold py-2 shadow-sm" disabled>
+                                                SUBMITTED <i class="bi bi-check-circle ms-1"></i>
+                                            </button>
+                                        <?php else: ?>
+                                            <a href="<?= base_url('student/take-test/mock/'.$test['id']) ?>" class="btn btn-primary w-100 rounded-pill fw-bold py-2 shadow-sm">
+                                                START EXAM <i class="bi bi-play-fill ms-1"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>

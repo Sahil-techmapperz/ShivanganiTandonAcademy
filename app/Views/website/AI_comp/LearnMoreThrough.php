@@ -48,7 +48,7 @@
 
                     <!-- Play Icon -->
                     <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
-                        class="absolute inset-0 m-auto w-14 h-14 z-20 opacity-90 group-hover:scale-110 transition duration-300">
+                        class="absolute inset-0 m-auto w-14 h-14 z-20 opacity-90 group-hover:scale-110 transition duration-300" loading="lazy">
                 </div>
 
             <?php endforeach; ?>

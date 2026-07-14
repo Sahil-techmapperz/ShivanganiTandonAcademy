@@ -69,22 +69,27 @@
                                             </tr>
                                         <?php else: ?>
                                             <?php foreach($requests as $req): ?>
-                                            <tr>
+                                            <tr class="<?= $req['status'] === 'replied' ? 'table-info' : '' ?>">
                                                 <td class="px-4 py-3">
-                                                    <div class="fw-bold text-dark"><?= $req['subject'] ?></div>
+                                                    <div class="fw-bold text-dark d-flex align-items-center gap-2">
+                                                        <?= $req['subject'] ?>
+                                                        <?php if($req['status'] === 'replied'): ?>
+                                                        <span class="badge bg-danger rounded-pill" style="font-size:9px;">NEW REPLY</span>
+                                                        <?php endif; ?>
+                                                    </div>
                                                     <div class="text-muted small"><?= date('d M Y', strtotime($req['created_at'])) ?></div>
                                                 </td>
                                                 <td class="px-4 py-3">
                                                     <?php if($req['status'] == 'pending'): ?>
                                                         <span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill px-3 py-2">Pending</span>
                                                     <?php elseif($req['status'] == 'replied'): ?>
-                                                        <span class="badge bg-info-subtle text-info border border-info-subtle rounded-pill px-3 py-2">Replied</span>
+                                                        <span class="badge bg-info-subtle text-info border border-info-subtle rounded-pill px-3 py-2"><i class="bi bi-reply-fill me-1"></i>Replied</span>
                                                     <?php else: ?>
                                                         <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle rounded-pill px-3 py-2">Closed</span>
                                                     <?php endif; ?>
                                                 </td>
                                                 <td class="px-4 py-3 text-end">
-                                                    <button class="btn btn-outline-primary btn-sm rounded-pill px-3" onclick="openChat(<?= $req['id'] ?>, '<?= addslashes($req['subject']) ?>')">
+                                                    <button class="btn <?= $req['status'] === 'replied' ? 'btn-primary' : 'btn-outline-primary' ?> btn-sm rounded-pill px-3" onclick="openChat(<?= $req['id'] ?>, '<?= addslashes($req['subject']) ?>', '<?= $req['status'] ?>')">
                                                         <i class="bi bi-chat-fill me-1"></i> View Chat
                                                     </button>
                                                 </td>
@@ -116,9 +121,9 @@
                 </div>
                 
                 <div id="replyArea" class="bg-white p-3 rounded-4 border shadow-sm">
-                    <textarea id="replyMessage" class="form-control rounded-3 border-0 bg-light mb-3" rows="2" placeholder="Type your message..." style="resize: none;"></textarea>
+                    <textarea id="replyMessage" class="form-control rounded-3 border-0 bg-light mb-3" rows="2" placeholder="Type your message... (Ctrl+Enter to send)" style="resize: none;"></textarea>
                     <div class="text-end">
-                        <button class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm" onclick="sendMessage()">
+                        <button id="sendBtn" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm" onclick="sendMessage()">
                             <i class="bi bi-send-fill me-1"></i> Send Message
                         </button>
                     </div>
@@ -134,17 +139,39 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     let activeRequestId = null;
+    let pollInterval = null;
 
-    function openChat(requestId, subject) {
+    function openChat(requestId, subject, status) {
         activeRequestId = requestId;
         $('#modalSubject').text(`Support: ${subject}`);
         loadMessages(requestId);
+
+        // Show/hide reply area based on ticket status
+        if (status === 'closed') {
+            $('#replyArea').hide();
+            $('#closedAlert').show();
+        } else {
+            $('#replyArea').show();
+            $('#closedAlert').hide();
+        }
+
         new bootstrap.Modal(document.getElementById('chatModal')).show();
+
+        // Start auto-refresh every 5 seconds
+        clearInterval(pollInterval);
+        pollInterval = setInterval(function() {
+            if (activeRequestId) silentRefresh(activeRequestId);
+        }, 5000);
     }
 
-    function loadMessages(requestId) {
-        $('#chatHistory').html('<div class="text-center py-5 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Loading conversation...</div>');
-        
+    // Stop polling when modal is closed
+    document.getElementById('chatModal').addEventListener('hidden.bs.modal', function () {
+        clearInterval(pollInterval);
+        pollInterval = null;
+        activeRequestId = null;
+    });
+
+    function silentRefresh(requestId) {
         $.ajax({
             url: `<?= base_url('student/support-messages/') ?>${requestId}`,
             type: 'GET',
@@ -156,7 +183,15 @@
         });
     }
 
+    function loadMessages(requestId) {
+        $('#chatHistory').html('<div class="text-center py-5 text-muted"><div class="spinner-border spinner-border-sm me-2"></div>Loading conversation...</div>');
+        silentRefresh(requestId);
+    }
+
     function renderMessages(messages) {
+        const container = document.getElementById('chatHistory');
+        const isAtBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 50;
+
         let html = '';
         if (messages.length === 0) {
             html = '<div class="text-center py-5 text-muted">No messages yet.</div>';
@@ -164,17 +199,17 @@
             messages.forEach(msg => {
                 const isAdmin = msg.sender_role === 'admin';
                 const date = new Date(msg.created_at).toLocaleString('en-GB', {day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'});
-                
+
                 if (isAdmin) {
                     html += `
                         <div class="mb-4">
                             <div class="d-flex align-items-center mb-1">
-                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 22px; height: 22px; font-size: 9px;">A</div>
+                                <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 26px; height: 26px; font-size: 10px; flex-shrink:0;">A</div>
                                 <span class="fw-bold small text-primary">Support Team</span>
                             </div>
                             <div class="d-inline-block p-3 rounded-4 bg-primary text-white shadow-sm" style="max-width: 80%; border-top-left-radius: 0 !important;">
-                                ${msg.message}
-                                <div class="extra-small opacity-50 mt-1" style="font-size: 10px;">${date}</div>
+                                <div>${msg.message}</div>
+                                <div class="opacity-50 mt-1" style="font-size: 10px;">${date}</div>
                             </div>
                         </div>
                     `;
@@ -183,10 +218,10 @@
                         <div class="mb-4 text-end">
                             <div class="d-flex align-items-center justify-content-end mb-1">
                                 <span class="fw-bold small text-dark me-2">Me</span>
-                                <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 22px; height: 22px; font-size: 9px;">S</div>
+                                <div class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 26px; height: 26px; font-size: 10px; flex-shrink:0;">S</div>
                             </div>
                             <div class="d-inline-block p-3 rounded-4 bg-light border text-dark shadow-sm" style="max-width: 80%; border-top-right-radius: 0 !important; text-align: left;">
-                                ${msg.message}
+                                <div>${msg.message}</div>
                                 <div class="text-muted mt-1" style="font-size: 10px;">${date}</div>
                             </div>
                         </div>
@@ -195,13 +230,16 @@
             });
         }
         $('#chatHistory').html(html);
-        const container = document.getElementById('chatHistory');
-        container.scrollTop = container.scrollHeight;
+        // Only auto-scroll if user was near the bottom
+        if (isAtBottom) container.scrollTop = container.scrollHeight;
     }
 
     function sendMessage() {
         const msg = $('#replyMessage').val();
         if (msg.trim() === '') return;
+
+        const $btn = $('#sendBtn');
+        $btn.prop('disabled', true).html('<span class="spinner-border spinner-border-sm me-1"></span> Sending...');
 
         $.ajax({
             url: '<?= base_url('api/add_support_message') ?>',
@@ -214,11 +252,19 @@
             success: function(response) {
                 if (response.success) {
                     $('#replyMessage').val('');
-                    loadMessages(activeRequestId);
+                    silentRefresh(activeRequestId);
                 }
+            },
+            complete: function() {
+                $btn.prop('disabled', false).html('<i class="bi bi-send-fill me-1"></i> Send Message');
             }
         });
     }
+
+    // Allow Ctrl+Enter to send message
+    $('#replyMessage').on('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'Enter') sendMessage();
+    });
 </script>
 
 <style>

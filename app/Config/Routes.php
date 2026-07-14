@@ -148,6 +148,7 @@ $routes->group('student', ['filter' => 'auth:student'], function ($routes) {
     $routes->get('unit-tests', 'StudentDashboardController::unitTests');
     $routes->get('take-test/(:segment)/(:num)', 'StudentDashboardController::startTest/$1/$2');
     $routes->post('submit-test', 'StudentDashboardController::submitTest');
+    $routes->get('review-test/(:segment)/(:num)', 'StudentDashboardController::reviewTest/$1/$2');
 });
 
 
@@ -165,6 +166,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     $routes->get('enrollments', 'ApiController::demo_request');
     $routes->delete('enrollments/(:num)', 'ApiController::delete_demo_request/$1');
     $routes->post('update_enrollment_status/(:num)', 'ApiController::updateEnrollmentStatus/$1');
+    $routes->post('approve_enrollment/(:num)', 'ApiController::approveEnrollment/$1');
+    $routes->post('usa_journey_enroll/(:num)', 'ApiController::usa_journey_enroll/$1');
 
 
     $routes->get('hiring_request', 'ApiController::hiring_request');

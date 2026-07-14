@@ -1,0 +1,1947 @@
+a:3:{s:4:"time";i:1784024691;s:3:"ttl";i:60;s:4:"data";s:98814:"a:2:{s:7:"headers";a:1:{s:12:"Content-Type";s:24:"text/html; charset=UTF-8";}s:6:"output";s:98712:"<!-- DEBUG-VIEW START 13 APPPATH\Views\website\Talent_main.php -->
+<!-- DEBUG-VIEW START 1 APPPATH\Views\custom\TalentMeta.php -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9Z4T62C9L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-C9Z4T62C9L');
+    </script>
+    <link rel="canonical" href="https://www.shivanganitandon.com/hire-us-tax-professionals" />
+
+    <!-- Basic Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hire EA, US Tax & Finance Experts | Shivangani Tandon Academy</title>
+    <!-- SEO Meta -->
+    <meta name="description" content="Hire skilled US Taxation, EA, and Finance professionals trained with practical industry knowledge and updated tax concepts.">
+    <meta name="keywords" content="US Taxation Talent, Hire US Tax Professionals, EA Professionals India, US Taxation Recruitment, Finance & Taxation Talent Pool, USA CMA professionals">
+    <meta name="author" content="Shivangani Tandon Academy">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon / Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost/ShivanganiTandonAcademy/public/images/commonImages/SivanganiTandon12.jpg">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost/ShivanganiTandonAcademy/public/images/commonImages/SivanganiTandon12.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost/ShivanganiTandonAcademy/public/images/commonImages/SivanganiTandon12.jpg">
+    <meta name="theme-color" content="#FE002A">
+</head>
+
+<!-- DEBUG-VIEW ENDED 1 APPPATH\Views\custom\TalentMeta.php -->
+
+<!-- DEBUG-VIEW START 2 APPPATH\Views\custom\upper_template.php -->
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Include Poppins Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- Import Manrope font -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+
+
+<style>
+    body {
+        display: block;
+        margin: 0px;
+    }
+
+    .font-poppins {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .font-inter {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* ✅ ADD THIS */
+    .font-georgia {
+        font-family: Georgia, serif;
+    }
+
+    /* Class for Manrope */
+    .font-manrope {
+        font-family: 'Manrope', sans-serif;
+    }
+
+    /* Class for Helvetica */
+    .font-helvetica {
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .font-redhat {
+        font-family: 'Red Hat Display', sans-serif;
+    }
+
+    .font-dmsans {
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    .font-pt-serif {
+        font-family: 'PT Serif', serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+
+
+    @keyframes scalePop {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .animate-scale {
+        animation: scalePop 0.3s ease-out;
+    }
+
+
+    .modal-backdrop.show:nth-of-type(2) {
+        z-index: 1060;
+    }
+
+    .modal.show:nth-of-type(2) {
+        z-index: 1065;
+    }
+</style>
+</head>
+
+<body>
+
+
+    <div id="responseModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50 font-poppins">
+        <div class="bg-white rounded-xl p-6 w-[90%] max-w-sm text-center animate-scale">
+
+            <!-- Icon -->
+            <div id="modalIcon" class="mb-4 text-5xl"></div>
+
+            <!-- Message -->
+            <h2 id="modalTitle" class="text-xl font-semibold mb-2"></h2>
+            <p id="modalMessage" class="text-gray-500 mb-4"></p>
+
+            <button onclick="closeModal()"
+                class="bg-[#FE002A] text-white px-4 sm:px-5 py-1.5 sm:py-1.5 rounded-md text-xs sm:text-sm md:text-base hover:bg-red-700 transition shadow-[0px_4px_4px_0px_#00000040]">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function showModal(type, title, message) {
+            const modal = document.getElementById("responseModal");
+            const icon = document.getElementById("modalIcon");
+
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalMessage").innerText = message;
+
+            // Clear previous icon
+            icon.innerHTML = "";
+
+            // Add Font Awesome icon
+            let faIcon = document.createElement("i");
+            faIcon.classList.add("text-4xl"); // Adjust size with Tailwind
+
+            if (type === "success") {
+                faIcon.classList.add("fas", "fa-check-circle", "text-green-500"); // Font Awesome success icon
+            } else {
+                faIcon.classList.add("fas", "fa-times-circle", "text-red-500"); // Font Awesome error icon
+            }
+
+            icon.appendChild(faIcon);
+
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeModal() {
+            document.getElementById("responseModal").classList.add("hidden");
+        }
+    </script>
+<!-- DEBUG-VIEW ENDED 2 APPPATH\Views\custom\upper_template.php -->
+<!-- DEBUG-VIEW START 3 APPPATH\Views\custom\navbar.php -->
+<style>
+    .about_us_text {
+        text-align: center;
+        /* default mobile */
+    }
+
+    /* Tablets and above */
+    @media (min-width: 768px) {
+        .about_us_text {
+            text-align: left;
+        }
+    }
+</style>
+
+
+<!-- Top Red Bar -->
+<div class="bg-[#FE002A] text-white font-poppins">
+    <div class="max-w-7xl mx-auto px-4 sm:px-4 md:px-4 lg:px-6 xl:px-8 2xl:px-10 py-2 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+
+        <!-- Left Icons -->
+        <div class="flex items-center gap-3 text-sm sm:text-base md:text-base">
+                        <a href="https://www.linkedin.com/company/shivanganitandon-academy/"
+                target="_blank" rel="noopener noreferrer"
+                class="hover:text-gray-200">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            
+                        <a href="https://www.youtube.com/@shivanganitandonacademy9323"
+                target="_blank" rel="noopener noreferrer"
+                class="hover:text-gray-200">
+                <i class="fab fa-youtube"></i>
+            </a>
+            
+                        <a href="https://www.facebook.com/EnrolledAgentshivanganitandon"
+                target="_blank" rel="noopener noreferrer"
+                class="hover:text-gray-200">
+                <i class="fab fa-facebook"></i>
+            </a>
+                    </div>
+
+        <!-- Center Text -->
+        <div class="md:flex text-center flex-1 justify-center text-xs sm:text-sm md:text-base lg:text-base">
+            New Batch Started Soon — Join our new batch today!
+        </div>
+
+        <!-- Right Contact -->
+        <div class="flex items-center gap-2 sm:gap-4 flex-wrap justify-center md:justify-end text-xs sm:text-sm md:text-base">
+            <span class="flex items-center gap-1"><i class="fas fa-phone"></i> +917483279284</span>
+            <span class="flex items-center gap-1"><i class="fas fa-envelope"></i> info@shivanganitandon.com</span>
+        </div>
+
+    </div>
+</div>
+
+<!-- Sticky Wrapper -->
+<div class="sticky top-0 z-50">
+    <!-- Main Navbar -->
+    <nav class="bg-gray-100 shadow-sm font-poppins">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <a href="http://localhost/ShivanganiTandonAcademy/">
+                    <img src="http://localhost/ShivanganiTandonAcademy/public/images/commonImages/fcabd6f88b0c3e59d8b5c7fea57132f417ff1545.png"
+                        alt="Shivangani Tandon Logo"
+                        class="h-10 sm:h-12 md:h-14 w-auto"></a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center gap-6 lg:gap-8 text-gray-700 font-medium text-sm sm:text-base md:text-base">
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/" class="hover:text-[#FE002A]">Home</a>
+                </li>
+
+                <li class="relative">
+                    <!-- Button -->
+                    <button class="courses-btn hover:text-[#FE002A] cursor-pointer">
+                        Courses
+                    </button>
+
+                    <!-- Dropdown -->
+                    <ul class="courses-menu absolute left-0 top-full mt-2 w-40 bg-white border rounded-lg shadow-lg hidden z-50">
+                        <li>
+                            <a href="http://localhost/ShivanganiTandonAcademy/usa-cma-course-online" class="block px-4 py-2 hover:text-[#FE002A]">CMA</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/ShivanganiTandonAcademy/best-enrolled-agent-academy" class="block px-4 py-2 hover:text-[#FE002A]">EA</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/ShivanganiTandonAcademy/ai-tax-professional-training" class="block px-4 py-2 hover:text-[#FE002A]">AI</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/us-taxation-study-material" class="hover:text-[#FE002A]">Resources</a>
+                </li>
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/hire-us-tax-professionals" class="hover:text-[#FE002A]">Talent</a>
+                </li>
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/taxation-career-guides" class="hover:text-[#FE002A]">Blog</a>
+                </li>
+            </ul>
+
+            <!-- Desktop Buttons -->
+            <div class="hidden md:flex items-center gap-3">
+                <button class="bg-[#FE002A] text-white px-4 py-1.5 rounded-md text-sm hover:bg-red-700 transition shadow-md"
+                    data-bs-toggle="modal"
+                    data-bs-target="#demoModal">
+                    Book a Free Demo
+                </button>
+                                    <a href="http://localhost/ShivanganiTandonAcademy/login" 
+                       class="text-gray-700 hover:text-[#FE002A] text-sm font-semibold">Login</a>
+                    <a href="http://localhost/ShivanganiTandonAcademy/signup" 
+                       class="border-2 border-[#FE002A] text-[#FE002A] px-4 py-1 rounded-md text-sm hover:bg-[#FE002A] hover:text-white transition font-semibold">Sign Up</a>
+                            </div>
+
+            <!-- Mobile Hamburger -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none text-2xl">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 transition-all duration-300 ease-in-out">
+            <ul class="flex flex-col gap-3 text-gray-700 font-medium text-sm sm:text-base">
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/" class="hover:text-[#FE002A]">Home</a>
+                </li>
+
+                <li class="relative">
+                    <!-- Button -->
+                    <button class="courses-btn hover:text-[#FE002A] cursor-pointer">
+                        Courses
+                    </button>
+
+                    <!-- Dropdown -->
+                    <ul class="courses-menu absolute left-0 top-full mt-2 w-40 bg-white border rounded-lg shadow-lg hidden z-50">
+                        <li>
+                            <a href="http://localhost/ShivanganiTandonAcademy/usa-cma-course-online" class="block px-4 py-2 hover:text-[#FE002A]">CMA</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/ShivanganiTandonAcademy/best-enrolled-agent-academy" class="block px-4 py-2 hover:text-[#FE002A]">EA</a>
+                        </li>
+                        <li>
+                            <a href="http://localhost/ShivanganiTandonAcademy/ai-tax-professional-training" class="block px-4 py-2 hover:text-[#FE002A]">AI</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/us-taxation-study-material" class="hover:text-[#FE002A]">Resources</a>
+                </li>
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/hire-us-tax-professionals" class="hover:text-[#FE002A]">Talent</a>
+                </li>
+                <li>
+                    <a href="http://localhost/ShivanganiTandonAcademy/taxation-career-guides" class="hover:text-[#FE002A]">Blog</a>
+                </li>
+
+                <li>
+                    <button class="w-full bg-[#FE002A] text-white px-4 py-2 rounded-md hover:bg-red-700 transition text-sm shadow-md"
+                        data-bs-toggle="modal"
+                        data-bs-target="#demoModal">
+                        Book a Free Demo
+                    </button>
+                </li>
+                                    <li>
+                        <a href="http://localhost/ShivanganiTandonAcademy/login" 
+                           class="block py-2 text-gray-700 hover:text-[#FE002A]">Login</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/ShivanganiTandonAcademy/signup" 
+                           class="block py-2 text-gray-700 hover:text-[#FE002A]">Sign Up</a>
+                    </li>
+                            </ul>
+        </div>
+    </nav>
+</div>
+
+
+<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content border-0 rounded-[1.5rem] shadow-2xl p-4 md:p-8">
+
+            <div class="flex justify-between items-center mb-4">
+                <!-- Badge -->
+                <div class="inline-block bg-[#FFDFE4] text-[#FE002A] text-sm px-4 py-1 rounded-full font-medium inline-flex justify-center items-center gap-3">
+                    <img src="http://localhost/ShivanganiTandonAcademy/public/images/CMA/FormImage/fire%201.png" alt="">
+                    Limited Seats - Next Batch Start Soon !
+                </div>
+
+                <!-- <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                <button type="button"
+                    class="p-2 bg-[#FFDFE4] hover:bg-[#FCD2D9] rounded-full transition-colors border-0"
+                    data-bs-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#FE002A] stroke-[3px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <p class="mt-1 mb-1 sm:mt-2 sm:mb-2
+                        text-[14px] leading-[16px]
+                        sm:text-[16px] sm:leading-[20px]
+                        md:text-[18px] md:leading-[47.88px]
+                        tracking-[-0.3px] 
+                        sm:tracking-[-0.5px] 
+                        md:tracking-[-0.75px]
+                        font-semibold text-gray-800 font-poppins capitalize text-center">
+
+                Thousand Of Top Now in One Place
+                <span class="relative inline-block px-2 py-2 sm:px-4 sm:py-2 md:px-6 md:py-2 text-white font-bold">
+
+                    <!-- Background -->
+                    <span class="absolute inset-0 bg-[url('http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/GetMoreAboutUs/Vector%20%281%29.png')] bg-center bg-no-repeat bg-contain"></span>
+
+                    <!-- Text -->
+                    <span class="relative z-10">Enroll Now</span>
+
+                </span>
+
+            </p>
+
+            <div class="modal-body p-0 font-poppins">
+
+                <div id="modal_form_response"></div>
+
+                <form id="modalForm" class="space-y-4">
+                    <!-- <div>
+                        <label class="block text-sm font-bold mb-1">Title*</label>
+                        <input id="title_modal" type="text" class="form-control rounded-lg border-gray-200 py-1.5 focus:border-red-500 focus:ring-0" placeholder="Title">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Description*</label>
+                        <textarea id="desc_modal" class="form-control rounded-lg border-gray-200 focus:border-red-500 focus:ring-0" rows="3" placeholder="Enter Your Description Here"></textarea>
+                    </div> -->
+
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Full Name*</label>
+                        <input id="full_name_modal" type="text" class="form-control rounded-lg border-gray-200 py-1.5 focus:border-red-500 focus:ring-0" 
+                            placeholder="Enter Your Full Name" 
+                            value="" 
+                            >
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Email Address*</label>
+                        <input id="email_modal" type="email" class="form-control rounded-lg border-gray-200 py-1.5 focus:border-red-500 focus:ring-0" 
+                            placeholder="Enter Your Email Address" 
+                            value="" 
+                            >
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Contact Number*</label>
+                        <input id="contact_modal" type="tel" class="form-control rounded-lg border-gray-200 py-1.5 focus:border-red-500 focus:ring-0" 
+                            placeholder="Enter Your Contact Number" 
+                            value="" 
+                            >
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Course Interested In*</label>
+                        <select id="course_modal" class="form-control rounded-lg border-gray-200 py-1.5 focus:border-red-500 focus:ring-0">
+                            <option value="">Select a Course</option>
+                            <option value="EA">Enrolled Agent (EA)</option>
+                            <option value="CMA">US CMA Course</option>
+                            <option value="AI">AI in Taxation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Message*</label>
+                        <textarea id="message_modal" class="form-control rounded-lg border-gray-200 py-2 focus:border-red-500 focus:ring-0" 
+                            rows="4" placeholder="Enter Your Message"></textarea>
+                    </div>
+
+                    <div class="pt-2">
+
+                        <button id="submitBtn_modal" type="button"
+                            onclick="submitModalForm(event)"
+                            class="w-full bg-[#FE002A] text-white px-4 sm:px-5 py-1.5 rounded-md 
+                            text-xs sm:text-sm md:text-base hover:bg-red-700 transition 
+                            shadow-[0px_4px_4px_0px_#00000040] flex items-center justify-center gap-2">
+
+                            <span id="btnText_modal">Register Now</span>
+
+                            <!-- Spinner (hidden by default) -->
+                            <span id="btnSpinner_modal" class="hidden">
+                                <svg class="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="4" fill="none" />
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Mobile Menu Script -->
+<script>
+    // Mobile menu toggle
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+
+    // Courses dropdown toggle (supports multiple buttons)
+    document.querySelectorAll('.courses-btn').forEach((button) => {
+        const dropdown = button.nextElementSibling;
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('hidden');
+        });
+    });
+
+    // Close menus when clicking outside
+    document.addEventListener('click', (e) => {
+        // Close all courses dropdowns
+        document.querySelectorAll('.courses-menu').forEach((menu) => {
+            if (!menu.contains(e.target) && !menu.previousElementSibling.contains(e.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu if clicked outside
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+            menu.classList.add('hidden');
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+        }
+    });
+
+    async function submitModalForm(event) {
+        if (event) event.preventDefault();
+
+
+        const btn_modal = document.getElementById("submitBtn_modal");
+        const btnText_modal = document.getElementById("btnText_modal");
+        const spinner_modal = document.getElementById("btnSpinner_modal");
+        const responseBox = document.getElementById("modal_form_response");
+
+
+
+        if (!btn_modal || !btnText_modal || !spinner_modal) {
+            console.error("Button elements not found!");
+            return;
+        }
+
+        responseBox.innerHTML = "";
+
+        // Show loader
+        spinner_modal.classList.remove("hidden");
+        btnText_modal.innerText = "Processing...";
+        btn_modal.disabled = true;
+
+        // Get values
+        // const title_modal = document.getElementById("title_modal").value.trim();
+        // const desc_modal = document.getElementById("desc_modal").value.trim();
+        const full_name_modal = document.getElementById("full_name_modal").value.trim();
+        const email_modal = document.getElementById("email_modal").value.trim();
+        const contact_modal = document.getElementById("contact_modal").value.trim();
+        const course_modal = document.getElementById("course_modal").value;
+        const message_modal = document.getElementById("message_modal").value.trim();
+
+        const apiURL = "http://localhost/ShivanganiTandonAcademy/api/modalFormSubmit";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9]{10,15}$/;
+
+        // 🔁 Response with countdown
+        function showResponse(msg, type = "success") {
+            let style = "bg-green-100 text-green-700";
+            if (type === "error") style = "bg-red-100 text-red-700";
+            if (type === "warning") style = "bg-yellow-100 text-yellow-700";
+
+            let seconds = 3;
+
+            responseBox.innerHTML = `
+                <div id="responseMsg" class="${style} px-3 py-2 rounded mb-2 flex justify-between items-center">
+                    <span>${msg}</span>
+                    <span id="countdown">${seconds}s</span>
+                </div>
+            `;
+
+            const countdownEl = document.getElementById("countdown");
+
+            const interval = setInterval(() => {
+                seconds--;
+                if (seconds > 0) {
+                    countdownEl.innerText = seconds + "s";
+                } else {
+                    clearInterval(interval);
+                    responseBox.innerHTML = "";
+                }
+            }, 1000);
+        }
+
+        // ❌ Validation
+        // if (!title_modal) return handleError("⚠️ Title is required");
+        // if (!desc_modal) return handleError("⚠️ Description is required");
+        if (!full_name_modal || full_name_modal.length < 3) return handleError("⚠️ Enter valid full name");
+        if (!email_modal || !emailRegex.test(email_modal)) return handleError("⚠️ Enter valid email");
+        if (!contact_modal || !phoneRegex.test(contact_modal)) return handleError("⚠️ Enter valid phone number");
+        if (!course_modal) return handleError("⚠️ Please select a course");
+        if (!message_modal || message_modal.length < 5) return handleError("⚠️ Message too short");
+
+        try {
+            const res = await fetch(apiURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    // title: title_modal,
+                    // desc: desc_modal,
+                    name: full_name_modal,
+                    phone: contact_modal,
+                    email: email_modal,
+                    course: course_modal,
+                    message: message_modal
+                })
+            });
+
+            const data = await res.json();
+
+            if (data.status === "success") {
+                showResponse("✅ " + data.message, "success");
+                document.getElementById("modalForm").reset();
+                
+                // Automatically close modal after 1.5 seconds
+                setTimeout(() => {
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('demoModal'));
+                    if (modal) modal.hide();
+                }, 1500);
+            } else {
+                showResponse("❌ " + data.message, "error");
+            }
+
+        } catch (error) {
+            console.error("Fetch Error:", error);
+            showResponse("❌ Server error, try again later", "error");
+        } finally {
+            spinner_modal.classList.add("hidden");
+            btnText_modal.innerText = "Register Now";
+            btn_modal.disabled = false;
+        }
+
+        function handleError(msg) {
+            showResponse(msg, "warning");
+            spinner_modal.classList.add("hidden");
+            btnText_modal.innerText = "Register Now";
+            btn_modal.disabled = false;
+            return;
+        }
+    }
+</script>
+<!-- DEBUG-VIEW ENDED 3 APPPATH\Views\custom\navbar.php -->
+
+<div class="min-h-screen">
+    <!-- Load banner view -->
+    <!-- DEBUG-VIEW START 4 APPPATH\Views\website\talent_comp\talent_banner.php -->
+<section class="relative w-full overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/9366ed6135985eff6968da093bd77e17da896391.png');">
+
+
+    <div class="relative max-w-7xl mx-auto px-4 md:px-0 pt-12 md:pt-22 pb-6 md:pb-0">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+            <!-- LEFT CONTENT -->
+            <div class="space-y-5 text-left lg:text-left text-poppins pr-4">
+
+                <!-- Tag -->
+                <span class="text-[#FFC224] uppercase tracking-widest text-xs sm:text-sm font-bold mb-4 sm:mb-6 block">
+                    Professional Courses
+                </span>
+
+                <p class="font-poppins font-semibold text-2xl md:text-[40px] leading-[36px] md:leading-[60px] text-black">
+                    Learning is
+
+                    <span class="relative inline-block px-4 py-2 text-white font-bold">
+                        <!-- Background -->
+                        <span class="absolute inset-0 bg-center bg-no-repeat bg-contain"
+                            style="background-image: url('http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/SVG%20%284%29.png');">
+                        </span>
+
+                        <!-- Text -->
+                        <span class="relative z-10">What You</span>
+
+                    </span>
+                    <br> Make of it. Make it Yours
+                    at Shivangani Academy.
+
+                </p>
+
+
+                <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-8">
+                    <a href="http://localhost/ShivanganiTandonAcademy/" 
+                       class="inline-flex items-center gap-2 bg-[#5751E1] text-white px-6 py-2 rounded-full font-bold
+                              shadow-[4px_6px_0px_0px_#050071] 
+                              transition-all duration-300  
+                              hover:-translate-y-1 hover:shadow-[6px_8px_0px_0px_#050071] 
+                              active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071]">
+                        Find Your Course →
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="hidden md:flex relative justify-center md:justify-end relative">
+
+                <!-- Main Image -->
+                <img
+                    class="w-[260px] md:w-[350px] lg:w-[420px] object-contain relative z-10"
+                    src="http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/5e7572e64ffb248f3f531f91fb035d8d4d7271e5.png"
+                    alt="students">
+
+                <!-- Yellow Shape Background -->
+                <img class="absolute left-15 bottom-20 w-[400px] h-[400px] md:w-[500px] md:h-[400px] -z-0" src="http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/SVG%20%281%29.png" alt="">
+
+                <!-- Floating Card -->
+                <div class="absolute absolute top-1/2 -translate-y-1/2 left-0 md:-left-16 bg-white rounded-2xl px-4 py-3 w-[230px] border border-[#B2BBCC] shadow-[-8px_8px_0px_0px_#00000026] z-10">
+
+                    <!-- Text -->
+                    <p class="text-[14px] font-semibold text-[#6C63FF] leading-tight mb-3 text-center lg:text-left font-poppins">
+                        <span class="text-black font-bold">36K+</span> Enrolled Students
+                    </p>
+
+                    <!-- Avatars -->
+                    <div class="flex items-center justify-center lg:justify-start -space-x-3">
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover"
+                            src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/shivani.png">
+
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover"
+                            src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/aniket.png">
+
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover"
+                            src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/shivani.png">
+
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover"
+                            src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/shivani.png">
+
+                        <img class="w-9 h-9 rounded-full border-2 border-white object-cover"
+                            src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/aniket.png">
+
+                        <!-- Last circle with count -->
+                        <div class="w-9 h-9 rounded-full bg-[#161439] text-white flex items-center justify-center text-xs font-semibold border-2 border-white">
+                            +
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Floating Card -->
+                <div class="absolute top-[30%] right-[-6rem] -translate-y-1/2 bg-white rounded-2xl px-2 py-2 w-[200px] border border-[#B2BBCC] shadow-[8px_8px_0px_0px_#00000026] z-10">
+                    <div class="flex items-center gap-3">
+
+                        <!-- Icon Circle -->
+                        <div class="bg-[#12BB6A] border border-[#149959] 
+                                shadow-[4px_4px_0px_0px_#21965380] 
+                                rounded-full w-16 h-16 
+                                flex items-center justify-center shrink-0">
+                            <img
+                                src="http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/SVG%20%282%29.png"
+                                alt="Total Students"
+                                class="w-8 h-8 object-contain">
+                        </div>
+
+                        <!-- Text -->
+                        <div class="flex flex-col">
+                            <p class="font-inter font-medium text-[14px] leading-[14px] text-[#6D6C80] mb-2">
+                                Total Students
+                            </p>
+                            <p class="text-[#161439] text-[24px] leading-[24px] font-extrabold font-inter">15K</p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <img class="absolute left-[45%] top-0 w-10 h-10 m-auto -z-0" src="http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/SVG%20%283%29.png" alt="STAR">
+            </div>
+
+        </div>
+
+        <img
+            class="hidden md:block absolute left-[-10%] top-1/2 -translate-y-1/2 w-auto h-auto m-auto -z-0"
+            src="http://localhost/ShivanganiTandonAcademy/public/images/talent/talent_banner/shape.png"
+            alt="shape">
+
+    </div>
+
+
+
+</section>
+
+<!-- Banner Video Modal -->
+<div id="bannerVideoModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[9999]">
+
+    <div class="relative w-full max-w-3xl mx-4">
+
+        <!-- Close Button -->
+        <button onclick="closeBannerVideo()" class="absolute -top-10 right-0 text-white text-3xl font-bold">&times;</button>
+
+        <!-- Video -->
+        <div class="aspect-video">
+            <iframe id="bannerVideoFrame"
+                class="w-full h-full rounded-lg shadow-2xl"
+                src=""
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function openBannerVideo() {
+        const modal = document.getElementById('bannerVideoModal');
+        const frame = document.getElementById('bannerVideoFrame');
+
+        // YouTube embed link
+        frame.src = "https://www.youtube.com/embed/OWZo_qqrQIU?autoplay=1";
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // Stop scrolling
+    }
+
+    function closeBannerVideo() {
+        const modal = document.getElementById('bannerVideoModal');
+        const frame = document.getElementById('bannerVideoFrame');
+
+        frame.src = ""; // stop video
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+</script>
+<!-- DEBUG-VIEW ENDED 4 APPPATH\Views\website\talent_comp\talent_banner.php -->
+    <!-- DEBUG-VIEW START 5 APPPATH\Views\website\talent_comp\HireEACertifiedTalent.php -->
+<section class="max-w-7xl mx-auto px-4 py-8 sm:p-8 bg-white flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+    <!-- IMAGE -->
+    <div class="w-full md:w-1/2 flex justify-center relative">
+        <div class="relative max-w-[500px] w-full">
+            <img
+                src="http://localhost/ShivanganiTandonAcademy/public/images/talent/HireEACertifiedTalent/Img.png"
+                alt="Professional working"
+                class="w-full h-auto md:h-[400px] object-cover rounded-md" />
+            
+            <!-- Experience Box Overlay to cover '15+17' -->
+            <div class="absolute top-2 left-2 sm:top-4 sm:left-4 bg-[#5751E1] text-white 
+                    p-3 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center 
+                    shadow-lg font-poppins z-10">
+                <span class="text-2xl sm:text-4xl font-semibold leading-none">17+</span>
+                <span class="text-[10px] sm:text-[11px] font-semibold text-center mt-1 leading-tight">
+                    Years of experience
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="w-full md:w-1/2 space-y-4">
+
+        <div class="space-y-2">
+            <span class="text-[#5D666F] font-medium text-[14px] sm:text-[16px] md:text-[18px] leading-[20px] sm:leading-[22px] font-dmsans">
+                For Employers
+            </span>
+
+            <p class="text-[22px] sm:text-[28px] md:text-[36px] font-bold text-[#1C2539] leading-[32px] sm:leading-[40px] md:leading-[57.6px] font-redhat">
+                Hire EA-Certified Talent
+            </p>
+
+            <p class="font-poppins text-[14px] sm:text-[15px] md:text-[16px] leading-[22px] sm:leading-[24px] md:leading-[28px] text-[#6D6C80]">
+                Looking for skilled US tax professionals? Our academy produces industry-ready Enrolled Agents who are trained with practical knowledge and real-world scenarios.
+            </p>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="space-y-5 sm:space-y-6 py-2">
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-3 sm:gap-4">
+                <div class="bg-[#5751E1] p-2 sm:p-3 rounded-md text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-redhat font-bold text-[18px] sm:text-[22px] md:text-[26px] text-[#1C2539]">
+                        Find Talent
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] md:text-[16px] text-[#5D666F] leading-[22px] sm:leading-[26px] font-dmsans">
+                        Access our pool of certified EAs
+                    </p>
+                </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-3 sm:gap-4">
+                <div class="bg-[#5751E1] p-2 sm:p-3 rounded-md text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-redhat font-bold text-[18px] sm:text-[22px] md:text-[26px] text-[#1C2539]">
+                        Industry Ready
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] md:text-[16px] text-[#5D666F] leading-[22px] sm:leading-[26px] font-dmsans">
+                        Trained for Big 4 & KPOs
+                    </p>
+                </div>
+            </div>
+
+            <!-- ITEM -->
+            <div class="flex items-start gap-3 sm:gap-4">
+                <div class="bg-[#5751E1] p-2 sm:p-3 rounded-md text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0" />
+                    </svg>
+                </div>
+                <div>
+                    <h4 class="font-redhat font-bold text-[18px] sm:text-[22px] md:text-[26px] text-[#1C2539]">
+                        Verified Skills
+                    </h4>
+                    <p class="text-[14px] sm:text-[15px] md:text-[16px] text-[#5D666F] leading-[22px] sm:leading-[26px] font-dmsans">
+                        IRS-certified professionals
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BUTTON -->
+        <div class="mt-6 sm:mt-8 md:mt-10">
+            <a href="#hiring-form" class="inline-flex bg-[#5751E1] text-white 
+                px-5 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4
+                text-sm sm:text-base
+                rounded-full items-center gap-2 
+                shadow-[3px_4px_0px_0px_#050071] 
+                hover:bg-[#FE002A] hover:shadow-[5px_6px_0px_0px_#3D3D3D] hover:-translate-y-1
+                active:translate-y-1 active:shadow-[2px_3px_0px_0px_#050071] transition-all duration-300">
+                Contact Us For Hiring →
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- DEBUG-VIEW ENDED 5 APPPATH\Views\website\talent_comp\HireEACertifiedTalent.php -->
+    <!-- DEBUG-VIEW START 6 APPPATH\Views\website\talent_comp\HireTopTierGlobalTaxandManagementProfessional.php -->
+<!-- SECTION -->
+<section class="bg-[#f6f6f8] py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+            <!-- LEFT IMAGE -->
+            <div class="max-w-md mx-auto">
+                <img
+                    src="http://localhost/ShivanganiTandonAcademy/public/images/talent/HireTopTierGlobalTaxandManagementProfessional/6f4837b2621ab0416dabfffa9ce1e05ed11028eb.png"
+                    alt="Hiring"
+                    class="rounded-xl w-full h-auto object-cover" />
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div>
+                <div class="mb-10">
+                    <span class="inline-block bg-[#FFDFE4] text-[#FE002A] font-medium font-poppins text-sm px-4 py-1 rounded-full mb-4">
+                        We’re Hiring
+                    </span>
+                    <p class="text-[24px] sm:text-[32px] md:text-[36px] font-semibold text-[#161439] mb-1 sm:mb-2 md:mb-3 lg:mb-6 xl:mb-6 leading-[1.33] tracking-[-0.75px] capitalize font-poppins">
+                        Hire Top-Tier Global Tax and <br>
+                        Management Professional
+                    </p>
+                </div>
+
+                <div class="space-y-10">
+                    <!-- ITEM -->
+                    <div class="flex items-center">
+                        <!-- ICON -->
+                        <div
+                            class="w-12 h-12 md:w-20 md:h-20 bg-white rounded-xl md:rounded-2xl shadow flex items-center justify-center">
+                            <div
+                                class="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
+                                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/HireTopTierGlobalTaxandManagementProfessional/qlementine-icons_certified-filled-16.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- CONNECTOR -->
+                        <div class="flex items-center w-[50px] sm:w-[90px]">
+                            <div
+                                class="-ml-2 w-4 h-4 border-5 border-[#3E484E] rounded-full"></div>
+                            <div
+                                class="flex-1 border-t-2 border-dotted border-[#383838]"></div>
+                        </div>
+
+                        <!-- CARD -->
+                        <div class="relative flex-1">
+                            <!-- NUMBER -->
+                            <div
+                                class="border-4 border-white shadow absolute -left-5 top-1/2 -translate-y-1/2 w-7 h-7 md:w-9 md:h-9 bg-indigo-500 text-white rounded-full flex items-center justify-center text-xs font-semibold shadow">
+                                01
+                            </div>
+
+                            <div class="bg-white px-4 py-3 sm:px-6 sm:py-3 rounded-xl md:rounded-2xl shadow-sm">
+                                <p class="font-semibold text-[#3E484E] text-[16px] leading-[20px] font-poppins">
+                                    Expertly Certified
+                                </p>
+                                <p class="text-xs md:text-sm text-[#C9C9C9] mt-1">
+                                    Client Discovery is the foundation of every successful
+                                    project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 md:w-20 md:h-20 bg-white rounded-xl md:rounded-2xl shadow flex items-center justify-center">
+                            <div
+                                class="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
+                                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/HireTopTierGlobalTaxandManagementProfessional/uil_bag.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center w-[50px] sm:w-[90px]">
+                            <div
+                                class="-ml-2 w-4 h-4 border-5 border-[#3E484E] rounded-full"></div>
+                            <div
+                                class="flex-1 border-t-2 border-dotted border-[#383838]"></div>
+                        </div>
+
+                        <div class="relative flex-1">
+                            <div
+                                class="border-4 border-white shadow absolute -left-5 top-1/2 -translate-y-1/2 w-7 h-7 md:w-9 md:h-9 bg-indigo-500 text-white rounded-full flex items-center justify-center text-xs font-semibold shadow">
+                                02
+                            </div>
+
+                            <div class="bg-white px-4 py-3 sm:px-6 sm:py-3 rounded-xl md:rounded-2xl shadow-sm">
+                                <p class="font-semibold text-[#3E484E] text-[16px] leading-[20px] font-poppins">Industry-Ready</p>
+                                <p class="text-xs md:text-sm text-[#C9C9C9] mt-1">
+                                    Research & Analysis phase, we dive deep into understanding
+                                    your market.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM -->
+                    <div class="flex items-center">
+                        <div
+                            class="w-12 h-12 md:w-20 md:h-20 bg-white rounded-xl md:rounded-2xl shadow flex items-center justify-center">
+                            <div
+                                class="w-8 h-8 md:w-12 md:h-12 flex items-center justify-center">
+                                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/HireTopTierGlobalTaxandManagementProfessional/streamline_web-solid.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center w-[50px] sm:w-[90px]">
+                            <div
+                                class="-ml-2 w-4 h-4 border-5 border-[#3E484E] rounded-full"></div>
+                            <div
+                                class="flex-1 border-t-2 border-dotted border-[#383838]"></div>
+                        </div>
+
+                        <div class="relative flex-1">
+                            <div
+                                class="border-4 border-white shadow absolute -left-5 top-1/2 -translate-y-1/2 w-7 h-7 md:w-9 md:h-9 bg-indigo-500 text-white rounded-full flex items-center justify-center text-xs font-semibold shadow">
+                                03
+                            </div>
+
+                            <div class="bg-white px-4 py-3 sm:px-6 sm:py-3 rounded-xl md:rounded-2xl shadow-sm">
+                                <p class="font-semibold text-[#3E484E] text-[16px] leading-[20px] font-poppins">
+                                    Versatile Solution
+                                </p>
+                                <p class="text-xs md:text-sm text-[#C9C9C9] mt-1">
+                                    Based on insights from the research phase, we craft a
+                                    tailored marketing strategy.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- DEBUG-VIEW ENDED 6 APPPATH\Views\website\talent_comp\HireTopTierGlobalTaxandManagementProfessional.php -->
+    <!-- DEBUG-VIEW START 7 APPPATH\Views\website\talent_comp\SkilledIntroduce_form.php -->
+<section id="hiring-form" class="py-10 md:py-16 font-poppins bg-[#F9F9FB]">
+    <div class="w-full max-w-full sm:max-w-3xl md:max-w-5xl lg:max-w-7xl mx-auto px-4 md:px-6 lg:px-8 xl:px-10">
+
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+            <!-- LEFT SIDE -->
+            <div class="space-y-6 about_us_text text-center lg:text-left flex flex-col items-center lg:items-start">
+
+                <!-- Badge -->
+                <span class="inline-block bg-[#EFEEFE] text-[#5751E1] font-medium font-poppins text-xs sm:text-sm px-3 sm:px-4 py-1 rounded-full">
+                    Skilled Introduce
+                </span>
+
+                <p class="text-[22px] leading-[30px] sm:text-[28px] sm:leading-[36px] md:text-[36px] md:leading-[47px] tracking-[-0.5px] sm:tracking-[-0.75px] font-bold text-gray-800 font-poppins capitalize">
+                    Our Top Class & Professional <br class="hidden sm:inline">
+                    Instructors in One Place
+                </p>
+
+                <!-- Shivangani Tandon Card -->
+                <div class="bg-white rounded-2xl p-6 border border-[#E3E3E3] shadow-sm max-w-lg w-full flex flex-col items-center text-center gap-4">
+
+                    <!-- Image -->
+                    <div class="w-[200px] sm:w-[240px] md:w-[260px] flex justify-center shrink-0">
+                        <img
+                            class="w-full h-auto object-contain"
+                            src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/Faqs/IMG.png"
+                            alt="Shivangani Tandon">
+                    </div>
+
+                    <!-- Content Section -->
+                    <div class="space-y-1">
+                        <p class="text-xl md:text-2xl font-bold text-[#161439] leading-tight font-poppins">
+                            Shivangani Tandon
+                        </p>
+
+                        <p class="text-[#5751E1] font-semibold text-sm tracking-wide uppercase font-poppins">
+                            US Tax Expert
+                        </p>
+
+                        <p class="text-[#6D6C80] mt-3 leading-relaxed text-sm sm:text-base font-normal font-poppins">
+                            With expert mentorship and hands-on learning, our students have secured opportunities in Big 4 firms and multinational companies.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Students & Rating Row -->
+                <div class="flex flex-col sm:flex-row items-center gap-6 mt-2 w-full justify-center lg:justify-start">
+                    <!-- Students -->
+                    <div class="flex items-center gap-3">
+                        <div class="flex -space-x-3">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/shivani.png">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/aniket.png">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/shivani.png">
+                            <img class="w-8 h-8 rounded-full border-2 border-white object-cover"
+                                src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/home_banner/aniket.png">
+                        </div>
+                        <p class="text-gray-600 text-sm font-medium">
+                            2,00,000+ Students Placed
+                        </p>
+                    </div>
+
+                    <div class="hidden sm:block w-[1px] h-6 bg-[#E3E3E3]"></div>
+
+                    <!-- Rating -->
+                    <div class="flex items-center gap-1">
+                        <div class="flex gap-0.5">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/Testimonials/Symbol.png" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/Testimonials/Symbol.png" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/Testimonials/Symbol.png" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/Testimonials/Symbol.png" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/homePageImages/Testimonials/Symbol.png" class="w-4 h-4 sm:w-5 sm:h-5" alt="star">
+                        </div>
+                        <p class="text-gray-600 text-xs sm:text-sm font-medium ml-1">
+                            4.5/5 Rating
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT FORM -->
+            <div class="bg-white rounded-2xl p-6 md:p-8 w-full border border-[#E3E3E3] shadow-[0px_0px_30px_0px_#E8E8E8]">
+
+                <h3 class="text-xl md:text-2xl font-semibold mb-6 text-[#161439] text-center">
+                    Submit your Hiring Requirement
+                </h3>
+
+                <form class="space-y-5">
+
+                    <!-- Organisation Name -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Organisation Name</label>
+                        <input id="organisation_name" type="text" placeholder="Enter Organisation Name"
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF0033]">
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">
+                            Contact Number
+                            <span class="text-[#FE002A] text-xs">(Enter A Valid Phone Number)</span>
+                        </label>
+
+                        <input id="contact_number" type="tel"
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF0033]"
+                            placeholder="Enter phone number">
+                    </div>
+
+                    <!-- Full Name -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Full Name</label>
+                        <input id="full_name" type="text" placeholder="Enter Full Name"
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF0033]">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Email Address</label>
+                        <input id="email" type="email" placeholder="Enter Your Email Address"
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF0033]">
+                    </div>
+
+
+                    <!-- Requirement Type -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Requirement Type</label>
+                        <select id="requirement_type"
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#FF0033]">
+                            <option value="">Select Requirement Type</option>
+                            <option>Full Time</option>
+                            <option>Part Time</option>
+                            <option>Project-Based</option>
+                        </select>
+                    </div>
+
+                    <!-- Skills -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Skills</label>
+                        <select id="skills"
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-[#FF0033]">
+                            <option value="">Select Skills</option>
+                            <option>EA Expert</option>
+                            <option>CMA Expert</option>
+                            <option>AI Expert</option>
+                            <option>Tax Professional</option>
+                        </select>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label class="text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" rows="3" placeholder="Write your message..."
+                            class="w-full mt-1 px-4 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF0033]"></textarea>
+                    </div>
+
+
+
+                    <button id="submitBtn" type="button" onclick="hiring_requests_form_submit()"
+                        class="w-full bg-[#FE002A] text-white py-2 rounded-lg font-semibold flex justify-center items-center gap-2">
+
+                        <span id="btnText">Submit Application</span>
+
+                        <!-- Font Awesome Spinner -->
+                        <i id="btnSpinner" class="fa fa-spinner fa-spin hidden"></i>
+
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // ✅ function must be OUTSIDE
+    function hiring_requests_form_submit(event) {
+        if (event) event.preventDefault();
+
+        const btn = document.getElementById("submitBtn");
+        const btnText = document.getElementById("btnText");
+        const spinner = document.getElementById("btnSpinner");
+
+        function resetButton() {
+            spinner.classList.add("hidden");
+            btnText.innerText = "Submit Application";
+            btn.disabled = false;
+        }
+
+        // ✅ SAFE GET VALUE FUNCTION
+        function getValue(id) {
+            const el = document.getElementById(id);
+            return el ? el.value.trim() : "";
+        }
+
+        // ✅ START LOADING
+        spinner.classList.remove("hidden");
+        btnText.innerText = "Processing...";
+        btn.disabled = true;
+
+        // ✅ GET VALUES
+        const organisation_name = getValue("organisation_name");
+        const full_name = getValue("full_name");
+        const email = getValue("email");
+        const contact_number = getValue("contact_number");
+        const requirement_type = getValue("requirement_type");
+        const skills = getValue("skills");
+        const message = getValue("message");
+
+
+        // ✅ VALIDATION
+        if (!organisation_name || !full_name || !email || !requirement_type) {
+            showModal("error", "Error", "Please fill all required fields");
+            return resetButton();
+        }
+
+
+        // ✅ JSON OBJECT (MATCH YOUR BACKEND)
+        const payload = {
+            organisation_name,
+            contact_number,
+            full_name,
+            email,
+            requirement_type,
+            skills,
+            message
+        };
+
+        const url = "http://localhost/ShivanganiTandonAcademy/api/hiring_requests_form_submit";
+
+        fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Response:", data);
+
+                if (data.status === "success" || data.status === 200) {
+                    showModal("success", "Success", data.message || "Form submitted successfully");
+
+                    // ✅ RESET FORM
+                    ["organisation_name", "full_name", "email", "requirement_type", "skills", "message"]
+                    .forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.value = "";
+                    });
+
+
+                } else {
+                    showModal("error", "Error", data.message || "Something went wrong");
+                }
+
+                resetButton();
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                showModal("error", "Server Error", "Server error or invalid response!");
+                resetButton();
+            });
+    }
+</script>
+<!-- DEBUG-VIEW ENDED 7 APPPATH\Views\website\talent_comp\SkilledIntroduce_form.php -->
+    <!-- DEBUG-VIEW START 8 APPPATH\Views\website\talent_comp\Career_Support.php -->
+<div class="bg-white py-8 px-1 sm:py-12 sm:px-2 md:py-16 md:px-4">
+    <div class="text-center mb-10">
+        <span
+            class="inline-block bg-[#FFDFE4] text-[#FE002A] font-medium font-poppins text-sm px-4 py-1 rounded-full mb-4">
+            Career Support
+        </span>
+        <p
+            class="text-[24px] sm:text-[32px] md:text-[36px] font-semibold text-[#161439] mb-1 sm:mb-2 md:mb-3 lg:mb-6 xl:mb-6 leading-[1.33] tracking-[-0.75px] capitalize font-poppins">
+            Hire Top-Tier Global Tax and Management Professional
+        </p>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+
+        <div class="flex flex-col justify-evenly p-8 min-h-[250px] ">
+            <div>
+                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/SVG1.png" alt="">
+            </div>
+            <div>
+                <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Big 4 Firms</h3>
+                <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">Deloitte, PwC, EY, KPMG</p>
+            </div>
+
+        </div>
+
+        <div class="overflow-hidden">
+            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/3.png" alt="Team Meeting" class="w-full h-full object-cover">
+        </div>
+
+        <div class="flex flex-col justify-evenly p-8 min-h-[250px] ">
+            <div>
+                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/SVG1.png" alt="">
+            </div>
+            <div>
+                <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Strategy Growth</h3>
+                <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">Deloitte, PwC, EY, KPMG</p>
+            </div>
+
+        </div>
+
+        <div class="overflow-hidden">
+            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/2.png" alt="Team Discussion" class="w-full h-full object-cover">
+        </div>
+
+        <div class="overflow-hidden">
+            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/1.png" alt="Working on Tablet" class="w-full h-full object-cover">
+        </div>
+
+        <div class="flex flex-col justify-evenly p-8 min-h-[250px] ">
+            <div>
+                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/SVG2.png" alt="">
+            </div>
+            <div>
+                <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Career Growth</h3>
+                <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">30%-40% Salary hike Post EA.</p>
+            </div>
+
+        </div>
+
+        <div class="overflow-hidden">
+            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/4.png" alt="Tablet View" class="w-full h-full object-cover">
+        </div>
+
+        <div class="flex flex-col justify-evenly p-8 min-h-[250px] ">
+            <div>
+                <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/CareerSupport/SVG2.png" alt="">
+            </div>
+            <div>
+                <h3 class="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-[#1C2539] leading-[24px] sm:leading-[26px] md:leading-[28.8px] font-redhat mb-2">Avg Packages</h3>
+                <p class="text-[16px] font-normal text-[#5D666F] leading-[27.2px] font-dmsans">6 - 15 LPA for EA Professional</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- DEBUG-VIEW ENDED 8 APPPATH\Views\website\talent_comp\Career_Support.php -->
+
+    <!-- DEBUG-VIEW START 9 APPPATH\Views\website\talent_comp\SuccessStories.php -->
+
+<section class="bg-slate-50 py-16 sm:py-24 font-poppins overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="text-center mb-16">
+            <span class="inline-block bg-[#FFDFE4] text-[#FE002A] font-medium text-sm px-5 py-1.5 rounded-full mb-4 shadow-sm">
+                Success Stories
+            </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#161439] mb-4 tracking-tight">
+                Our Students Testimonial Videos
+            </h2>
+            <div class="w-24 h-1.5 bg-[#FE002A] mx-auto rounded-full opacity-20"></div>
+        </div>
+
+        
+        <!-- Featured Row (2 Large) -->
+        <div class="row g-4 mb-4">
+                        <div class="col-md-6 mb-4">
+                <div onclick="openTestimonialVideo('zMBCf3PKSaA')"
+                    class="group relative cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-white h-full">
+                    
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="http://localhost/ShivanganiTandonAcademy/public/images/EA/AboutCampushistory/1.png" 
+                             alt="Mustafa Moomin"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FE002A] group-hover:border-[#FE002A]">
+                                <i class="fas fa-play text-white text-2xl translate-x-1"></i>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 right-6 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <div class="bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl border border-white/50">
+                                <p class="text-[#161439] font-extrabold text-lg mb-0">Mustafa Moomin</p>
+                                <p class="text-[#FE002A] text-xs font-bold uppercase tracking-widest mb-0">Student Success Story</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-md-6 mb-4">
+                <div onclick="openTestimonialVideo('emUgLHYXA50')"
+                    class="group relative cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 bg-white h-full">
+                    
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="http://localhost/ShivanganiTandonAcademy/public/images/EA/AboutCampushistory/3.png" 
+                             alt="Bhabagrahi Jena"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FE002A] group-hover:border-[#FE002A]">
+                                <i class="fas fa-play text-white text-2xl translate-x-1"></i>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-6 left-6 right-6 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <div class="bg-white/95 backdrop-blur px-5 py-3 rounded-2xl shadow-xl border border-white/50">
+                                <p class="text-[#161439] font-extrabold text-lg mb-0">Bhabagrahi Jena</p>
+                                <p class="text-[#FE002A] text-xs font-bold uppercase tracking-widest mb-0">Student Success Story</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    </div>
+
+        <!-- Others Row (3 Small) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div onclick="openTestimonialVideo('uZmibYPyihg')"
+                    class="group relative cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 bg-white">
+                    
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="http://localhost/ShivanganiTandonAcademy/public/images/EA/AboutCampushistory/4.png" 
+                             alt="Akshay Trivedi"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FE002A] group-hover:border-[#FE002A]">
+                                <i class="fas fa-play text-white text-sm translate-x-0.5"></i>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-3 left-3 right-3 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <div class="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg">
+                                <p class="text-[#161439] font-bold text-xs mb-0">Akshay Trivedi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <div onclick="openTestimonialVideo('7JEoXfOcxLc')"
+                    class="group relative cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 bg-white">
+                    
+                    <div class="relative aspect-video overflow-hidden">
+                        <img src="http://localhost/ShivanganiTandonAcademy/public/images/EA/AboutCampushistory/5.png" 
+                             alt="Anmol Parmeshwar"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
+                            <div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform transition-all duration-500 group-hover:scale-110 group-hover:bg-[#FE002A] group-hover:border-[#FE002A]">
+                                <i class="fas fa-play text-white text-sm translate-x-0.5"></i>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-3 left-3 right-3 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                            <div class="bg-white/90 backdrop-blur px-3 py-2 rounded-lg shadow-lg">
+                                <p class="text-[#161439] font-bold text-xs mb-0">Anmol Parmeshwar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+
+        <!-- BUTTON -->
+        <div class="mt-20 flex justify-center">
+            <a href="https://www.youtube.com/@shivanganitandonacademy9323" target="_blank" rel="noopener noreferrer" 
+               class="group relative inline-flex items-center justify-center bg-[#5751E1] text-white px-12 py-4 rounded-full font-bold overflow-hidden transition-all duration-300 shadow-[0_10px_20px_rgba(87,81,225,0.3)]">
+                <span class="relative z-10 flex items-center gap-2">
+                    View All Videos
+                    <i class="fas fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                </span>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#161439] to-[#5751E1] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div id="TestimonialvideoModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50 p-4">
+    <div class="relative w-full max-w-4xl">
+        <button onclick="closeTestimonialVideo()" class="absolute -top-12 right-0 text-white text-4xl hover:text-red-500 transition-colors">&times;</button>
+        <div class="aspect-video">
+            <iframe id="TestimonialvideoFrame" class="w-full h-full rounded-lg" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTestimonialVideo(videoId) {
+        const modal = document.getElementById('TestimonialvideoModal');
+        const iframe = document.getElementById('TestimonialvideoFrame');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeTestimonialVideo() {
+        const modal = document.getElementById('TestimonialvideoModal');
+        const iframe = document.getElementById('TestimonialvideoFrame');
+        iframe.src = '';
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+</script>
+<!-- DEBUG-VIEW ENDED 9 APPPATH\Views\website\talent_comp\SuccessStories.php -->
+    <!-- DEBUG-VIEW START 10 APPPATH\Views\website\talent_comp\RealResult_talent.php -->
+<!-- Include Swiper CSS -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<section class="py-8 sm:py-10 md:py-16 px-2 sm:px-3 md:px-4 font-poppins">
+
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto px-4 text-center">
+
+        <!-- Badge -->
+        <div class="inline-block bg-[#FFDFE4] text-[#FE002A] text-sm px-4 py-1 rounded-full font-medium inline-flex justify-center items-center gap-3 mb-4">
+            Real Results
+        </div>
+
+        <p class="text-[22px] sm:text-[26px] md:text-[32px] lg:text-[36px] 
+           font-semibold text-[#161439] 
+           leading-[30px] sm:leading-[36px] md:leading-[42px] lg:leading-[47.88px] 
+           tracking-[-0.5px] md:tracking-[-0.75px] 
+           capitalize mb-2">
+            Score of our students for 2024
+        </p>
+
+        <!-- Sub Text -->
+        <p
+            class="font-normal mb-12 font-poppins text-[#6D6C80]">
+            Hear from our students who have successfully cleared the EA exam and transformed their careers.
+        </p>
+
+    </div>
+
+    <!-- Swiper -->
+    <div class="relative max-w-7xl mx-auto">
+        <div class="swiper success-slider">
+            <div class="swiper-wrapper">
+
+                
+                <!-- Dynamic Slides -->
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/1.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/3.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/4.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/5.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/6.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/7.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/8.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/9.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/10.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/11.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/12.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/13.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/14.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                                    <div class="swiper-slide p-2">
+                        <div
+                            class="overflow-hidden group">
+                            <img src="http://localhost/ShivanganiTandonAcademy/public/images/talent/RealResult_talent/15.jpg"
+                                alt="Success Story"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex items-center gap-2 sm:gap-4 w-full mt-4 sm:mt-8 px-2 sm:px-0">
+                <!-- Previous Button -->
+                <div
+                    class="prev-btn flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-[#5751E1] hover:bg-[#5751E1] text-white rounded-full transition-transform active:scale-95 cursor-pointer z-10">
+                    <img src="http://localhost/ShivanganiTandonAcademy/public/images/Resources/RealResults/left.png" alt="" class="w-3 h-3 sm:w-4 sm:h-4">
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="flex-grow h-1 sm:h-1.5 bg-gray-200 rounded-full relative overflow-hidden">
+                    <div id="progress-bar" class="absolute top-0 left-0 h-full bg-[#5751E1] transition-all duration-500 ease-out" style="width: 33%"></div>
+                </div>
+
+                <!-- Next Button -->
+                <div
+                    class="next-btn flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-[#5751E1] hover:bg-[#5751E1] text-white rounded-full transition-transform active:scale-95 cursor-pointer z-10">
+                    <img src="http://localhost/ShivanganiTandonAcademy/public/images/Resources/RealResults/right.png" alt="" class="w-3 h-3 sm:w-4 sm:h-4">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+<script>
+    const swiper = new Swiper('.success-slider', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: false,
+        breakpoints: {
+            640: {
+                slidesPerView: 2
+            },
+            1024: {
+                slidesPerView: 3
+            },
+        },
+        on: {
+            slideChange: updateProgressBar,
+        },
+    });
+
+    // Navigation buttons
+    document.querySelector('.next-btn').addEventListener('click', () => swiper.slideNext());
+    document.querySelector('.prev-btn').addEventListener('click', () => swiper.slidePrev());
+
+    function updateProgressBar() {
+        const total = swiper.slides.length;
+        const current = swiper.activeIndex + swiper.params.slidesPerView;
+        const percent = Math.min((current / total) * 100, 100);
+        document.getElementById('progress-bar').style.width = percent + '%';
+    }
+
+    // Initialize progress bar
+    updateProgressBar();
+
+
+    function openTestimonialVideo(videoId) {
+        const modal = document.getElementById('TestimonialvideoModal');
+        const iframe = document.getElementById('TestimonialvideoFrame');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeTestimonialVideo() {
+        const modal = document.getElementById('TestimonialvideoModal');
+        const iframe = document.getElementById('TestimonialvideoFrame');
+        iframe.src = '';
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = 'auto';
+    }
+</script>
+<!-- DEBUG-VIEW ENDED 10 APPPATH\Views\website\talent_comp\RealResult_talent.php -->
+
+
+</div>
+
+
+<!-- DEBUG-VIEW START 11 APPPATH\Views\custom\footer.php -->
+<footer class="bg-[#06042E] text-gray-400">
+
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 about_us_text">
+
+    <!-- Logo + About (40%) -->
+    <div class="lg:col-span-4 text-left">
+
+      <img src="http://localhost/ShivanganiTandonAcademy/public/images/commonImages/SivanganiTandon12.jpg"
+        alt="Logo"
+        class="block w-auto max-w-full max-h-[100px] sm:max-h-[120px] object-contain mb-4">
+
+      <p class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs sm:text-[16px] sm:leading-[28px]">
+        Empowering global finance careers through 17+ years of expert mentorship in US Taxation and Management Accounting. Free AI course Certification.
+      </p>
+
+    </div>
+    <!-- Courses -->
+    <div class="lg:col-span-3 text-left">
+      <h3 class="text-white text-[18px] sm:text-[20px] md:text-[22px] leading-[24px] sm:leading-[26px] md:leading-[28.6px] font-semibold inline-block relative font-poppins mb-4">
+        Courses
+        <span class="absolute left-0 bottom-[-6px] w-8 h-[3px] rounded-full bg-[#5751E1]"></span>
+      </h3>
+      <ul class="space-y-2">
+        <li><a href="http://localhost/ShivanganiTandonAcademy/best-enrolled-agent-academy" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Enrolled Agent (EA)</a></li>
+        <li><a href="http://localhost/ShivanganiTandonAcademy/usa-cma-course-online" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Certified Management Accountant (CMA)</a></li>
+        <li><a href="http://localhost/ShivanganiTandonAcademy/ai-tax-professional-training" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Artificial Intelligence (AI)</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="lg:col-span-2 text-left">
+      <h3 class="text-white text-[18px] sm:text-[20px] md:text-[22px] leading-[24px] sm:leading-[26px] md:leading-[28.6px] font-semibold inline-block relative font-poppins mb-4">
+        Resources
+        <span class="absolute left-0 bottom-[-6px] w-8 h-[3px] rounded-full bg-[#5751E1]"></span>
+      </h3>
+      <ul class="space-y-2">
+        <li><a href="http://localhost/ShivanganiTandonAcademy/signup" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition"> Sign Up</a></li>
+        <li><a href="http://localhost/ShivanganiTandonAcademy/login" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Login</a></li>
+        <li><a href="http://localhost/ShivanganiTandonAcademy/taxation-career-guides" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Blogs</a></li>
+        <li><a href="http://localhost/ShivanganiTandonAcademy/us-taxation-study-material" class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 hover:text-white transition">Materials</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="lg:col-span-3 text-left">
+      <h3 class="text-white text-[18px] sm:text-[20px] md:text-[22px] leading-[24px] sm:leading-[26px] md:leading-[28.6px] font-semibold inline-block relative font-poppins mb-4">
+        Get In Touch
+        <span class="absolute left-0 bottom-[-6px] w-8 h-[3px] rounded-full bg-[#5751E1]"></span>
+      </h3>
+
+      <p class="text-[#B2BBCC] font-inter font-normal text-sm leading-7 max-w-xs mx-auto sm:text-[16px] sm:leading-[28px] sm:mx-0 mb-2">
+        Ready to scale your career? Connect with our experts today for a career roadmap and global placements.
+      </p>
+
+      <!-- Social Icons -->
+      <div class="flex justify-center sm:justify-start gap-4 text-base">
+                  <a href="https://www.instagram.com/shivanganitandonacademy/?hl=en" target="_blank" rel="noopener noreferrer" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.facebook.com/EnrolledAgentshivanganitandon" target="_blank" rel="noopener noreferrer" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.linkedin.com/company/shivanganitandon-academy/" target="_blank" rel="noopener noreferrer" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                          <a href="https://www.youtube.com/@shivanganitandonacademy9323" target="_blank" rel="noopener noreferrer" class="hover:text-white"><i class="fab fa-youtube"></i></a>
+              </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-700 bg-[#1C1A4A]">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 
+                flex flex-col md:flex-row items-center justify-between gap-3 text-sm">
+
+      <p class="text-[#8C9AB4] font-inter font-normal text-base leading-7 text-center md:text-left">
+        © 2026 Shivangani Tandon Academy. All rights reserved.
+      </p>
+
+      <div class="flex items-center gap-2 text-[#8C9AB4] font-inter font-normal text-base leading-7 align-middle">
+        <a href="http://localhost/ShivanganiTandonAcademy/terms-and-conditions" class="hover:text-white">Term of Use</a>
+        <span class="text-gray-500">|</span>
+        <a href="http://localhost/ShivanganiTandonAcademy/privacy-policy" class="hover:text-white">Privacy Policy</a>
+        <span class="text-gray-500">|</span>
+        <span class="text-[#8C9AB4]">Design and Developed by <a href="https://techmapperz.com/" target="_blank" class="hover:text-white font-semibold">Techmapperz</a></span>
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+<!-- DEBUG-VIEW ENDED 11 APPPATH\Views\custom\footer.php -->
+<!-- DEBUG-VIEW START 12 APPPATH\Views\custom\lower_template.php -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5fec1d06df060f156a9203f0/1eqp52pfo';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</html>
+<!-- DEBUG-VIEW ENDED 12 APPPATH\Views\custom\lower_template.php -->
+
+<!-- DEBUG-VIEW ENDED 13 APPPATH\Views\website\Talent_main.php -->
+";}";}

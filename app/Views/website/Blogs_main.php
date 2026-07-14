@@ -13,7 +13,7 @@
     
     <!-- Hero Content -->
     <div class="relative z-10 text-center w-full px-4">
-        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl max-w-3xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl max-w-3xl mx-auto">
             <h1 class="text-white text-3xl md:text-7xl font-black tracking-tight mb-2 md:mb-4 uppercase">
                 THE ACADEMY <br class="hidden md:block"> <span class="text-white/90">CHRONICLE</span>
             </h1>
