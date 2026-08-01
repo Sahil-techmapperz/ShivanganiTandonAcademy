@@ -184,6 +184,13 @@
         border: 1px solid #fee2e2;
     }
 
+    .msg-info {
+        display: block;
+        background: #eff6ff;
+        color: #1d4ed8;
+        border: 1px solid #bfdbfe;
+    }
+
     @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
@@ -208,97 +215,93 @@
 <div class="auth-page">
     <div class="auth-card">
         <div class="auth-header">
-            <h2>Welcome Back</h2>
-            <p>Please enter your details to sign in.</p>
+            <h2>Forgot Password</h2>
+            <p>Enter your email address to receive an OTP.</p>
         </div>
 
-        <div id="login_response" class="response-msg"></div>
+        <div id="forgot_response" class="response-msg"></div>
 
-        <form id="loginForm">
+        <form id="forgotForm">
             <div class="form-group">
                 <label class="form-label">Email Address</label>
                 <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
             </div>
 
-            <div class="form-group">
-                <label class="form-label">Password</label>
-                <input type="password" id="password" class="form-input" placeholder="••••••••" required>
-            </div>
-
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label text-muted small" for="rememberMe">Remember me</label>
-                </div>
-                <a href="<?= base_url('forgot-password') ?>" class="auth-link small">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="btn-auth" id="loginBtn">
+            <button type="submit" class="btn-auth" id="forgotBtn">
                 <span class="spinner" id="spinner"></span>
-                <span id="btnText">Log In</span>
+                <span id="btnText">Send OTP</span>
             </button>
         </form>
 
         <div class="auth-footer">
-            Don't have an account? <a href="<?= base_url('signup') ?>" class="auth-link">Sign Up</a>
+            Remembered your password? <a href="<?= base_url('login') ?>" class="auth-link">Log In</a>
         </div>
     </div>
 </div>
 
 <script>
-    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    document.getElementById('forgotForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const responseBox = document.getElementById('login_response');
-        const loginBtn = document.getElementById('loginBtn');
+        const responseBox = document.getElementById('forgot_response');
+        const forgotBtn = document.getElementById('forgotBtn');
         const spinner = document.getElementById('spinner');
         const btnText = document.getElementById('btnText');
         
         const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
         
-        if (!email || !password) {
-            showMsg('Please fill all fields.', false);
+        if (!email) {
+            showMsg('Please enter your email.', 'error');
             return;
         }
 
         // UI Feedback
-        loginBtn.disabled = true;
+        forgotBtn.disabled = true;
         spinner.style.display = 'block';
-        btnText.innerText = 'Signing In...';
+        btnText.innerText = 'Sending...';
         responseBox.style.display = 'none';
 
         try {
-            const res = await fetch('<?= base_url('login') ?>', {
+            const res = await fetch('<?= base_url('forgot-password') ?>', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ email })
             });
             
             const data = await res.json();
             
             if (data.success) {
-                showMsg('Login successful! Redirecting...', true);
-                setTimeout(() => { window.location.href = data.redirect; }, 1000);
+                let msgClass = data.mocked ? 'info' : 'success';
+                showMsg(data.message, msgClass);
+                
+                setTimeout(() => { 
+                    window.location.href = '<?= base_url('reset-password') ?>'; 
+                }, data.mocked ? 6000 : 2000); // 6 seconds for mocked so user can read OTP
             } else {
-                showMsg(data.message, false);
+                showMsg(data.message, 'error');
                 resetBtn();
             }
         } catch (err) {
-            showMsg('An error occurred. Please try again.', false);
+            showMsg('An error occurred. Please try again.', 'error');
             resetBtn();
         }
 
-        function showMsg(msg, isSuccess) {
+        function showMsg(msg, type) {
             responseBox.innerText = msg;
             responseBox.style.display = 'block';
-            responseBox.className = 'response-msg ' + (isSuccess ? 'msg-success' : 'msg-error');
+            if (type === 'success') {
+                responseBox.className = 'response-msg msg-success';
+            } else if (type === 'error') {
+                responseBox.className = 'response-msg msg-error';
+            } else if (type === 'info') {
+                responseBox.className = 'response-msg msg-info';
+            }
         }
 
         function resetBtn() {
-            loginBtn.disabled = false;
+            forgotBtn.disabled = false;
             spinner.style.display = 'none';
-            btnText.innerText = 'Log In';
+            btnText.innerText = 'Send OTP';
         }
     });
 </script>

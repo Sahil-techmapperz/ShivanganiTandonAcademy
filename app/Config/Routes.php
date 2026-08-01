@@ -40,6 +40,10 @@ $routes->post('login', 'AuthController::loginPost');
 $routes->get('signup', 'AuthController::signup');
 $routes->post('register', 'AuthController::registerPost');
 $routes->get('logout', 'AuthController::logout');
+$routes->get('forgot-password', 'AuthController::forgotPassword');
+$routes->post('forgot-password', 'AuthController::forgotPasswordPost');
+$routes->get('reset-password', 'AuthController::resetPassword');
+$routes->post('reset-password', 'AuthController::resetPasswordPost');
 
 
 // Admin routes with auth filter

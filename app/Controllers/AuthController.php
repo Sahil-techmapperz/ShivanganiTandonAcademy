@@ -165,4 +165,156 @@ class AuthController extends BaseController
 
         return view('auth/change_password'); // Create this view if needed
     }
+
+    // Show forgot password form
+    public function forgotPassword()
+    {
+        return view('auth/forgot_password');
+    }
+
+    // Handle forgot password POST
+    public function forgotPasswordPost()
+    {
+        $data  = $this->request->getJSON(true);
+        $email = $data['email'] ?? '';
+
+        if (!$email) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Email is required'
+            ]);
+        }
+
+        $adminModel = new \App\Models\AdminModel();
+        $studentModel = new \App\Models\StudentModel();
+
+        $user = $adminModel->where('email', $email)->first();
+        $role = 'admin';
+
+        if (!$user) {
+            $user = $studentModel->where('email', $email)->first();
+            $role = 'student';
+        }
+
+        if (!$user) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'No account found with that email address.'
+            ]);
+        }
+
+        // Generate OTP
+        $otp = rand(100000, 999999);
+        
+        session()->set([
+            'reset_email' => $email,
+            'reset_otp'   => $otp,
+            'reset_role'  => $role
+        ]);
+
+        // Send Email
+        $emailService = \Config\Services::email();
+        
+        $emailService->setFrom('no-reply@shivanganitandonacademy.com', 'Shivangani Tandon Academy');
+        $emailService->setTo($email);
+        $emailService->setSubject('Password Reset OTP');
+        
+        $message = "
+        <h2>Password Reset Request</h2>
+        <p>Hello,</p>
+        <p>You requested to reset your password. Here is your 6-digit OTP:</p>
+        <h3 style='background:#f4f4f4;padding:10px;display:inline-block;letter-spacing:2px;'>{$otp}</h3>
+        <p>This OTP is valid for your current session.</p>
+        <p>If you didn't request this, please ignore this email.</p>
+        <br>
+        <p>Regards,<br>Shivangani Tandon Academy</p>
+        ";
+        
+        $emailService->setMessage($message);
+        
+        if ($emailService->send()) {
+            return $this->response->setJSON([
+                'success' => true,
+                'mocked'  => false,
+                'message' => 'OTP has been sent to your email address.'
+            ]);
+        } else {
+            // Uncomment the line below to debug email sending errors if needed
+            // $error = $emailService->printDebugger(['headers']);
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Failed to send email. Please try again later.'
+            ]);
+        }
+    }
+
+    // Show reset password form
+    public function resetPassword()
+    {
+        if (!session()->has('reset_email')) {
+            return redirect()->to(base_url('forgot-password'));
+        }
+        return view('auth/reset_password');
+    }
+
+    // Handle reset password POST
+    public function resetPasswordPost()
+    {
+        $data     = $this->request->getJSON(true);
+        $otp      = $data['otp'] ?? '';
+        $password = $data['password'] ?? '';
+
+        $sessionOtp   = session()->get('reset_otp');
+        $sessionEmail = session()->get('reset_email');
+        $sessionRole  = session()->get('reset_role');
+
+        if (!$sessionOtp || !$sessionEmail) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Session expired. Please request a new OTP.'
+            ]);
+        }
+
+        if ($otp != $sessionOtp) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid OTP.'
+            ]);
+        }
+
+        if (strlen($password) < 6) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Password must be at least 6 characters.'
+            ]);
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        if ($sessionRole == 'admin') {
+            $adminModel = new \App\Models\AdminModel();
+            // Need ID to update
+            $user = $adminModel->where('email', $sessionEmail)->first();
+            if($user) {
+                $adminModel->update($user['id'], ['password' => $hashedPassword]);
+            }
+        } else {
+            $studentModel = new \App\Models\StudentModel();
+            // Need ID to update
+            $user = $studentModel->where('email', $sessionEmail)->first();
+            if($user) {
+                // Since StudentModel hashes passwords automatically, we need to bypass it or let it handle it.
+                // StudentModel has a callback: beforeUpdate = ['hashPassword']. 
+                // So if we pass raw password, it will hash it again.
+                $studentModel->update($user['id'], ['password' => $password]);
+            }
+        }
+
+        session()->remove(['reset_email', 'reset_otp', 'reset_role']);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Password reset successfully!'
+        ]);
+    }
 }

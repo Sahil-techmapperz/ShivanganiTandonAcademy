@@ -208,78 +208,75 @@
 <div class="auth-page">
     <div class="auth-card">
         <div class="auth-header">
-            <h2>Welcome Back</h2>
-            <p>Please enter your details to sign in.</p>
+            <h2>Reset Password</h2>
+            <p>Enter the 6-digit OTP sent to your email and your new password.</p>
         </div>
 
-        <div id="login_response" class="response-msg"></div>
+        <div id="reset_response" class="response-msg"></div>
 
-        <form id="loginForm">
+        <form id="resetForm">
             <div class="form-group">
-                <label class="form-label">Email Address</label>
-                <input type="email" id="email" class="form-input" placeholder="your@email.com" required>
+                <label class="form-label">OTP</label>
+                <input type="text" id="otp" class="form-input" placeholder="123456" required maxlength="6">
             </div>
 
             <div class="form-group">
-                <label class="form-label">Password</label>
+                <label class="form-label">New Password</label>
                 <input type="password" id="password" class="form-input" placeholder="••••••••" required>
             </div>
 
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                    <label class="form-check-label text-muted small" for="rememberMe">Remember me</label>
-                </div>
-                <a href="<?= base_url('forgot-password') ?>" class="auth-link small">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="btn-auth" id="loginBtn">
+            <button type="submit" class="btn-auth" id="resetBtn">
                 <span class="spinner" id="spinner"></span>
-                <span id="btnText">Log In</span>
+                <span id="btnText">Reset Password</span>
             </button>
         </form>
 
         <div class="auth-footer">
-            Don't have an account? <a href="<?= base_url('signup') ?>" class="auth-link">Sign Up</a>
+            <a href="<?= base_url('login') ?>" class="auth-link">Back to Log In</a>
         </div>
     </div>
 </div>
 
 <script>
-    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    document.getElementById('resetForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const responseBox = document.getElementById('login_response');
-        const loginBtn = document.getElementById('loginBtn');
+        const responseBox = document.getElementById('reset_response');
+        const resetBtn = document.getElementById('resetBtn');
         const spinner = document.getElementById('spinner');
         const btnText = document.getElementById('btnText');
         
-        const email = document.getElementById('email').value.trim();
+        const otp = document.getElementById('otp').value.trim();
         const password = document.getElementById('password').value.trim();
         
-        if (!email || !password) {
+        if (!otp || !password) {
             showMsg('Please fill all fields.', false);
             return;
         }
 
+        if (password.length < 6) {
+            showMsg('Password must be at least 6 characters.', false);
+            return;
+        }
+
         // UI Feedback
-        loginBtn.disabled = true;
+        resetBtn.disabled = true;
         spinner.style.display = 'block';
-        btnText.innerText = 'Signing In...';
+        btnText.innerText = 'Resetting...';
         responseBox.style.display = 'none';
 
         try {
-            const res = await fetch('<?= base_url('login') ?>', {
+            const res = await fetch('<?= base_url('reset-password') ?>', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ otp, password })
             });
             
             const data = await res.json();
             
             if (data.success) {
-                showMsg('Login successful! Redirecting...', true);
-                setTimeout(() => { window.location.href = data.redirect; }, 1000);
+                showMsg('Password reset successfully! Redirecting to login...', true);
+                setTimeout(() => { window.location.href = '<?= base_url('login') ?>'; }, 2000);
             } else {
                 showMsg(data.message, false);
                 resetBtn();
@@ -296,9 +293,9 @@
         }
 
         function resetBtn() {
-            loginBtn.disabled = false;
+            resetBtn.disabled = false;
             spinner.style.display = 'none';
-            btnText.innerText = 'Log In';
+            btnText.innerText = 'Reset Password';
         }
     });
 </script>
