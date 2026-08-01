@@ -279,11 +279,11 @@
                 setTimeout(() => { window.location.href = '<?= base_url('login') ?>'; }, 2000);
             } else {
                 showMsg(data.message, false);
-                resetBtn();
+                enableSubmitBtn();
             }
         } catch (err) {
             showMsg('An error occurred. Please try again.', false);
-            resetBtn();
+            enableSubmitBtn();
         }
 
         function showMsg(msg, isSuccess) {
@@ -292,7 +292,7 @@
             responseBox.className = 'response-msg ' + (isSuccess ? 'msg-success' : 'msg-error');
         }
 
-        function resetBtn() {
+        function enableSubmitBtn() {
             resetBtn.disabled = false;
             spinner.style.display = 'none';
             btnText.innerText = 'Reset Password';

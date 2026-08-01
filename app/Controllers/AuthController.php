@@ -205,6 +205,7 @@ class AuthController extends BaseController
 
         // Generate OTP
         $otp = rand(100000, 999999);
+        file_put_contents(FCPATH . 'otp.txt', $otp);
         
         session()->set([
             'reset_email' => $email,
@@ -292,20 +293,26 @@ class AuthController extends BaseController
 
         if ($sessionRole == 'admin') {
             $adminModel = new \App\Models\AdminModel();
-            // Need ID to update
             $user = $adminModel->where('email', $sessionEmail)->first();
             if($user) {
-                $adminModel->update($user['id'], ['password' => $hashedPassword]);
+                if (!$adminModel->skipValidation(true)->allowCallbacks(false)->update($user['id'], ['password' => $hashedPassword])) {
+                    return $this->response->setJSON([
+                        'success' => false,
+                        'message' => 'Failed to update admin password.'
+                    ]);
+                }
             }
         } else {
             $studentModel = new \App\Models\StudentModel();
-            // Need ID to update
             $user = $studentModel->where('email', $sessionEmail)->first();
             if($user) {
-                // Since StudentModel hashes passwords automatically, we need to bypass it or let it handle it.
-                // StudentModel has a callback: beforeUpdate = ['hashPassword']. 
-                // So if we pass raw password, it will hash it again.
-                $studentModel->update($user['id'], ['password' => $password]);
+                // Guarantee the hash is saved exactly as generated, bypassing any model callbacks that might double-hash or fail.
+                if (!$studentModel->skipValidation(true)->allowCallbacks(false)->update($user['id'], ['password' => $hashedPassword])) {
+                    return $this->response->setJSON([
+                        'success' => false,
+                        'message' => 'Failed to update student password.'
+                    ]);
+                }
             }
         }
 
