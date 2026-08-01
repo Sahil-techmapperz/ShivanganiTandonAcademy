@@ -199,7 +199,7 @@ class AuthController extends BaseController
         if (!$user) {
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'No account found with that email address.'
+                'message' => 'user doesnot exist please register'
             ]);
         }
 
