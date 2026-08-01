@@ -741,12 +741,14 @@ class StudentDashboardController extends BaseController
         // Only show unit tests the admin has granted to this student
         $unitTests = $unitTestModel->getAccessibleTests($userId);
 
-        $answerModel = new \App\Models\UnitTestUserAnswerModel();
+        $resultModel = new \App\Models\ResultModel();
         foreach ($unitTests as &$test) {
-            $hasSubmitted = $answerModel->where('user_id', $userId)
-                                        ->where('unit_test_id', $test['id'])
-                                        ->first();
-            $test['is_submitted'] = !empty($hasSubmitted);
+            $subject = "Unit Test: " . ($test['test_name'] ?? "Untitled");
+            $attempts = $resultModel->where('user_id', $userId)
+                                    ->where('subject', $subject)
+                                    ->countAllResults();
+            $test['attempts'] = $attempts;
+            $test['is_submitted'] = ($attempts >= 3);
         }
 
         $data = [
@@ -790,12 +792,20 @@ class StudentDashboardController extends BaseController
                 return redirect()->to(base_url('student/unit-tests'))->with('error', 'You do not have access to this test.');
             }
 
-            $answerModel = new \App\Models\UnitTestUserAnswerModel();
-            if ($answerModel->where('user_id', $userId)->where('unit_test_id', $id)->first()) {
-                return redirect()->to(base_url('student/unit-tests'))->with('error', 'You have already submitted this test.');
+            $test = $testModel->find($id);
+            if (!$test) {
+                return redirect()->to(base_url('student/unit-tests'))->with('error', 'Test not found.');
             }
 
-            $data['test'] = $testModel->find($id);
+            $resultModel = new \App\Models\ResultModel();
+            $subject = "Unit Test: " . ($test['test_name'] ?? "Untitled");
+            $attempts = $resultModel->where('user_id', $userId)->where('subject', $subject)->countAllResults();
+
+            if ($attempts >= 3) {
+                return redirect()->to(base_url('student/unit-tests'))->with('error', 'You have reached the maximum limit of 3 attempts for this unit test.');
+            }
+
+            $data['test'] = $test;
             $data['questions'] = $questionModel->getByTest($id);
         }
 
@@ -861,10 +871,20 @@ class StudentDashboardController extends BaseController
             $resultModel = new \App\Models\ResultModel();
 
             $test = $testModel->find($testId);
+            $subject = "Unit Test: " . ($test['test_name'] ?? "Untitled");
+
+            // Verify attempts one last time to prevent duplicate submissions
+            $attempts = $resultModel->where('user_id', $userId)->where('subject', $subject)->countAllResults();
+            if ($attempts >= 3) {
+                return redirect()->to(base_url('student/results'))->with('error', 'Maximum attempt limit exceeded.');
+            }
+
             $questions = $questionModel->where('unit_test_id', $testId)->findAll();
-            
             $totalQuestions = count($questions);
             $correctCount = 0;
+
+            // Delete old answers for this unit test attempt to store the latest attempt only
+            $answerModel->where('user_id', $userId)->where('unit_test_id', $testId)->delete();
 
             foreach ($questions as $q) {
                 $submittedAnswer = $userAnswers[$q['id']] ?? null;
@@ -886,13 +906,14 @@ class StudentDashboardController extends BaseController
             // Save summary result
             $resultModel->insert([
                 'user_id'      => $userId,
-                'subject'      => "Unit Test: " . ($test['test_name'] ?? "Untitled"),
+                'subject'      => $subject,
                 'score'        => $correctCount,
                 'total_points' => $totalQuestions,
                 'exam_date'    => date('Y-m-d')
             ]);
 
-            return redirect()->to(base_url('student/results'))->with('success', "Unit Test submitted! You scored $correctCount out of $totalQuestions.");
+            $attemptNum = $attempts + 1;
+            return redirect()->to(base_url('student/results'))->with('success', "Unit Test submitted (Attempt {$attemptNum}/3)! You scored $correctCount out of $totalQuestions.");
         }
     }
 

@@ -51,17 +51,22 @@
                                     
                                     <div class="d-flex align-items-center mb-4 text-muted small">
                                         <div class="me-3"><i class="bi bi-question-circle me-1"></i> Multiple Choice</div>
-                                        <div><i class="bi bi-mortarboard me-1"></i> Topic Focused</div>
+                                        <div class="me-3"><i class="bi bi-mortarboard me-1"></i> Topic Focused</div>
+                                        <div><i class="bi bi-arrow-repeat me-1"></i> Attempt: <?= $test['attempts'] ?>/3</div>
                                     </div>
 
                                     <div class="pt-3 border-top">
-                                        <?php if(isset($test['is_submitted']) && $test['is_submitted']): ?>
+                                        <?php if($test['is_submitted']): ?>
                                             <button class="btn btn-secondary w-100 rounded-pill fw-bold py-2 shadow-sm" disabled>
-                                                SUBMITTED <i class="bi bi-check-circle ms-1"></i>
+                                                ATTEMPTS EXHAUSTED <i class="bi bi-check-circle ms-1"></i>
                                             </button>
                                         <?php else: ?>
                                             <a href="<?= base_url('student/take-test/unit/'.$test['id']) ?>" class="btn btn-success w-100 rounded-pill fw-bold py-2 shadow-sm text-white">
-                                                START TEST <i class="bi bi-play-fill ms-1"></i>
+                                                <?php if($test['attempts'] > 0): ?>
+                                                    RETAKE TEST <i class="bi bi-arrow-clockwise ms-1"></i>
+                                                <?php else: ?>
+                                                    START TEST <i class="bi bi-play-fill ms-1"></i>
+                                                <?php endif; ?>
                                             </a>
                                         <?php endif; ?>
                                     </div>
