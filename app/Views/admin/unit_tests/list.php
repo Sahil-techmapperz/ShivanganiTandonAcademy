@@ -56,6 +56,12 @@
                         </div>
                     <?php else: ?>
                         <div class="card border-0 shadow-sm rounded-5 overflow-hidden bg-white">
+                            <div class="card-header bg-white border-0 pt-4 px-5">
+                                <div class="position-relative">
+                                    <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                                    <input type="text" id="testSearch" class="form-control form-control-lg border-0 bg-light rounded-pill ps-5 fw-bold" placeholder="Search unit tests by name, module, or unit...">
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table align-middle mb-0 table-premium">
                                     <thead class="bg-light">
@@ -209,6 +215,20 @@
         else document.getElementById('active-no').checked = true;
         getModal().show();
     }
+
+    document.getElementById('testSearch').addEventListener('keyup', function() {
+        const value = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.table-premium tbody tr');
+        rows.forEach(row => {
+            const testName = row.querySelector('h6') ? row.querySelector('h6').textContent.toLowerCase() : '';
+            const info = row.querySelector('.extra-small') ? row.querySelector('.extra-small').textContent.toLowerCase() : '';
+            if (testName.indexOf(value) > -1 || info.indexOf(value) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
 </script>
 
 <style>

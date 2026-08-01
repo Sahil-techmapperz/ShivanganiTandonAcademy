@@ -52,6 +52,12 @@
                     ?>
 
                     <div class="card border-0 shadow-sm rounded-5 overflow-hidden bg-white">
+                        <div class="card-header bg-white border-0 pt-4 px-5">
+                            <div class="position-relative">
+                                <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                                <input type="text" id="studentSearch" class="form-control form-control-lg border-0 bg-light rounded-pill ps-5 fw-bold" placeholder="Search students by name or email...">
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table align-middle mb-0 table-premium">
                                 <thead class="bg-light">
@@ -171,6 +177,12 @@
                                 </div>
                             </div>
 
+                            <!-- Search box for unit tests -->
+                            <div class="position-relative mb-3">
+                                <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted small"></i>
+                                <input type="text" id="modalUnitSearch" class="form-control form-control-sm border-0 bg-light rounded-pill ps-5" placeholder="Search unit tests...">
+                            </div>
+
                             <?php if(empty($unitTests)): ?>
                                 <div class="text-center py-4 text-muted">
                                     <i class="bi bi-inbox fs-2 opacity-50"></i>
@@ -213,6 +225,12 @@
                                     <label class="form-label extra-small fw-black text-muted text-uppercase letter-spacing-1 mb-0 d-block">Mock Exams</label>
                                     <span class="extra-small text-muted">Select mock tests to grant access</span>
                                 </div>
+                            </div>
+
+                            <!-- Search box for mock tests -->
+                            <div class="position-relative mb-3">
+                                <i class="bi bi-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted small"></i>
+                                <input type="text" id="modalMockSearch" class="form-control form-control-sm border-0 bg-light rounded-pill ps-5" placeholder="Search mock exams...">
                             </div>
 
                             <?php if(empty($mockTests)): ?>
@@ -279,6 +297,16 @@
         document.getElementById('modal-user-id').value = user.id;
         document.getElementById('modal-user-name').textContent = (user.full_name || user.name || 'Student').toUpperCase();
 
+        // Clear search inputs
+        const unitSearch = document.getElementById('modalUnitSearch');
+        const mockSearch = document.getElementById('modalMockSearch');
+        if (unitSearch) unitSearch.value = '';
+        if (mockSearch) mockSearch.value = '';
+        
+        // Reset visibility of list cards
+        document.querySelectorAll('#unit-tests-list .col-12').forEach(c => c.style.display = '');
+        document.querySelectorAll('#mock-tests-list .col-12').forEach(c => c.style.display = '');
+
         // Reset all checkboxes
         document.querySelectorAll('input[name="allowed_mock_tests[]"]').forEach(cb => cb.checked = false);
         document.querySelectorAll('input[name="allowed_unit_tests[]"]').forEach(cb => cb.checked = false);
@@ -305,6 +333,52 @@
     function toggleCheckbox(id) {
         const cb = document.getElementById(id);
         if (cb) cb.checked = !cb.checked;
+    }
+
+    document.getElementById('studentSearch').addEventListener('keyup', function() {
+        const value = this.value.toLowerCase();
+        const rows = document.querySelectorAll('.table-premium tbody tr');
+        rows.forEach(row => {
+            const studentName = row.querySelector('h6') ? row.querySelector('h6').textContent.toLowerCase() : '';
+            const studentEmail = row.querySelector('.extra-small') ? row.querySelector('.extra-small').textContent.toLowerCase() : '';
+            if (studentName.indexOf(value) > -1 || studentEmail.indexOf(value) > -1) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+    const unitSearchInput = document.getElementById('modalUnitSearch');
+    if (unitSearchInput) {
+        unitSearchInput.addEventListener('keyup', function() {
+            const value = this.value.toLowerCase();
+            const cards = document.querySelectorAll('#unit-tests-list .access-card');
+            cards.forEach(card => {
+                const name = card.querySelector('h6') ? card.querySelector('h6').textContent.toLowerCase() : '';
+                if (name.indexOf(value) > -1) {
+                    card.closest('.col-12').style.display = '';
+                } else {
+                    card.closest('.col-12').style.display = 'none';
+                }
+            });
+        });
+    }
+
+    const mockSearchInput = document.getElementById('modalMockSearch');
+    if (mockSearchInput) {
+        mockSearchInput.addEventListener('keyup', function() {
+            const value = this.value.toLowerCase();
+            const cards = document.querySelectorAll('#mock-tests-list .access-card');
+            cards.forEach(card => {
+                const name = card.querySelector('h6') ? card.querySelector('h6').textContent.toLowerCase() : '';
+                if (name.indexOf(value) > -1) {
+                    card.closest('.col-12').style.display = '';
+                } else {
+                    card.closest('.col-12').style.display = 'none';
+                }
+            });
+        });
     }
 </script>
 

@@ -205,7 +205,6 @@ class AuthController extends BaseController
 
         // Generate OTP
         $otp = rand(100000, 999999);
-        file_put_contents(FCPATH . 'otp.txt', $otp);
         
         session()->set([
             'reset_email' => $email,
