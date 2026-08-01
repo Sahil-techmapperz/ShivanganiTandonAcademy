@@ -57,13 +57,32 @@
                                     <div class="col-12 mt-4">
                                         <h6 class="fw-bold mb-3">Security</h6>
                                         <div class="row g-3">
+                                            <div class="col-12">
+                                                <label class="form-label small">Current Password</label>
+                                                <div class="position-relative">
+                                                    <input type="password" class="form-control pe-5" name="current_password" placeholder="Required only if changing password">
+                                                    <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted toggle-password" style="z-index: 10;">
+                                                        <i class="bi bi-eye-slash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <label class="form-label small">New Password</label>
-                                                <input type="password" class="form-control" name="password" placeholder="Leave blank to keep current">
+                                                <div class="position-relative">
+                                                    <input type="password" class="form-control pe-5" name="password" placeholder="Leave blank to keep current">
+                                                    <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted toggle-password" style="z-index: 10;">
+                                                        <i class="bi bi-eye-slash"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label small">Confirm New Password</label>
-                                                <input type="password" class="form-control" name="confirm_password">
+                                                <div class="position-relative">
+                                                    <input type="password" class="form-control pe-5" name="confirm_password" placeholder="Confirm new password">
+                                                    <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted toggle-password" style="z-index: 10;">
+                                                        <i class="bi bi-eye-slash"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -191,6 +210,23 @@
         document.body.appendChild(toast);
         setTimeout(function() { if (toast.parentNode) toast.remove(); }, 3500);
     }
+
+    // Password visibility toggles
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const icon = this.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            }
+        });
+    });
 </script>
 
 <?= view('student_templates/footer') ?>

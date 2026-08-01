@@ -222,7 +222,12 @@
 
             <div class="form-group">
                 <label class="form-label">Password</label>
-                <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                <div class="position-relative">
+                    <input type="password" id="password" class="form-input pe-5" placeholder="••••••••" required>
+                    <button type="button" class="btn position-absolute end-0 top-50 translate-middle-y border-0 bg-transparent text-muted toggle-password" style="z-index: 10;">
+                        <i class="bi bi-eye-slash"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -300,6 +305,23 @@
             spinner.style.display = 'none';
             btnText.innerText = 'Log In';
         }
+    });
+
+    // Password visibility toggle
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = this.previousElementSibling;
+            const icon = this.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('bi-eye-slash');
+                icon.classList.add('bi-eye');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('bi-eye');
+                icon.classList.add('bi-eye-slash');
+            }
+        });
     });
 </script>
 

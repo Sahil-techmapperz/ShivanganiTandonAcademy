@@ -594,10 +594,19 @@ class StudentDashboardController extends BaseController
         ];
 
         if (!empty($data['password'])) {
+            if (empty($data['current_password'])) {
+                return $this->response->setJSON(['success' => false, 'message' => 'Current password is required to set a new password.']);
+            }
+
+            $user = $model->find($userId);
+            if (!$user || !password_verify($data['current_password'], $user['password'])) {
+                return $this->response->setJSON(['success' => false, 'message' => 'Incorrect current password.']);
+            }
+
             if ($data['password'] === $data['confirm_password']) {
                 $updateData['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             } else {
-                return $this->response->setJSON(['success' => false, 'message' => 'Passwords do not match']);
+                return $this->response->setJSON(['success' => false, 'message' => 'New passwords do not match.']);
             }
         }
 
