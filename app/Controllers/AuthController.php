@@ -239,11 +239,10 @@ class AuthController extends BaseController
                 'message' => 'OTP has been sent to your email address.'
             ]);
         } else {
-            // Uncomment the line below to debug email sending errors if needed
-            // $error = $emailService->printDebugger(['headers']);
+            $error = $emailService->printDebugger(['headers']);
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'Failed to send email. Please try again later.'
+                'message' => 'Failed to send email. Reason: ' . strip_tags($error)
             ]);
         }
     }
