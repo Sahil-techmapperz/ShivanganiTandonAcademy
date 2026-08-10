@@ -215,7 +215,7 @@ class AuthController extends BaseController
         // Send Email
         $emailService = \Config\Services::email();
         
-        $emailService->setFrom('no-reply@shivanganitandonacademy.com', 'Shivangani Tandon Academy');
+        $emailService->setFrom('info@shivanganitandon.com', 'Shivangani Tandon Academy');
         $emailService->setTo($email);
         $emailService->setSubject('Password Reset OTP');
         
